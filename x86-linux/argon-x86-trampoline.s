@@ -14,4 +14,4 @@ _start:
 done:
  mov %rcx, 16(%rax)
  xor %ebx, %ebx
- jmp 0x78c1219
+ jmp 0x79c5959

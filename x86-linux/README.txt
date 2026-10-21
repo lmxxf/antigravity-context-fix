@@ -1,11 +1,11 @@
-Antigravity CLI（agy）Linux x86_64 1.4.2 修正版
-更新日期：2026-10-19
+Antigravity CLI（agy）Linux x86_64 1.4.3 修正版
+更新日期：2026-10-21
 
 【怎么恢复】
 
 退出 agy，在本仓库根目录运行：
 
-python3 x86-linux/restore-agy.py
+python3 wechat/assets/340-A/x86-linux/restore-agy.py
 
 也可以使用 restore-agy.py 的绝对路径。脚本解压同目录 agy.gz、检查 SHA256，
 将当前安装版本备份到 ~/.local/share/agy-patches/，再原子替换 ~/.local/bin/agy。
@@ -14,7 +14,7 @@ python3 x86-linux/restore-agy.py
 
 然后重启 agy，新建会话，让完整 AGENTS.md 重新加载。
 旧会话已经丢失的历史不会自动恢复。
-自动升级覆盖补丁后，再运行恢复脚本可恢复本目录归档的 1.4.2，
+自动升级覆盖补丁后，再运行恢复脚本可恢复本目录归档的 1.4.3，
 不是为未来新版本自动打补丁。
 
 【改了什么】
@@ -32,13 +32,13 @@ python3 x86-linux/restore-agy.py
 
 Low、Medium、High 三档分别新开会话发送小请求，均正常回复 OK。
 每档 executor_metadata 与 gen_metadata 实际上限均为983040。
-user_rules 逐字包含本地 AGENTS.md 的118430字节全文，没有预算排除提示。
+user_rules 逐字包含本地 AGENTS.md 的120282字节全文，没有预算排除提示。
 完整记录见 verification.txt。未重跑超过256K的长会话压力测试。
 启动、补丁重复运行、归档解压与安装版逐字节一致、逆向补丁还原原版哈希均已检查。
 
 【文件】
 
-agy.gz                       修改版完整可执行文件，解压后221286656字节
+agy.gz                       修改版完整可执行文件，解压后222322944字节
 restore-agy.py               安装/恢复归档
 SHA256SUMS                   本目录文件校验清单
 agy-x86-patches.json         原版/修改版哈希、每处修改前后字节与偏移
@@ -53,19 +53,24 @@ verification.txt            三档真实请求的验证记录
 python3 verify-argon-x86.py <conversation_id> --agents /项目路径/AGENTS.md
 
 原版只备份在本机 ~/.local/share/agy-patches/，不放入仓库。
-原版 SHA256：085f43e0d0628a8a8dabe1e547067818fa2c0adc86cfac98a3c4492918f455ef
-修改版 SHA256：2a58516fdd1275208425a78bbfb4b2b43ec0e71d7d4f2664d64c09382b0f5b7c
+原版 SHA256：d003c9d47e12f689d3448cad0f614289ccde5fb4c58bf8b4b543a9b514c097bc
+修改版 SHA256：a85346278110d1f2ecf70e4682f701fd0b83b5b345d3597593f81c4d8f87a0a7
 
 【新版本维护】
 
 未知哈希必须重新定位，不能删除哈希检查或沿用固定偏移。
-本次 pclntab 位于0x1512750，Go text基址0x61d4080；通过三个getter
+本次 pclntab 位于0x1528530，Go text基址0x6259080；通过三个getter
 核对 planner指针+8、plan_model+64、max_token_limit+16。
-最终配置出口0x78c1213，原指令为mov [rax+16],rcx（AT&T：mov %rcx,16(%rax)）
-及xor ebx,ebx，替换为跳往0x7ee74e0；跳板重放两条指令后返回0x78c1219。
-checkpointNeeded入口0x7ee74c0短路后，借用其函数体容纳跳板。
-规则/技能读取点：0x7f3fc49、0x7f40bc5、0x7f4534e。
-最终预算参数读取点：0x7f46cd4、0x7f46cde，覆盖配置值和默认值两条路径。
+最终配置出口0x79c5953，原指令为mov [rax+16],rcx（AT&T：mov %rcx,16(%rax)）
+及xor ebx,ebx，替换为跳往0x7ac3400；跳板重放两条指令后返回0x79c5959。
+checkpointNeeded入口0x7ac33e0短路后，借用其函数体容纳跳板。
+规则/技能读取点：0x7b1bca9、0x7b1cc25、0x7b213ae。
+最终预算参数读取点：0x7b22d34、0x7b22d3e，覆盖配置值和默认值两条路径。
 
 下次适配参照 ../arm-linux/readme.md 的定位思路，指令/ABI必须按x86重新核对。
 恢复或修改后必须验证真实请求，不以UI显示1M或模型自述为依据。
+
+【1.4.3 修改前对照】
+原版 Low 小请求正常回复 OK，但 executor_metadata 和 gen_metadata
+均记录256000；会话92816d6a-050a-45fb-bac4-cbb8f7eec9d0。
+重新定位后才打补丁，没有沿用1.4.2偏移。
