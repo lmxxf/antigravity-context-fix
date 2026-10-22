@@ -1,4 +1,4 @@
-Antigravity CLI（agy）Linux x86_64 1.4.4 修正版
+Antigravity CLI（agy）Linux x86_64 1.4.5 修正版
 更新日期：2026-10-22
 
 【怎么恢复】
@@ -14,7 +14,7 @@ python3 wechat/assets/340-A/x86-linux/restore-agy.py
 
 然后重启 agy，新建会话，让完整 AGENTS.md 重新加载。
 旧会话已经丢失的历史不会自动恢复。
-自动升级覆盖补丁后，再运行恢复脚本可恢复本目录归档的 1.4.4，
+自动升级覆盖补丁后，再运行恢复脚本可恢复本目录归档的 1.4.5，
 不是为未来新版本自动打补丁。
 
 【改了什么】
@@ -32,13 +32,13 @@ python3 wechat/assets/340-A/x86-linux/restore-agy.py
 
 Low、Medium、High 三档分别新开会话发送小请求，均正常回复 OK。
 每档 executor_metadata 与 gen_metadata 实际上限均为983040。
-user_rules 逐字包含本地 AGENTS.md 的120282字节全文，没有预算排除提示。
+user_rules 逐字包含本地 AGENTS.md 的120807字节全文，没有预算排除提示。
 完整记录见 verification.txt。未重跑超过256K的长会话压力测试。
 启动、补丁重复运行、归档解压与安装版逐字节一致、逆向补丁还原原版哈希均已检查。
 
 【文件】
 
-agy.gz                       修改版完整可执行文件，解压后223494376字节
+agy.gz                       修改版完整可执行文件，解压后223736040字节
 restore-agy.py               安装/恢复归档
 SHA256SUMS                   本目录文件校验清单
 agy-x86-patches.json         原版/修改版哈希、每处修改前后字节与偏移
@@ -53,24 +53,24 @@ verification.txt            三档真实请求的验证记录
 python3 verify-argon-x86.py <conversation_id> --agents /项目路径/AGENTS.md
 
 原版只备份在本机 ~/.local/share/agy-patches/，不放入仓库。
-原版 SHA256：337dcde668441a2828968644d7982829c2d2a5e0c4144f346e1f3fc6abb3cdc7
-修改版 SHA256：f2b7afb588fb3631ddd22d2b55f1c98ac5e164cdf89bac5db20c360d027a81b1
+原版 SHA256：8af8e7a2a68f72fa7164e00bb59b8902c018fa43e528fc401ad7db8c2972583c
+修改版 SHA256：316c5021e5d538c71dc41b45cc46e9ff55d0ff0e3ff620b4e51de2d72bf18461
 
 【新版本维护】
 
 未知哈希必须重新定位，不能删除哈希检查或沿用固定偏移。
-本次 pclntab 位于0x1582f60，Go text基址0x62c6080；通过三个getter
+本次 pclntab 位于0x1588930，Go text基址0x62da080；通过三个getter
 核对 planner指针+8、plan_model+64、max_token_limit+16。
-最终配置出口0x7a4c453，原指令为mov [rax+16],rcx（AT&T：mov %rcx,16(%rax)）
-及xor ebx,ebx，替换为跳往0x7b4c740；跳板重放两条指令后返回0x7a4c459。
-checkpointNeeded入口0x7b4c720短路后，借用其函数体容纳跳板。
-规则/技能读取点：0x7ba5669、0x7ba65e5、0x7baad6e。
-最终预算参数读取点：0x7bac894、0x7bac89e，覆盖配置值和默认值两条路径。
+最终配置出口0x79f4e93，原指令为mov [rax+16],rcx（AT&T：mov %rcx,16(%rax)）
+及xor ebx,ebx，替换为跳往0x7af6140；跳板重放两条指令后返回0x79f4e99。
+checkpointNeeded入口0x7af6120短路后，借用其函数体容纳跳板。
+规则/技能读取点：0x7b4faa9、0x7b50a25、0x7b55607。
+最终预算参数读取点：0x7b57154、0x7b5715e，覆盖配置值和默认值两条路径。
 
 下次适配参照 ../arm-linux/readme.md 的定位思路，指令/ABI必须按x86重新核对。
 恢复或修改后必须验证真实请求，不以UI显示1M或模型自述为依据。
 
-【1.4.4 修改前对照】
+【1.4.5 修改前对照】
 原版 Low 小请求正常回复 OK，但 executor_metadata 和 gen_metadata
-均记录256000；会话12f482fe-8c8a-47ea-b88b-9a6d01de89ca。
+均记录256000；会话44320601-1418-4569-8fb6-634535b95609。
 重新定位后才打补丁，没有沿用旧版偏移。
