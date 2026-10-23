@@ -1,132 +1,120 @@
 {
-  "date": "2026-10-22",
+  "date": "2026-10-23",
   "architecture": "x86_64",
   "records": [
     {
       "model": "gemini-4-argon-low",
       "response": {
-        "conversation_id": "947a2e07-650f-4f65-99e8-3934ba1645e6",
+        "conversation_id": "614686d5-eb08-4565-8310-b7a594aa1f76",
         "status": "SUCCESS",
         "response": "OK\n",
-        "duration_seconds": 11.396189746,
+        "duration_seconds": 7.461671825,
         "num_turns": 1,
         "usage": {
-          "input_tokens": 42051,
+          "input_tokens": 42186,
           "output_tokens": 5,
           "thinking_tokens": 0,
           "cache_read_tokens": 0,
-          "total_tokens": 42056
+          "total_tokens": 42191
         }
       },
       "verification": {
-        "version": "1.4.5",
-        "conversation_id": "947a2e07-650f-4f65-99e8-3934ba1645e6",
+        "version": "1.4.6",
+        "conversation_id": "614686d5-eb08-4565-8310-b7a594aa1f76",
         "actual_request_limit": 983040,
-        "agents_bytes": 120807,
+        "agents_bytes": 120983,
         "sections": [
           {
             "title": "user_rules",
-            "bytes": 121178,
+            "bytes": 121354,
             "contains_full_agents": true,
             "excluded": false
           }
         ],
         "executor_limit": 983040,
         "long_context_over_256k_tested": false,
-        "sha256": "316c5021e5d538c71dc41b45cc46e9ff55d0ff0e3ff620b4e51de2d72bf18461"
+        "sha256": "81fedf2535e33b73ebe078de19b007c7a9a1fe81484ac435ad7a4d02ec78f0ec"
       }
     },
     {
       "model": "gemini-4-argon-medium",
       "response": {
-        "conversation_id": "f453b3ef-9d9f-4aca-9a64-1b46b9937a6f",
+        "conversation_id": "41c82a01-fc5f-4298-a830-eae89c35ae77",
         "status": "SUCCESS",
         "response": "OK\n",
-        "duration_seconds": 5.052135489,
+        "duration_seconds": 7.192383301,
         "num_turns": 1,
         "usage": {
-          "input_tokens": 42046,
+          "input_tokens": 42182,
           "output_tokens": 5,
           "thinking_tokens": 0,
           "cache_read_tokens": 0,
-          "total_tokens": 42051
+          "total_tokens": 42187
         }
       },
       "verification": {
-        "version": "1.4.5",
-        "conversation_id": "f453b3ef-9d9f-4aca-9a64-1b46b9937a6f",
+        "version": "1.4.6",
+        "conversation_id": "41c82a01-fc5f-4298-a830-eae89c35ae77",
         "actual_request_limit": 983040,
-        "agents_bytes": 120807,
+        "agents_bytes": 120983,
         "sections": [
           {
             "title": "user_rules",
-            "bytes": 121178,
+            "bytes": 121354,
             "contains_full_agents": true,
             "excluded": false
           }
         ],
         "executor_limit": 983040,
         "long_context_over_256k_tested": false,
-        "sha256": "316c5021e5d538c71dc41b45cc46e9ff55d0ff0e3ff620b4e51de2d72bf18461"
+        "sha256": "81fedf2535e33b73ebe078de19b007c7a9a1fe81484ac435ad7a4d02ec78f0ec"
       }
     },
     {
       "model": "gemini-4-argon-high",
       "response": {
-        "conversation_id": "63be2e99-a0c9-4f60-83e7-40c7f0ec89da",
+        "conversation_id": "9b4ac049-94ce-436f-85fa-d2f78d4928a8",
         "status": "SUCCESS",
         "response": "OK\n",
-        "duration_seconds": 6.406787537,
+        "duration_seconds": 6.935708827,
         "num_turns": 1,
         "usage": {
-          "input_tokens": 42047,
-          "output_tokens": 37,
-          "thinking_tokens": 32,
+          "input_tokens": 42184,
+          "output_tokens": 12,
+          "thinking_tokens": 7,
           "cache_read_tokens": 0,
-          "total_tokens": 42084
+          "total_tokens": 42196
         }
       },
       "verification": {
-        "version": "1.4.5",
-        "conversation_id": "63be2e99-a0c9-4f60-83e7-40c7f0ec89da",
+        "version": "1.4.6",
+        "conversation_id": "9b4ac049-94ce-436f-85fa-d2f78d4928a8",
         "actual_request_limit": 983040,
-        "agents_bytes": 120807,
+        "agents_bytes": 120983,
         "sections": [
           {
             "title": "user_rules",
-            "bytes": 121178,
+            "bytes": 121354,
             "contains_full_agents": true,
             "excluded": false
           }
         ],
         "executor_limit": 983040,
         "long_context_over_256k_tested": false,
-        "sha256": "316c5021e5d538c71dc41b45cc46e9ff55d0ff0e3ff620b4e51de2d72bf18461"
+        "sha256": "81fedf2535e33b73ebe078de19b007c7a9a1fe81484ac435ad7a4d02ec78f0ec"
       }
     }
   ],
   "archive_matches_installed": true,
   "reverse_patch_matches_original": true,
   "before_patch": {
-    "response": {
-      "conversation_id": "44320601-1418-4569-8fb6-634535b95609",
-      "status": "ERROR",
-      "response": "OK\n",
-      "error": "API error (attempt 1): request failed: Post \"https://daily-cloudcode-pa.googleapis.com/v1internal:streamGenerateContent?alt=sse\": EOF",
-      "duration_seconds": 27.11655612,
-      "num_turns": 1,
-      "usage": {
-        "input_tokens": 2054,
-        "output_tokens": 5,
-        "thinking_tokens": 0,
-        "cache_read_tokens": 12021,
-        "total_tokens": 2059
-      }
-    },
+    "conversation_id": "84ef4981-e36a-45ac-a2d0-6ad3dedd897b",
+    "gen_metadata_idx": 79,
+    "executor_metadata_idx": 23,
     "executor_limit": 256000,
     "actual_request_limit": 256000
   },
   "rel32_trampoline_references": [
-    "0x79f4e93 -> 0x7af6140"
+    "0x7a9225c -> 0x7b92ee0"
   ]
 }

@@ -1,56 +1,56 @@
 {
-  "version": "1.4.5",
+  "version": "1.4.6",
   "architecture": "x86_64",
-  "original_sha256": "8af8e7a2a68f72fa7164e00bb59b8902c018fa43e528fc401ad7db8c2972583c",
-  "patched_sha256": "316c5021e5d538c71dc41b45cc46e9ff55d0ff0e3ff620b4e51de2d72bf18461",
-  "size": 223736040,
+  "original_sha256": "128780f5776959ba6a991bde1f0a8b699eee37a59ed30deb9926147fedfa56c4",
+  "patched_sha256": "81fedf2535e33b73ebe078de19b007c7a9a1fe81484ac435ad7a4d02ec78f0ec",
+  "size": 224628968,
   "changes": [
     {
-      "offset": "0x7b4faa9",
+      "offset": "0x7becae9",
       "before": "b9c05d0000",
       "after": "b900001000",
       "purpose": "file read cap 1MiB"
     },
     {
-      "offset": "0x7b50a25",
+      "offset": "0x7beda65",
       "before": "b9c05d0000",
       "after": "b900001000",
       "purpose": "file read cap 1MiB"
     },
     {
-      "offset": "0x7b55607",
+      "offset": "0x7bf2647",
       "before": "b9c05d0000",
       "after": "b900001000",
       "purpose": "file read cap 1MiB"
     },
     {
-      "offset": "0x7b57154",
+      "offset": "0x7bf4194",
       "before": "8b9c24e0000000",
       "after": "bb000002009090",
       "purpose": "customizations token budget 131072"
     },
     {
-      "offset": "0x7b5715e",
+      "offset": "0x7bf419e",
       "before": "8b8424e4000000",
       "after": "b8000002009090",
       "purpose": "rules token budget 131072"
     },
     {
-      "offset": "0x7af6120",
+      "offset": "0x7b92ec0",
       "before": "4c8d6424d04d3b",
       "after": "31c031db31c9c3",
       "purpose": "checkpoint returns false,nil"
     },
     {
-      "offset": "0x7af6140",
+      "offset": "0x7b92ee0",
       "before": "00004c898424e00000004889b424d80000004889bc24d000000048898c24c800000048899c24c000000048898424",
-      "after": "488b50084885d2741a8b524081ea8905000083fa02770c4885c97407c7411040420f004889481031dbe92bedefff",
+      "after": "488b50084885d2741a8b524081ea8905000083fa02770c4885c97407c7411040420f004889481031dbe954f3efff",
       "purpose": "Argon 1417..1419 final limit 1000000"
     },
     {
-      "offset": "0x79f4e93",
+      "offset": "0x7a9225c",
       "before": "4889481031db",
-      "after": "e9a812100090",
+      "after": "e97f0c100090",
       "purpose": "jump to override, replay original instructions"
     }
   ]
