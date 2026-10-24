@@ -10,8 +10,8 @@ _start:
  ja done
  test %rcx, %rcx
  jz done
- movl $1000000, 16(%rcx)
+ movl $1000000, 12(%rcx)
 done:
  mov %rcx, 16(%rax)
  xor %ebx, %ebx
- jmp 0x7a92262
+ jmp 0x7c60822

@@ -1,5 +1,5 @@
-Antigravity CLI（agy）Linux x86_64 1.4.6 修正版
-更新日期：2026-10-23
+Antigravity CLI（agy）Linux x86_64 1.4.7 修正版
+更新日期：2026-10-24
 
 【怎么恢复】
 
@@ -14,7 +14,7 @@ python3 wechat/assets/340-A/x86-linux/restore-agy.py
 
 然后重启 agy，新建会话，让完整 AGENTS.md 重新加载。
 旧会话已经丢失的历史不会自动恢复。
-自动升级覆盖补丁后，再运行恢复脚本可恢复本目录归档的 1.4.6，
+自动升级覆盖补丁后，再运行恢复脚本可恢复本目录归档的 1.4.7，
 不是为未来新版本自动打补丁。
 
 【改了什么】
@@ -38,7 +38,7 @@ user_rules 逐字包含本地 AGENTS.md 的120983字节全文，没有预算排�
 
 【文件】
 
-agy.gz                       修改版完整可执行文件，解压后224628968字节
+agy.gz                       修改版完整可执行文件，解压后227840232字节
 restore-agy.py               安装/恢复归档
 SHA256SUMS                   本目录文件校验清单
 agy-x86-patches.json         原版/修改版哈希、每处修改前后字节与偏移
@@ -53,25 +53,24 @@ verification.txt            三档真实请求的验证记录
 python3 verify-argon-x86.py <conversation_id> --agents /项目路径/AGENTS.md
 
 原版只备份在本机 ~/.local/share/agy-patches/，不放入仓库。
-原版 SHA256：128780f5776959ba6a991bde1f0a8b699eee37a59ed30deb9926147fedfa56c4
-修改版 SHA256：81fedf2535e33b73ebe078de19b007c7a9a1fe81484ac435ad7a4d02ec78f0ec
+原版 SHA256：40349135371a8ed1f1af1e9f8b741de99174ae9fce6380b96c2d1f543480af7a
+修改版 SHA256：80fdea11b87133da64e38fbc18a2fd40ebdd3e56653153d887a45136870eaf90
 
 【新版本维护】
 
 未知哈希必须重新定位，不能删除哈希检查或沿用固定偏移。
-本次 pclntab 位于0x1591db0，Go text基址0x6368080；通过三个getter
-核对 planner指针+8、plan_model+64、max_token_limit+16。
-最终配置出口0x7a9225c，原指令为mov [rax+16],rcx（AT&T：mov %rcx,16(%rax)）
-及xor ebx,ebx，替换为跳往0x7b92ee0；跳板重放两条指令后返回0x7a92262。
-checkpointNeeded入口0x7b92ec0短路后，借用其函数体容纳跳板。
-规则/技能读取点：0x7becae9、0x7beda65、0x7bf2647。
-最终预算参数读取点：0x7bf4194、0x7bf419e，覆盖配置值和默认值两条路径。
+本次 pclntab 位于0x15d5ba0，Go text基址0x652e080；通过三个getter
+核对 planner指针+8、plan_model+64、max_token_limit+12。
+最终配置出口0x7c6081c，原指令为mov [rax+16],rcx（AT&T：mov %rcx,16(%rax)）
+及xor ebx,ebx，替换为跳往0x7d651a0；跳板重放两条指令后返回0x7c60822。
+checkpointNeeded入口0x7d65180短路后，借用其函数体容纳跳板。
+规则/技能读取点：0x7dbece9、0x7dbfc65、0x7dc4847。
+最终预算参数读取点：0x7dc6394、0x7dc639e，覆盖配置值和默认值两条路径。
 
 下次适配参照 ../arm-linux/readme.md 的定位思路，指令/ABI必须按x86重新核对。
 恢复或修改后必须验证真实请求，不以UI显示1M或模型自述为依据。
 
-【1.4.6 修改前对照】
-会话84ef4981-e36a-45ac-a2d0-6ad3dedd897b中，gen_metadata第78项
-上限983040、估计上下文341364；第79项起上限256000，executor_metadata
-第23项起也为256000。18:09:59服务日志确认重启加载1.4.6，随后产生CHECKPOINT。
-原始会话与日志保持不动；已生成的摘要不会因重新打补丁自动还原。
+【1.4.7 变化与原版对照】
+GetMaxTokenLimit读取偏移从+16变为+12，跳板按新版改写12(%rcx)。
+外层checkpoint指针仍写16(%rax)，两者不能混淆。
+原版Low小请求的两处窗口均为256000，详见verification.txt。

@@ -1,14 +1,14 @@
 {
-  "date": "2026-10-23",
+  "date": "2026-10-24",
   "architecture": "x86_64",
   "records": [
     {
       "model": "gemini-4-argon-low",
       "response": {
-        "conversation_id": "614686d5-eb08-4565-8310-b7a594aa1f76",
+        "conversation_id": "bec833e3-1e20-477c-be24-0ec9d14f1284",
         "status": "SUCCESS",
         "response": "OK\n",
-        "duration_seconds": 7.461671825,
+        "duration_seconds": 7.002689519,
         "num_turns": 1,
         "usage": {
           "input_tokens": 42186,
@@ -19,8 +19,8 @@
         }
       },
       "verification": {
-        "version": "1.4.6",
-        "conversation_id": "614686d5-eb08-4565-8310-b7a594aa1f76",
+        "version": "1.4.7",
+        "conversation_id": "bec833e3-1e20-477c-be24-0ec9d14f1284",
         "actual_request_limit": 983040,
         "agents_bytes": 120983,
         "sections": [
@@ -33,28 +33,28 @@
         ],
         "executor_limit": 983040,
         "long_context_over_256k_tested": false,
-        "sha256": "81fedf2535e33b73ebe078de19b007c7a9a1fe81484ac435ad7a4d02ec78f0ec"
+        "sha256": "80fdea11b87133da64e38fbc18a2fd40ebdd3e56653153d887a45136870eaf90"
       }
     },
     {
       "model": "gemini-4-argon-medium",
       "response": {
-        "conversation_id": "41c82a01-fc5f-4298-a830-eae89c35ae77",
+        "conversation_id": "d620d7c7-a302-4cb6-ae62-039a37ce10f1",
         "status": "SUCCESS",
         "response": "OK\n",
-        "duration_seconds": 7.192383301,
+        "duration_seconds": 12.701648503,
         "num_turns": 1,
         "usage": {
-          "input_tokens": 42182,
+          "input_tokens": 42188,
           "output_tokens": 5,
           "thinking_tokens": 0,
           "cache_read_tokens": 0,
-          "total_tokens": 42187
+          "total_tokens": 42193
         }
       },
       "verification": {
-        "version": "1.4.6",
-        "conversation_id": "41c82a01-fc5f-4298-a830-eae89c35ae77",
+        "version": "1.4.7",
+        "conversation_id": "d620d7c7-a302-4cb6-ae62-039a37ce10f1",
         "actual_request_limit": 983040,
         "agents_bytes": 120983,
         "sections": [
@@ -67,28 +67,28 @@
         ],
         "executor_limit": 983040,
         "long_context_over_256k_tested": false,
-        "sha256": "81fedf2535e33b73ebe078de19b007c7a9a1fe81484ac435ad7a4d02ec78f0ec"
+        "sha256": "80fdea11b87133da64e38fbc18a2fd40ebdd3e56653153d887a45136870eaf90"
       }
     },
     {
       "model": "gemini-4-argon-high",
       "response": {
-        "conversation_id": "9b4ac049-94ce-436f-85fa-d2f78d4928a8",
+        "conversation_id": "9242dc19-1e52-4eaf-aa76-0064d8374e9d",
         "status": "SUCCESS",
         "response": "OK\n",
-        "duration_seconds": 6.935708827,
+        "duration_seconds": 12.261284203,
         "num_turns": 1,
         "usage": {
-          "input_tokens": 42184,
-          "output_tokens": 12,
-          "thinking_tokens": 7,
+          "input_tokens": 42187,
+          "output_tokens": 13,
+          "thinking_tokens": 8,
           "cache_read_tokens": 0,
-          "total_tokens": 42196
+          "total_tokens": 42200
         }
       },
       "verification": {
-        "version": "1.4.6",
-        "conversation_id": "9b4ac049-94ce-436f-85fa-d2f78d4928a8",
+        "version": "1.4.7",
+        "conversation_id": "9242dc19-1e52-4eaf-aa76-0064d8374e9d",
         "actual_request_limit": 983040,
         "agents_bytes": 120983,
         "sections": [
@@ -101,20 +101,32 @@
         ],
         "executor_limit": 983040,
         "long_context_over_256k_tested": false,
-        "sha256": "81fedf2535e33b73ebe078de19b007c7a9a1fe81484ac435ad7a4d02ec78f0ec"
+        "sha256": "80fdea11b87133da64e38fbc18a2fd40ebdd3e56653153d887a45136870eaf90"
       }
     }
   ],
   "archive_matches_installed": true,
   "reverse_patch_matches_original": true,
   "before_patch": {
-    "conversation_id": "84ef4981-e36a-45ac-a2d0-6ad3dedd897b",
-    "gen_metadata_idx": 79,
-    "executor_metadata_idx": 23,
+    "response": {
+      "conversation_id": "12953f12-e812-4dba-92fe-f76432c0f170",
+      "status": "SUCCESS",
+      "response": "OK\n",
+      "duration_seconds": 3.100853868,
+      "num_turns": 1,
+      "usage": {
+        "input_tokens": 14213,
+        "output_tokens": 5,
+        "thinking_tokens": 0,
+        "cache_read_tokens": 0,
+        "total_tokens": 14218
+      }
+    },
     "executor_limit": 256000,
     "actual_request_limit": 256000
   },
   "rel32_trampoline_references": [
-    "0x7a9225c -> 0x7b92ee0"
-  ]
+    "0x7c6081c -> 0x7d651a0"
+  ],
+  "max_token_limit_field_offset": 12
 }
