@@ -1,5 +1,5 @@
-Antigravity CLI（agy）Linux x86_64 1.4.7 修正版
-更新日期：2026-10-24
+Antigravity CLI（agy）Linux x86_64 1.4.9 修正版
+更新日期：2026-10-28
 
 【怎么恢复】
 
@@ -14,7 +14,7 @@ python3 wechat/assets/340-A/x86-linux/restore-agy.py
 
 然后重启 agy，新建会话，让完整 AGENTS.md 重新加载。
 旧会话已经丢失的历史不会自动恢复。
-自动升级覆盖补丁后，再运行恢复脚本可恢复本目录归档的 1.4.7，
+自动升级覆盖补丁后，再运行恢复脚本可恢复本目录归档的 1.4.9，
 不是为未来新版本自动打补丁。
 
 【改了什么】
@@ -32,13 +32,13 @@ python3 wechat/assets/340-A/x86-linux/restore-agy.py
 
 Low、Medium、High 三档分别新开会话发送小请求，均正常回复 OK。
 每档 executor_metadata 与 gen_metadata 实际上限均为983040。
-user_rules 逐字包含本地 AGENTS.md 的120983字节全文，没有预算排除提示。
+user_rules 逐字包含本地 AGENTS.md 的115997字节全文，没有预算排除提示。
 完整记录见 verification.txt。未重跑超过256K的长会话压力测试。
 启动、补丁重复运行、归档解压与安装版逐字节一致、逆向补丁还原原版哈希均已检查。
 
 【文件】
 
-agy.gz                       修改版完整可执行文件，解压后227840232字节
+agy.gz                       修改版完整可执行文件，解压后229708176字节
 restore-agy.py               安装/恢复归档
 SHA256SUMS                   本目录文件校验清单
 agy-x86-patches.json         原版/修改版哈希、每处修改前后字节与偏移
@@ -53,24 +53,23 @@ verification.txt            三档真实请求的验证记录
 python3 verify-argon-x86.py <conversation_id> --agents /项目路径/AGENTS.md
 
 原版只备份在本机 ~/.local/share/agy-patches/，不放入仓库。
-原版 SHA256：40349135371a8ed1f1af1e9f8b741de99174ae9fce6380b96c2d1f543480af7a
-修改版 SHA256：80fdea11b87133da64e38fbc18a2fd40ebdd3e56653153d887a45136870eaf90
+原版 SHA256：1c9102d0a36194d57f6b4a66249217ece0bf563e108bcdd1046b81c5b6d6004c
+修改版 SHA256：1165b65a7ef0d233b60a3027185a37cd0ccec641c6e698faf08674cd91240d61
 
 【新版本维护】
 
 未知哈希必须重新定位，不能删除哈希检查或沿用固定偏移。
-本次 pclntab 位于0x15d5ba0，Go text基址0x652e080；通过三个getter
+本次 pclntab 位于0x15f7c50，Go text基址0x65f3080；通过三个getter
 核对 planner指针+8、plan_model+64、max_token_limit+12。
-最终配置出口0x7c6081c，原指令为mov [rax+16],rcx（AT&T：mov %rcx,16(%rax)）
-及xor ebx,ebx，替换为跳往0x7d651a0；跳板重放两条指令后返回0x7c60822。
-checkpointNeeded入口0x7d65180短路后，借用其函数体容纳跳板。
-规则/技能读取点：0x7dbece9、0x7dbfc65、0x7dc4847。
-最终预算参数读取点：0x7dc6394、0x7dc639e，覆盖配置值和默认值两条路径。
+最终配置出口0x7cbb3dc，原指令为mov [rax+16],rcx（AT&T：mov %rcx,16(%rax)）
+及xor ebx,ebx，替换为跳往0x7e6a2a0；跳板重放两条指令后返回0x7cbb3e2。
+checkpointNeeded入口0x7e6a280短路后，借用其函数体容纳跳板。
+规则/技能读取点：0x7ec5649、0x7ec65c5、0x7ecb1a7。
+最终预算参数读取点：0x7ecda54、0x7ecda5e，覆盖配置值和默认值两条路径。
 
 下次适配参照 ../arm-linux/readme.md 的定位思路，指令/ABI必须按x86重新核对。
 恢复或修改后必须验证真实请求，不以UI显示1M或模型自述为依据。
 
-【1.4.7 变化与原版对照】
-GetMaxTokenLimit读取偏移从+16变为+12，跳板按新版改写12(%rcx)。
-外层checkpoint指针仍写16(%rax)，两者不能混淆。
-原版Low小请求的两处窗口均为256000，详见verification.txt。
+【1.4.9 原版对照】
+原版Low小请求两处窗口仍为256000，详见verification.txt。
+GetMaxTokenLimit仍读取+12，外层checkpoint指针仍写+16，已重新核对。

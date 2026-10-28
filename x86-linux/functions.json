@@ -1,65 +1,65 @@
 [
   {
     "name": "google3/third_party/jetski/cortex_pb/cortex_go_proto.(*CascadeConfig).GetPlannerConfig",
-    "pc": 9921120,
-    "end": 9921152,
-    "address": 116015840,
-    "end_address": 116015872
+    "pc": 9916576,
+    "end": 9916608,
+    "address": 116818208,
+    "end_address": 116818240
   },
   {
     "name": "google3/third_party/jetski/cortex_pb/cortex_go_proto.(*CascadePlannerConfig).GetPlanModel",
-    "pc": 9996672,
-    "end": 9996704,
-    "address": 116091392,
-    "end_address": 116091424
+    "pc": 9992672,
+    "end": 9992704,
+    "address": 116894304,
+    "end_address": 116894336
   },
   {
     "name": "google3/third_party/jetski/cortex_pb/cortex_go_proto.(*CheckpointConfig).GetMaxTokenLimit",
-    "pc": 10034336,
-    "end": 10034368,
-    "address": 116129056,
-    "end_address": 116129088
+    "pc": 10030112,
+    "end": 10030144,
+    "address": 116931744,
+    "end_address": 116931776
   },
   {
     "name": "google3/third_party/jetski/cortex/config/config.applyFeatureProviderCheckpointOverrideConfig",
-    "pc": 24323584,
-    "end": 24324128,
-    "address": 130418304,
-    "end_address": 130418848
+    "pc": 23888320,
+    "end": 23888864,
+    "address": 130789952,
+    "end_address": 130790496
   },
   {
     "name": "google3/third_party/oneharness/internal/core/hooks/hooks.checkpointNeeded",
-    "pc": 25391360,
-    "end": 25392384,
-    "address": 131486080,
-    "end_address": 131487104
+    "pc": 25653760,
+    "end": 25654784,
+    "address": 132555392,
+    "end_address": 132556416
   },
   {
     "name": "google3/third_party/jetski/cortex/customizations/customizations.(*Manager).readGlobalRules",
-    "pc": 25756064,
-    "end": 25760160,
-    "address": 131850784,
-    "end_address": 131854880
+    "pc": 26024704,
+    "end": 26028800,
+    "address": 132926336,
+    "end_address": 132930432
   },
   {
     "name": "google3/third_party/jetski/cortex/customizations/customizations.(*Manager).parseRuleFile",
-    "pc": 25762432,
-    "end": 25765600,
-    "address": 131857152,
-    "end_address": 131860320
+    "pc": 26031072,
+    "end": 26034240,
+    "address": 132932704,
+    "end_address": 132935872
   },
   {
     "name": "google3/third_party/jetski/cortex/customizations/customizations.convertSkillPath",
-    "pc": 25780512,
-    "end": 25783776,
-    "address": 131875232,
-    "end_address": 131878496
+    "pc": 26049152,
+    "end": 26052416,
+    "address": 132950784,
+    "end_address": 132954048
   },
   {
     "name": "google3/third_party/jetski/cortex/customizations/customizations.(*Manager).computeTruncatedCustomizations",
-    "pc": 25788288,
-    "end": 25789760,
-    "address": 131883008,
-    "end_address": 131884480
+    "pc": 26060352,
+    "end": 26061824,
+    "address": 132961984,
+    "end_address": 132963456
   }
 ]
