@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Apply the exact-build Linux x86_64 1.4.10 patch; reject unknown builds."""
+"""Apply the exact-build Linux x86_64 1.4.12 patch; reject unknown builds."""
 from pathlib import Path
 import argparse,hashlib,json,os,tempfile
 p=argparse.ArgumentParser();p.add_argument('--target',type=Path,default=Path.home()/'.local/bin/agy');a=p.parse_args()
@@ -15,7 +15,7 @@ for c in m['changes']:
  assert len(old)==len(new) and out[o:o+len(old)]==old,c['purpose']
  out[o:o+len(new)]=new
 assert len(out)==m['size'] and sha(out)==m['patched_sha256']
-backup=Path.home()/'.local/share/agy-patches'/('agy-1.4.10-original-'+h+'.bak');backup.parent.mkdir(parents=True,exist_ok=True)
+backup=Path.home()/'.local/share/agy-patches'/('agy-1.4.12-original-'+h+'.bak');backup.parent.mkdir(parents=True,exist_ok=True)
 if backup.exists():assert sha(backup.read_bytes())==h
 else:
  with backup.open('xb') as f:f.write(b)

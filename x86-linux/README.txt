@@ -1,5 +1,5 @@
-Antigravity CLI（agy）Linux x86_64 1.4.10 修正版
-更新日期：2026-10-29
+Antigravity CLI（agy）Linux x86_64 1.4.12 修正版
+更新日期：2026-10-31
 
 【怎么恢复】
 
@@ -14,7 +14,7 @@ python3 wechat/assets/340-A/x86-linux/restore-agy.py
 
 然后重启 agy，新建会话，让完整 AGENTS.md 重新加载。
 旧会话已经丢失的历史不会自动恢复。
-自动升级覆盖补丁后，再运行恢复脚本可恢复本目录归档的 1.4.10，
+自动升级覆盖补丁后，再运行恢复脚本可恢复本目录归档的 1.4.12，
 不是为未来新版本自动打补丁。
 
 【改了什么】
@@ -38,7 +38,7 @@ user_rules 逐字包含本地 AGENTS.md 的115997字节全文，没有预算排�
 
 【文件】
 
-agy.gz                       修改版完整可执行文件，解压后231895440字节
+agy.gz                       修改版完整可执行文件，解压后234144144字节
 restore-agy.py               安装/恢复归档
 SHA256SUMS                   本目录文件校验清单
 agy-x86-patches.json         原版/修改版哈希、每处修改前后字节与偏移
@@ -53,23 +53,23 @@ verification.txt            三档真实请求的验证记录
 python3 verify-argon-x86.py <conversation_id> --agents /项目路径/AGENTS.md
 
 原版只备份在本机 ~/.local/share/agy-patches/，不放入仓库。
-原版 SHA256：49287151de19bb36578125fbd46ee3fa47e96c0b6d29d5e2439a4e4e0880fa5d
-修改版 SHA256：7dd25385cb6d3c4b17922e0370fa5fac42c6b25bbc027aa4609b777b4724a060
+原版 SHA256：1edfb30477447825f0aaa05fd9a91d82f9adf26686f41cd4f5c70b90abe383e8
+修改版 SHA256：5b758fb52d23280c2c11018e18f51be53a19ebe61e2e203f807245daa3ec7408
 
 【新版本维护】
 
 未知哈希必须重新定位，不能删除哈希检查或沿用固定偏移。
-本次 pclntab 位于0x1609860，Go text基址0x677b080；通过三个getter
+本次 pclntab 位于0x1625570，Go text基址0x6819080；通过三个getter
 核对 planner指针+8、plan_model+64、max_token_limit+12。
-最终配置出口0x7e51a7c，原指令为mov [rax+16],rcx（AT&T：mov %rcx,16(%rax)）
-及xor ebx,ebx，替换为跳往0x8002040；跳板重放两条指令后返回0x7e51a82。
-checkpointNeeded入口0x8002020短路后，借用其函数体容纳跳板。
-规则/技能读取点：0x805cf49、0x805dec5、0x8062ae5。
-最终预算参数读取点：0x8065394、0x806539e，覆盖配置值和默认值两条路径。
+最终配置出口0x7ef45dc，原指令为mov [rax+16],rcx（AT&T：mov %rcx,16(%rax)）
+及xor ebx,ebx，替换为跳往0x80a7280；跳板重放两条指令后返回0x7ef45e2。
+checkpointNeeded入口0x80a7260短路后，借用其函数体容纳跳板。
+规则/技能读取点：0x8102a09、0x8103985、0x81085a5。
+最终预算参数读取点：0x810b154、0x810b15e，覆盖配置值和默认值两条路径。
 
 下次适配参照 ../arm-linux/readme.md 的定位思路，指令/ABI必须按x86重新核对。
 恢复或修改后必须验证真实请求，不以UI显示1M或模型自述为依据。
 
-【1.4.10 原版对照】
+【1.4.12 原版对照】
 原版Low小请求两处窗口仍为256000，详见verification.txt。
 GetMaxTokenLimit仍读取+12，外层checkpoint指针仍写+16，已重新核对。

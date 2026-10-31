@@ -1,26 +1,26 @@
 {
-  "date": "2026-10-29",
+  "date": "2026-10-31",
   "architecture": "x86_64",
   "records": [
     {
       "model": "gemini-4-argon-low",
       "response": {
-        "conversation_id": "a93194ef-c598-473b-a85c-b23d984fc461",
+        "conversation_id": "540531e8-4302-4294-99bb-78f9e746fcb6",
         "status": "SUCCESS",
         "response": "OK\n",
-        "duration_seconds": 8.597436853,
+        "duration_seconds": 6.081898926,
         "num_turns": 1,
         "usage": {
-          "input_tokens": 40500,
-          "output_tokens": 7,
-          "thinking_tokens": 2,
+          "input_tokens": 40499,
+          "output_tokens": 67,
+          "thinking_tokens": 62,
           "cache_read_tokens": 0,
-          "total_tokens": 40507
+          "total_tokens": 40566
         }
       },
       "verification": {
-        "version": "1.4.10",
-        "conversation_id": "a93194ef-c598-473b-a85c-b23d984fc461",
+        "version": "1.4.12",
+        "conversation_id": "540531e8-4302-4294-99bb-78f9e746fcb6",
         "actual_request_limit": 983040,
         "agents_bytes": 115997,
         "sections": [
@@ -33,16 +33,50 @@
         ],
         "executor_limit": 983040,
         "long_context_over_256k_tested": false,
-        "sha256": "7dd25385cb6d3c4b17922e0370fa5fac42c6b25bbc027aa4609b777b4724a060"
+        "sha256": "5b758fb52d23280c2c11018e18f51be53a19ebe61e2e203f807245daa3ec7408"
       }
     },
     {
       "model": "gemini-4-argon-medium",
       "response": {
-        "conversation_id": "542be0f2-873c-42db-89a9-e872c9dafaeb",
+        "conversation_id": "0bb13e64-1922-4d4d-b1a2-fcdf9a9e5a48",
         "status": "SUCCESS",
         "response": "OK\n",
-        "duration_seconds": 10.249934688,
+        "duration_seconds": 7.790576786,
+        "num_turns": 1,
+        "usage": {
+          "input_tokens": 40499,
+          "output_tokens": 7,
+          "thinking_tokens": 2,
+          "cache_read_tokens": 0,
+          "total_tokens": 40506
+        }
+      },
+      "verification": {
+        "version": "1.4.12",
+        "conversation_id": "0bb13e64-1922-4d4d-b1a2-fcdf9a9e5a48",
+        "actual_request_limit": 983040,
+        "agents_bytes": 115997,
+        "sections": [
+          {
+            "title": "user_rules",
+            "bytes": 116368,
+            "contains_full_agents": true,
+            "excluded": false
+          }
+        ],
+        "executor_limit": 983040,
+        "long_context_over_256k_tested": false,
+        "sha256": "5b758fb52d23280c2c11018e18f51be53a19ebe61e2e203f807245daa3ec7408"
+      }
+    },
+    {
+      "model": "gemini-4-argon-high",
+      "response": {
+        "conversation_id": "2d954127-c79c-40e7-acea-9ff0b22bd72d",
+        "status": "SUCCESS",
+        "response": "OK\n",
+        "duration_seconds": 5.079771351,
         "num_turns": 1,
         "usage": {
           "input_tokens": 40495,
@@ -53,8 +87,8 @@
         }
       },
       "verification": {
-        "version": "1.4.10",
-        "conversation_id": "542be0f2-873c-42db-89a9-e872c9dafaeb",
+        "version": "1.4.12",
+        "conversation_id": "2d954127-c79c-40e7-acea-9ff0b22bd72d",
         "actual_request_limit": 983040,
         "agents_bytes": 115997,
         "sections": [
@@ -67,41 +101,7 @@
         ],
         "executor_limit": 983040,
         "long_context_over_256k_tested": false,
-        "sha256": "7dd25385cb6d3c4b17922e0370fa5fac42c6b25bbc027aa4609b777b4724a060"
-      }
-    },
-    {
-      "model": "gemini-4-argon-high",
-      "response": {
-        "conversation_id": "91bffbc4-7ad6-4f91-8414-11189c206727",
-        "status": "SUCCESS",
-        "response": "OK\n",
-        "duration_seconds": 10.651290262,
-        "num_turns": 1,
-        "usage": {
-          "input_tokens": 40497,
-          "output_tokens": 7,
-          "thinking_tokens": 2,
-          "cache_read_tokens": 0,
-          "total_tokens": 40504
-        }
-      },
-      "verification": {
-        "version": "1.4.10",
-        "conversation_id": "91bffbc4-7ad6-4f91-8414-11189c206727",
-        "actual_request_limit": 983040,
-        "agents_bytes": 115997,
-        "sections": [
-          {
-            "title": "user_rules",
-            "bytes": 116368,
-            "contains_full_agents": true,
-            "excluded": false
-          }
-        ],
-        "executor_limit": 983040,
-        "long_context_over_256k_tested": false,
-        "sha256": "7dd25385cb6d3c4b17922e0370fa5fac42c6b25bbc027aa4609b777b4724a060"
+        "sha256": "5b758fb52d23280c2c11018e18f51be53a19ebe61e2e203f807245daa3ec7408"
       }
     }
   ],
@@ -109,24 +109,24 @@
   "reverse_patch_matches_original": true,
   "before_patch": {
     "response": {
-      "conversation_id": "b38f166d-6ae4-497e-8ef6-12befaba377b",
+      "conversation_id": "b6f47a44-a3b0-45d3-9c56-9f461f78e3c7",
       "status": "SUCCESS",
       "response": "OK\n",
-      "duration_seconds": 6.968483953,
+      "duration_seconds": 5.325177219,
       "num_turns": 1,
       "usage": {
-        "input_tokens": 14236,
-        "output_tokens": 7,
-        "thinking_tokens": 2,
+        "input_tokens": 14248,
+        "output_tokens": 13,
+        "thinking_tokens": 8,
         "cache_read_tokens": 0,
-        "total_tokens": 14243
+        "total_tokens": 14261
       }
     },
     "executor_limit": 256000,
     "actual_request_limit": 256000
   },
   "rel32_trampoline_references": [
-    "0x7e51a7c -> 0x8002040"
+    "0x7ef45dc -> 0x80a7280"
   ],
   "max_token_limit_field_offset": 12
 }

@@ -1,56 +1,56 @@
 {
-  "version": "1.4.10",
+  "version": "1.4.12",
   "architecture": "x86_64",
-  "original_sha256": "49287151de19bb36578125fbd46ee3fa47e96c0b6d29d5e2439a4e4e0880fa5d",
-  "patched_sha256": "7dd25385cb6d3c4b17922e0370fa5fac42c6b25bbc027aa4609b777b4724a060",
-  "size": 231895440,
+  "original_sha256": "1edfb30477447825f0aaa05fd9a91d82f9adf26686f41cd4f5c70b90abe383e8",
+  "patched_sha256": "5b758fb52d23280c2c11018e18f51be53a19ebe61e2e203f807245daa3ec7408",
+  "size": 234144144,
   "changes": [
     {
-      "offset": "0x805cf49",
+      "offset": "0x8102a09",
       "before": "b9c05d0000",
       "after": "b900001000",
       "purpose": "file read cap 1MiB"
     },
     {
-      "offset": "0x805dec5",
+      "offset": "0x8103985",
       "before": "b9c05d0000",
       "after": "b900001000",
       "purpose": "file read cap 1MiB"
     },
     {
-      "offset": "0x8062ae5",
+      "offset": "0x81085a5",
       "before": "b9c05d0000",
       "after": "b900001000",
       "purpose": "file read cap 1MiB"
     },
     {
-      "offset": "0x8065394",
+      "offset": "0x810b154",
       "before": "8b9c24e0000000",
       "after": "bb000002009090",
       "purpose": "customizations token budget 131072"
     },
     {
-      "offset": "0x806539e",
+      "offset": "0x810b15e",
       "before": "8b8424e4000000",
       "after": "b8000002009090",
       "purpose": "rules token budget 131072"
     },
     {
-      "offset": "0x8002020",
+      "offset": "0x80a7260",
       "before": "4c8d6424d04d3b",
       "after": "31c031db31c9c3",
       "purpose": "checkpoint returns false,nil"
     },
     {
-      "offset": "0x8002040",
+      "offset": "0x80a7280",
       "before": "00004c898424e00000004889b424d80000004889bc24d000000048898c24c800000048899c24c000000048898424",
-      "after": "488b50084885d2741a8b524081ea8905000083fa02770c4885c97407c7410c40420f004889481031dbe914fae4ff",
+      "after": "488b50084885d2741a8b524081ea8905000083fa02770c4885c97407c7410c40420f004889481031dbe934d3e4ff",
       "purpose": "Argon 1417..1419 final limit 1000000"
     },
     {
-      "offset": "0x7e51a7c",
+      "offset": "0x7ef45dc",
       "before": "4889481031db",
-      "after": "e9bf051b0090",
+      "after": "e99f2c1b0090",
       "purpose": "jump to override, replay original instructions"
     }
   ]
