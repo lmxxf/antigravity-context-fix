@@ -1,7 +1,7 @@
 {
   "low": {
-    "version": "1.4.11",
-    "conversation_id": "6d51822b-a5e6-4955-af73-f5dded536235",
+    "version": "1.4.12",
+    "conversation_id": "f91c8d6d-4344-4c40-9e70-12ab341e2f3d",
     "actual_request_limit": 983040,
     "agents_bytes": 115997,
     "sections": [
@@ -14,12 +14,12 @@
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "6edfc4cd0b792b79109195d0f9ec3596ba4c6f13596542b1c60a0460700ba801",
+    "sha256": "b2d8394bb86c00b59caa39af3520f416f51fa10da5104f4154356c2160168ea4",
     "executor_checkpoint_limit": 983040
   },
   "medium": {
-    "version": "1.4.11",
-    "conversation_id": "452eb707-93d3-4509-942a-58a050f99b4b",
+    "version": "1.4.12",
+    "conversation_id": "7f9bac0b-a9e9-4b77-9fbb-2a79eab27f17",
     "actual_request_limit": 983040,
     "agents_bytes": 115997,
     "sections": [
@@ -32,12 +32,12 @@
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "6edfc4cd0b792b79109195d0f9ec3596ba4c6f13596542b1c60a0460700ba801",
+    "sha256": "b2d8394bb86c00b59caa39af3520f416f51fa10da5104f4154356c2160168ea4",
     "executor_checkpoint_limit": 983040
   },
   "high": {
-    "version": "1.4.11",
-    "conversation_id": "533eacef-c2ed-4b51-a620-62176fe44906",
+    "version": "1.4.12",
+    "conversation_id": "46504f49-68f0-498c-a8d9-8950945ab47e",
     "actual_request_limit": 983040,
     "agents_bytes": 115997,
     "sections": [
@@ -50,7 +50,7 @@
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "6edfc4cd0b792b79109195d0f9ec3596ba4c6f13596542b1c60a0460700ba801",
+    "sha256": "b2d8394bb86c00b59caa39af3520f416f51fa10da5104f4154356c2160168ea4",
     "executor_checkpoint_limit": 983040
   }
 }
