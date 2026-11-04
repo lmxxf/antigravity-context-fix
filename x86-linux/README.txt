@@ -1,5 +1,5 @@
-Antigravity CLI（agy）Linux x86_64 1.4.12 修正版
-更新日期：2026-10-31
+Antigravity CLI（agy）Linux x86_64 1.5.0 修正版
+更新日期：2026-11-04
 
 【怎么恢复】
 
@@ -14,7 +14,7 @@ python3 wechat/assets/340-A/x86-linux/restore-agy.py
 
 然后重启 agy，新建会话，让完整 AGENTS.md 重新加载。
 旧会话已经丢失的历史不会自动恢复。
-自动升级覆盖补丁后，再运行恢复脚本可恢复本目录归档的 1.4.12，
+自动升级覆盖补丁后，再运行恢复脚本可恢复本目录归档的 1.5.0，
 不是为未来新版本自动打补丁。
 
 【改了什么】
@@ -32,13 +32,13 @@ python3 wechat/assets/340-A/x86-linux/restore-agy.py
 
 Low、Medium、High 三档分别新开会话发送小请求，均正常回复 OK。
 每档 executor_metadata 与 gen_metadata 实际上限均为983040。
-user_rules 逐字包含本地 AGENTS.md 的115997字节全文，没有预算排除提示。
+user_rules 逐字包含本地 AGENTS.md 的119012字节全文，没有预算排除提示。
 完整记录见 verification.txt。未重跑超过256K的长会话压力测试。
 启动、补丁重复运行、归档解压与安装版逐字节一致、逆向补丁还原原版哈希均已检查。
 
 【文件】
 
-agy.gz                       修改版完整可执行文件，解压后234144144字节
+agy.gz                       修改版完整可执行文件，解压后238604688字节
 restore-agy.py               安装/恢复归档
 SHA256SUMS                   本目录文件校验清单
 agy-x86-patches.json         原版/修改版哈希、每处修改前后字节与偏移
@@ -53,23 +53,18 @@ verification.txt            三档真实请求的验证记录
 python3 verify-argon-x86.py <conversation_id> --agents /项目路径/AGENTS.md
 
 原版只备份在本机 ~/.local/share/agy-patches/，不放入仓库。
-原版 SHA256：1edfb30477447825f0aaa05fd9a91d82f9adf26686f41cd4f5c70b90abe383e8
-修改版 SHA256：5b758fb52d23280c2c11018e18f51be53a19ebe61e2e203f807245daa3ec7408
+原版 SHA256：b9043860a06a3bfa70b68f06c3d4527abc16207767f14ae9d1e06e3026081862
+修改版 SHA256：59f0ec9838dd8a7252a41b7d257ee80e88fbe007be563748b6f49270864078f8
 
-【新版本维护】
-
-未知哈希必须重新定位，不能删除哈希检查或沿用固定偏移。
-本次 pclntab 位于0x1625570，Go text基址0x6819080；通过三个getter
-核对 planner指针+8、plan_model+64、max_token_limit+12。
-最终配置出口0x7ef45dc，原指令为mov [rax+16],rcx（AT&T：mov %rcx,16(%rax)）
-及xor ebx,ebx，替换为跳往0x80a7280；跳板重放两条指令后返回0x7ef45e2。
-checkpointNeeded入口0x80a7260短路后，借用其函数体容纳跳板。
-规则/技能读取点：0x8102a09、0x8103985、0x81085a5。
-最终预算参数读取点：0x810b154、0x810b15e，覆盖配置值和默认值两条路径。
-
-下次适配参照 ../arm-linux/readme.md 的定位思路，指令/ABI必须按x86重新核对。
-恢复或修改后必须验证真实请求，不以UI显示1M或模型自述为依据。
-
-【1.4.12 原版对照】
-原版Low小请求两处窗口仍为256000，详见verification.txt。
-GetMaxTokenLimit仍读取+12，外层checkpoint指针仍写+16，已重新核对。
+【1.5.0 重新定位与维护】
+未知哈希必须重新定位，不能沿用旧偏移或删除哈希检查。
+pclntab=0x1676b70，Go text=0x6a0a080。getter确认planner+8、model+64、limit+12。
+最终出口0x816b494改跳0x8343000：本版RDX是外层配置，RAX是checkpoint，RSI作临时寄存器。
+匹配1417..1419时写1000000到12(%rax)，重放mov %rax,16(%rdx)与mov %rdx,%rax，返回0x816b49b。
+checkpointNeeded入口0x8342fe0返回false,nil，后部函数体借作两段跳板。
+规则读取点：0x839dd89、0x839ed05、0x83a3dc5，24000改1MiB。
+预算读取现在是4字节指令，不能硬塞5字节立即数：0x83a6d8c的11字节指令组改跳0x8343060，
+保留mov %rax,%rcx，设置EBX和EAX各131072，返回0x83a6d97继续原调用。覆盖配置及默认两条路径。
+源码argon-x86-trampoline.s含两段跳板，中间.org填充区同处于已短路函数体。
+原版Low小请求两处窗口仍为256000。修改后三档证据见verification.txt。
+原版只留本机备份；恢复修改后须重启。手动compact及本版超过256K长会话未测试。

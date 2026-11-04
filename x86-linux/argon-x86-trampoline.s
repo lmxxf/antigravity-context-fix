@@ -1,17 +1,23 @@
 .text
 .global _start
 _start:
- mov 8(%rax), %rdx
- test %rdx, %rdx
+ mov 8(%rdx), %rsi
+ test %rsi, %rsi
  jz done
- mov 64(%rdx), %edx
- sub $1417, %edx
- cmp $2, %edx
+ mov 64(%rsi), %esi
+ sub $1417, %esi
+ cmp $2, %esi
  ja done
- test %rcx, %rcx
+ test %rax, %rax
  jz done
- movl $1000000, 12(%rcx)
+ movl $1000000, 12(%rax)
 done:
- mov %rcx, 16(%rax)
- xor %ebx, %ebx
- jmp 0x7ef45e2
+ mov %rax, 16(%rdx)
+ mov %rdx, %rax
+ jmp 0x816b49b
+.org 0x60
+budget:
+ mov %rax, %rcx
+ mov $131072, %ebx
+ mov $131072, %eax
+ jmp 0x83a6d97

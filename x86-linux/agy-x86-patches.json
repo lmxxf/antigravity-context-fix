@@ -1,57 +1,51 @@
 {
-  "version": "1.4.12",
+  "version": "1.5.0",
   "architecture": "x86_64",
-  "original_sha256": "1edfb30477447825f0aaa05fd9a91d82f9adf26686f41cd4f5c70b90abe383e8",
-  "patched_sha256": "5b758fb52d23280c2c11018e18f51be53a19ebe61e2e203f807245daa3ec7408",
-  "size": 234144144,
+  "original_sha256": "b9043860a06a3bfa70b68f06c3d4527abc16207767f14ae9d1e06e3026081862",
+  "patched_sha256": "59f0ec9838dd8a7252a41b7d257ee80e88fbe007be563748b6f49270864078f8",
+  "size": 238604688,
   "changes": [
     {
-      "offset": "0x8102a09",
+      "offset": "0x839dd89",
       "before": "b9c05d0000",
       "after": "b900001000",
       "purpose": "file read cap 1MiB"
     },
     {
-      "offset": "0x8103985",
+      "offset": "0x839ed05",
       "before": "b9c05d0000",
       "after": "b900001000",
       "purpose": "file read cap 1MiB"
     },
     {
-      "offset": "0x81085a5",
+      "offset": "0x83a3dc5",
       "before": "b9c05d0000",
       "after": "b900001000",
       "purpose": "file read cap 1MiB"
     },
     {
-      "offset": "0x810b154",
-      "before": "8b9c24e0000000",
-      "after": "bb000002009090",
-      "purpose": "customizations token budget 131072"
-    },
-    {
-      "offset": "0x810b15e",
-      "before": "8b8424e4000000",
-      "after": "b8000002009090",
-      "purpose": "rules token budget 131072"
-    },
-    {
-      "offset": "0x80a7260",
+      "offset": "0x8342fe0",
       "before": "4c8d6424d04d3b",
       "after": "31c031db31c9c3",
       "purpose": "checkpoint returns false,nil"
     },
     {
-      "offset": "0x80a7280",
-      "before": "00004c898424e00000004889b424d80000004889bc24d000000048898c24c800000048899c24c000000048898424",
-      "after": "488b50084885d2741a8b524081ea8905000083fa02770c4885c97407c7410c40420f004889481031dbe934d3e4ff",
-      "purpose": "Argon 1417..1419 final limit 1000000"
+      "offset": "0x8343000",
+      "before": "00004c898424e00000004889b424d80000004889bc24d000000048898c24c800000048899c24c000000048898424b8000000488b4e704c89c0ffd10f1f4400004885c00f8466030000488b8c24d8000000488b4940488d58ff488b8424e0000000ffd14885c00f84ea020000488b50204885",
+      "after": "488b72084885f6741a8b764081ee8905000083fe02770c4885c07407c7400c40420f00488942104889d0e96c84e2ff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004889c1bb00000200b800000200e9253d0600",
+      "purpose": "Argon 1417..1419 final limit 1000000 and budgets 131072"
     },
     {
-      "offset": "0x7ef45dc",
-      "before": "4889481031db",
-      "after": "e99f2c1b0090",
-      "purpose": "jump to override, replay original instructions"
+      "offset": "0x816b494",
+      "before": "488942104889d0",
+      "after": "e9677b1d009090",
+      "purpose": "final config jump, replay store and return pointer"
+    },
+    {
+      "offset": "0x83a6d8c",
+      "before": "8b5c24484889c18b44244c",
+      "after": "e9cfc2f9ff909090909090",
+      "purpose": "rules and customizations budget jump"
     }
   ]
 }

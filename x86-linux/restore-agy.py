@@ -4,7 +4,7 @@ from pathlib import Path
 import gzip,hashlib,os,shutil,tempfile
 root=Path(__file__).resolve().parent
 name='agy.gz'
-expected='5b758fb52d23280c2c11018e18f51be53a19ebe61e2e203f807245daa3ec7408'
+expected='59f0ec9838dd8a7252a41b7d257ee80e88fbe007be563748b6f49270864078f8'
 b=gzip.decompress((root/name).read_bytes())
 assert hashlib.sha256(b).hexdigest()==expected,'Archive checksum mismatch'
 assert os.uname().machine=='x86_64','This archive is for Linux x86_64 only'
