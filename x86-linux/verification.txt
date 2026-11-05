@@ -1,133 +1,131 @@
 {
-  "date": "2026-11-04",
-  "architecture": "x86_64",
-  "records": [
-    {
-      "model": "gemini-4-argon-low",
-      "response": {
-        "conversation_id": "1ed41d8a-1436-4d3f-b56f-b879a25e5cbc",
-        "status": "SUCCESS",
-        "response": "OK\n",
-        "duration_seconds": 9.29232591,
-        "num_turns": 1,
-        "usage": {
-          "input_tokens": 41564,
-          "output_tokens": 5,
-          "thinking_tokens": 0,
-          "cache_read_tokens": 0,
-          "total_tokens": 41569
-        }
-      },
-      "verification": {
-        "version": "1.5.0",
-        "conversation_id": "1ed41d8a-1436-4d3f-b56f-b879a25e5cbc",
-        "actual_request_limit": 983040,
-        "agents_bytes": 119012,
-        "sections": [
-          {
-            "title": "user_rules",
-            "bytes": 119383,
-            "contains_full_agents": true,
-            "excluded": false
-          }
-        ],
-        "executor_limit": 983040,
-        "long_context_over_256k_tested": false,
-        "sha256": "59f0ec9838dd8a7252a41b7d257ee80e88fbe007be563748b6f49270864078f8"
-      }
-    },
-    {
-      "model": "gemini-4-argon-medium",
-      "response": {
-        "conversation_id": "a22cc1de-f337-4233-b30a-81cd2ea83d0a",
-        "status": "SUCCESS",
-        "response": "OK\n",
-        "duration_seconds": 6.478529723,
-        "num_turns": 1,
-        "usage": {
-          "input_tokens": 41561,
-          "output_tokens": 7,
-          "thinking_tokens": 2,
-          "cache_read_tokens": 0,
-          "total_tokens": 41568
-        }
-      },
-      "verification": {
-        "version": "1.5.0",
-        "conversation_id": "a22cc1de-f337-4233-b30a-81cd2ea83d0a",
-        "actual_request_limit": 983040,
-        "agents_bytes": 119012,
-        "sections": [
-          {
-            "title": "user_rules",
-            "bytes": 119383,
-            "contains_full_agents": true,
-            "excluded": false
-          }
-        ],
-        "executor_limit": 983040,
-        "long_context_over_256k_tested": false,
-        "sha256": "59f0ec9838dd8a7252a41b7d257ee80e88fbe007be563748b6f49270864078f8"
-      }
-    },
-    {
-      "model": "gemini-4-argon-high",
-      "response": {
-        "conversation_id": "3ac688a0-8487-4264-8535-07ec3997ee17",
-        "status": "SUCCESS",
-        "response": "OK\n",
-        "duration_seconds": 6.11737242,
-        "num_turns": 1,
-        "usage": {
-          "input_tokens": 41564,
-          "output_tokens": 7,
-          "thinking_tokens": 2,
-          "cache_read_tokens": 0,
-          "total_tokens": 41571
-        }
-      },
-      "verification": {
-        "version": "1.5.0",
-        "conversation_id": "3ac688a0-8487-4264-8535-07ec3997ee17",
-        "actual_request_limit": 983040,
-        "agents_bytes": 119012,
-        "sections": [
-          {
-            "title": "user_rules",
-            "bytes": 119383,
-            "contains_full_agents": true,
-            "excluded": false
-          }
-        ],
-        "executor_limit": 983040,
-        "long_context_over_256k_tested": false,
-        "sha256": "59f0ec9838dd8a7252a41b7d257ee80e88fbe007be563748b6f49270864078f8"
-      }
-    }
-  ],
-  "archive_matches_installed": true,
-  "reverse_patch_matches_original": true,
-  "before_patch": {
+  "version": "1.5.1",
+  "baseline": {
     "response": {
-      "conversation_id": "62d3527b-493e-44dd-ba1b-d3300662c1b7",
+      "conversation_id": "68e1bcae-281a-4f7c-8841-19dac3e1fc8c",
       "status": "SUCCESS",
       "response": "OK\n",
-      "duration_seconds": 3.8210871600000003,
+      "duration_seconds": 4.2586333530000005,
       "num_turns": 1,
       "usage": {
-        "input_tokens": 14386,
+        "input_tokens": 14380,
         "output_tokens": 7,
         "thinking_tokens": 2,
         "cache_read_tokens": 0,
-        "total_tokens": 14393
+        "total_tokens": 14387
       }
     },
-    "executor_limit": 256000,
-    "actual_request_limit": 256000
+    "actual_request_limit": 256000,
+    "executor_limit": 256000
   },
-  "rel32_trampoline_references": [
-    "0x816b494 -> 0x8343000",
-    "0x83a6d8c -> 0x8343060"
-  ],
-  "max_token_limit_field_offset": 12
+  "probes": {
+    "low": {
+      "response": {
+        "conversation_id": "e6b64829-e203-4d10-8911-8fce0f404262",
+        "status": "SUCCESS",
+        "response": "OK\n",
+        "duration_seconds": 6.006634129,
+        "num_turns": 1,
+        "usage": {
+          "input_tokens": 41643,
+          "output_tokens": 7,
+          "thinking_tokens": 2,
+          "cache_read_tokens": 0,
+          "total_tokens": 41650
+        }
+      },
+      "verification": {
+        "version": "1.5.1",
+        "conversation_id": "e6b64829-e203-4d10-8911-8fce0f404262",
+        "actual_request_limit": 983040,
+        "agents_bytes": 119290,
+        "sections": [
+          {
+            "title": "user_rules",
+            "bytes": 119661,
+            "contains_full_agents": true,
+            "excluded": false
+          }
+        ],
+        "executor_limit": 983040,
+        "long_context_over_256k_tested": false,
+        "sha256": "1bec0e96c190cde155538d139826af8a97b0a39350c177918913e8db56df20c1"
+      }
+    },
+    "medium": {
+      "response": {
+        "conversation_id": "7acf4217-22f4-49f9-9b97-68577eee40fb",
+        "status": "SUCCESS",
+        "response": "OK\n",
+        "duration_seconds": 5.269890122,
+        "num_turns": 1,
+        "usage": {
+          "input_tokens": 41638,
+          "output_tokens": 7,
+          "thinking_tokens": 2,
+          "cache_read_tokens": 0,
+          "total_tokens": 41645
+        }
+      },
+      "verification": {
+        "version": "1.5.1",
+        "conversation_id": "7acf4217-22f4-49f9-9b97-68577eee40fb",
+        "actual_request_limit": 983040,
+        "agents_bytes": 119290,
+        "sections": [
+          {
+            "title": "user_rules",
+            "bytes": 119661,
+            "contains_full_agents": true,
+            "excluded": false
+          }
+        ],
+        "executor_limit": 983040,
+        "long_context_over_256k_tested": false,
+        "sha256": "1bec0e96c190cde155538d139826af8a97b0a39350c177918913e8db56df20c1"
+      }
+    },
+    "high": {
+      "response": {
+        "conversation_id": "0e189718-ee2b-4a34-b051-3fa4691136b6",
+        "status": "SUCCESS",
+        "response": "OK\n",
+        "duration_seconds": 5.426830507,
+        "num_turns": 1,
+        "usage": {
+          "input_tokens": 41644,
+          "output_tokens": 7,
+          "thinking_tokens": 2,
+          "cache_read_tokens": 0,
+          "total_tokens": 41651
+        }
+      },
+      "verification": {
+        "version": "1.5.1",
+        "conversation_id": "0e189718-ee2b-4a34-b051-3fa4691136b6",
+        "actual_request_limit": 983040,
+        "agents_bytes": 119290,
+        "sections": [
+          {
+            "title": "user_rules",
+            "bytes": 119661,
+            "contains_full_agents": true,
+            "excluded": false
+          }
+        ],
+        "executor_limit": 983040,
+        "long_context_over_256k_tested": false,
+        "sha256": "1bec0e96c190cde155538d139826af8a97b0a39350c177918913e8db56df20c1"
+      }
+    }
+  },
+  "binary_checks": {
+    "archive_matches": true,
+    "reverse_hash_matches": true,
+    "cave_references": [
+      "0x8138534",
+      "0x83744ec"
+    ]
+  },
+  "long_context_over_256k_tested": false
 }

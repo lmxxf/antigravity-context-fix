@@ -1,51 +1,51 @@
 {
-  "version": "1.5.0",
+  "version": "1.5.1",
   "architecture": "x86_64",
-  "original_sha256": "b9043860a06a3bfa70b68f06c3d4527abc16207767f14ae9d1e06e3026081862",
-  "patched_sha256": "59f0ec9838dd8a7252a41b7d257ee80e88fbe007be563748b6f49270864078f8",
-  "size": 238604688,
+  "original_sha256": "72738cf0445918483956a5f0da33abdfcfb21a12dd9a421fd57d063782826669",
+  "patched_sha256": "1bec0e96c190cde155538d139826af8a97b0a39350c177918913e8db56df20c1",
+  "size": 240857488,
   "changes": [
     {
-      "offset": "0x839dd89",
+      "offset": "0x836b4e9",
       "before": "b9c05d0000",
       "after": "b900001000",
       "purpose": "file read cap 1MiB"
     },
     {
-      "offset": "0x839ed05",
+      "offset": "0x836c465",
       "before": "b9c05d0000",
       "after": "b900001000",
       "purpose": "file read cap 1MiB"
     },
     {
-      "offset": "0x83a3dc5",
+      "offset": "0x8371525",
       "before": "b9c05d0000",
       "after": "b900001000",
       "purpose": "file read cap 1MiB"
     },
     {
-      "offset": "0x8342fe0",
+      "offset": "0x8310700",
       "before": "4c8d6424d04d3b",
       "after": "31c031db31c9c3",
       "purpose": "checkpoint returns false,nil"
     },
     {
-      "offset": "0x8343000",
+      "offset": "0x8310720",
       "before": "00004c898424e00000004889b424d80000004889bc24d000000048898c24c800000048899c24c000000048898424b8000000488b4e704c89c0ffd10f1f4400004885c00f8466030000488b8c24d8000000488b4940488d58ff488b8424e0000000ffd14885c00f84ea020000488b50204885",
-      "after": "488b72084885f6741a8b764081ee8905000083fe02770c4885c07407c7400c40420f00488942104889d0e96c84e2ff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004889c1bb00000200b800000200e9253d0600",
-      "purpose": "Argon 1417..1419 final limit 1000000 and budgets 131072"
+      "after": "488b72084885f6741a8b764081ee8905000083fe02770c4885c07407c7400c40420f00488942104889d0e9ec7de2ff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004889c1bb00000200b800000200e9653d0600",
+      "purpose": "config and budget trampolines"
     },
     {
-      "offset": "0x816b494",
+      "offset": "0x8138534",
       "before": "488942104889d0",
-      "after": "e9677b1d009090",
-      "purpose": "final config jump, replay store and return pointer"
+      "after": "e9e7811d009090",
+      "purpose": "final Argon checkpoint config"
     },
     {
-      "offset": "0x83a6d8c",
+      "offset": "0x83744ec",
       "before": "8b5c24484889c18b44244c",
-      "after": "e9cfc2f9ff909090909090",
-      "purpose": "rules and customizations budget jump"
+      "after": "e98fc2f9ff909090909090",
+      "purpose": "rules budgets 131072"
     }
   ]
 }
