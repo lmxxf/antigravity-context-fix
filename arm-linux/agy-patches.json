@@ -1,65 +1,65 @@
 {
-  "version": "1.4.12",
-  "original_sha256": "946f014d9bd4352f09f4e88377f7957264d663437de6ad239a31247a6fc9a352",
-  "patched_sha256": "b2d8394bb86c00b59caa39af3520f416f51fa10da5104f4154356c2160168ea4",
-  "size": 223433080,
+  "version": "1.5.2",
+  "original_sha256": "9ab4ccbc5e0afca849143087457b173c7fa934586c26d4f87891b29b849a2c73",
+  "patched_sha256": "11dae983c4bd20343d2a759027274188131db642bb24831daf13d2047f6ac306",
+  "size": 232870264,
   "patches": [
     {
-      "offset": 130045560,
-      "before": "010800f9",
-      "after": "daf80514",
+      "offset": 134069316,
+      "before": "600800f9",
+      "after": "d7860614",
       "label": "Argon three-tier final merged config"
     },
     {
-      "offset": 131611072,
-      "before": "900b40f9f10301d13f0210eb491a0054",
+      "offset": 135780224,
+      "before": "900b40f9f10301d13f0210ebe91b0054",
       "after": "e0031faae1031faae2031faac0035fd6",
       "label": "checkpoint false,nil"
     },
     {
-      "offset": 131611104,
-      "before": "e3130ea9e10b0da9e06700f9813840f9e00305aa20003fd6201800b4e27740f9422040f9010400d1e07b40f9",
-      "after": "030440f9030100b4634040b9632416517f0800718800005403488852e301a072230c00b9010800f91d07fa17",
+      "offset": 135780256,
+      "before": "e3130ea9e10b0da9e06700f9813840f9e00305aa20003fd6c01900b4e27740f9422040f9010400d1e07b40f9",
+      "after": "640440f9040100b4844040b9842416519f0800718800005404488852e401a072040c00b9600800f92079f917",
       "label": "Argon High/Medium/Low 1417..1419 max_token_limit=1000000"
     },
     {
-      "offset": 131892716,
+      "offset": 136070236,
       "before": "02b88bd2",
       "after": "0202a0d2",
       "label": "file limit 1048576"
     },
     {
-      "offset": 131896032,
+      "offset": 136073552,
       "before": "02b88bd2",
       "after": "0202a0d2",
       "label": "file limit 1048576"
     },
     {
-      "offset": 131910388,
+      "offset": 136088836,
       "before": "02b88bd2",
       "after": "0202a0d2",
       "label": "file limit 1048576"
     },
     {
-      "offset": 131918420,
+      "offset": 136097252,
       "before": "e70080b9",
       "after": "4700a0d2",
       "label": "inline budget 131072"
     },
     {
-      "offset": 131918436,
+      "offset": 136097268,
       "before": "07c489d2",
       "after": "4700a0d2",
       "label": "inline budget 131072"
     },
     {
-      "offset": 131918516,
+      "offset": 136097348,
       "before": "c60080b9",
       "after": "4600a0d2",
       "label": "inline budget 131072"
     },
     {
-      "offset": 131918532,
+      "offset": 136097364,
       "before": "06c489d2",
       "after": "4600a0d2",
       "label": "inline budget 131072"
