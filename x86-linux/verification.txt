@@ -1,18 +1,18 @@
 {
-  "version": "1.5.1",
+  "version": "1.5.2",
   "baseline": {
     "response": {
-      "conversation_id": "68e1bcae-281a-4f7c-8841-19dac3e1fc8c",
+      "conversation_id": "392559d5-96df-475a-86fc-578fd7638461",
       "status": "SUCCESS",
       "response": "OK\n",
-      "duration_seconds": 4.2586333530000005,
+      "duration_seconds": 5.344018492,
       "num_turns": 1,
       "usage": {
-        "input_tokens": 14380,
-        "output_tokens": 7,
-        "thinking_tokens": 2,
+        "input_tokens": 14379,
+        "output_tokens": 19,
+        "thinking_tokens": 14,
         "cache_read_tokens": 0,
-        "total_tokens": 14387
+        "total_tokens": 14398
       }
     },
     "actual_request_limit": 256000,
@@ -21,101 +21,101 @@
   "probes": {
     "low": {
       "response": {
-        "conversation_id": "e6b64829-e203-4d10-8911-8fce0f404262",
+        "conversation_id": "23444184-740b-4cd1-86ca-4759995e84f7",
         "status": "SUCCESS",
         "response": "OK\n",
-        "duration_seconds": 6.006634129,
+        "duration_seconds": 6.764321521,
         "num_turns": 1,
         "usage": {
-          "input_tokens": 41643,
-          "output_tokens": 7,
-          "thinking_tokens": 2,
+          "input_tokens": 41756,
+          "output_tokens": 24,
+          "thinking_tokens": 19,
           "cache_read_tokens": 0,
-          "total_tokens": 41650
+          "total_tokens": 41780
         }
       },
       "verification": {
-        "version": "1.5.1",
-        "conversation_id": "e6b64829-e203-4d10-8911-8fce0f404262",
+        "version": "1.5.2",
+        "conversation_id": "23444184-740b-4cd1-86ca-4759995e84f7",
         "actual_request_limit": 983040,
-        "agents_bytes": 119290,
+        "agents_bytes": 119747,
         "sections": [
           {
             "title": "user_rules",
-            "bytes": 119661,
+            "bytes": 120118,
             "contains_full_agents": true,
             "excluded": false
           }
         ],
         "executor_limit": 983040,
         "long_context_over_256k_tested": false,
-        "sha256": "1bec0e96c190cde155538d139826af8a97b0a39350c177918913e8db56df20c1"
+        "sha256": "940b56462ea0e46be7137b15480886f8144019be56cd81c4c9c0344301932094"
       }
     },
     "medium": {
       "response": {
-        "conversation_id": "7acf4217-22f4-49f9-9b97-68577eee40fb",
+        "conversation_id": "c7c81eac-f08f-49f0-bfab-59d2e6c9f67e",
         "status": "SUCCESS",
         "response": "OK\n",
-        "duration_seconds": 5.269890122,
+        "duration_seconds": 6.586837341,
         "num_turns": 1,
         "usage": {
-          "input_tokens": 41638,
+          "input_tokens": 41751,
           "output_tokens": 7,
           "thinking_tokens": 2,
           "cache_read_tokens": 0,
-          "total_tokens": 41645
+          "total_tokens": 41758
         }
       },
       "verification": {
-        "version": "1.5.1",
-        "conversation_id": "7acf4217-22f4-49f9-9b97-68577eee40fb",
+        "version": "1.5.2",
+        "conversation_id": "c7c81eac-f08f-49f0-bfab-59d2e6c9f67e",
         "actual_request_limit": 983040,
-        "agents_bytes": 119290,
+        "agents_bytes": 119747,
         "sections": [
           {
             "title": "user_rules",
-            "bytes": 119661,
+            "bytes": 120118,
             "contains_full_agents": true,
             "excluded": false
           }
         ],
         "executor_limit": 983040,
         "long_context_over_256k_tested": false,
-        "sha256": "1bec0e96c190cde155538d139826af8a97b0a39350c177918913e8db56df20c1"
+        "sha256": "940b56462ea0e46be7137b15480886f8144019be56cd81c4c9c0344301932094"
       }
     },
     "high": {
       "response": {
-        "conversation_id": "0e189718-ee2b-4a34-b051-3fa4691136b6",
+        "conversation_id": "65cd3c61-c6fc-4cdb-918c-ba425708f8a5",
         "status": "SUCCESS",
         "response": "OK\n",
-        "duration_seconds": 5.426830507,
+        "duration_seconds": 6.6880985630000005,
         "num_turns": 1,
         "usage": {
-          "input_tokens": 41644,
+          "input_tokens": 41750,
           "output_tokens": 7,
           "thinking_tokens": 2,
           "cache_read_tokens": 0,
-          "total_tokens": 41651
+          "total_tokens": 41757
         }
       },
       "verification": {
-        "version": "1.5.1",
-        "conversation_id": "0e189718-ee2b-4a34-b051-3fa4691136b6",
+        "version": "1.5.2",
+        "conversation_id": "65cd3c61-c6fc-4cdb-918c-ba425708f8a5",
         "actual_request_limit": 983040,
-        "agents_bytes": 119290,
+        "agents_bytes": 119747,
         "sections": [
           {
             "title": "user_rules",
-            "bytes": 119661,
+            "bytes": 120118,
             "contains_full_agents": true,
             "excluded": false
           }
         ],
         "executor_limit": 983040,
         "long_context_over_256k_tested": false,
-        "sha256": "1bec0e96c190cde155538d139826af8a97b0a39350c177918913e8db56df20c1"
+        "sha256": "940b56462ea0e46be7137b15480886f8144019be56cd81c4c9c0344301932094"
       }
     }
   },
@@ -123,8 +123,8 @@
     "archive_matches": true,
     "reverse_hash_matches": true,
     "cave_references": [
-      "0x8138534",
-      "0x83744ec"
+      "0x82e8534",
+      "0x852d96c"
     ]
   },
   "long_context_over_256k_tested": false
