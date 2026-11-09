@@ -14,10 +14,10 @@ _start:
 done:
  mov %rax, 16(%rdx)
  mov %rdx, %rax
- jmp 0x82e853b
+ jmp 0x851fd5b
 .org 0x60
 budget:
  mov %rax, %rcx
  mov $131072, %ebx
  mov $131072, %eax
- jmp 0x852d977
+ jmp 0x8768817

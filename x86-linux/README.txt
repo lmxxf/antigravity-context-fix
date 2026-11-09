@@ -1,5 +1,5 @@
-Antigravity CLI（agy）Linux x86_64 1.5.2 修正版
-更新日期：2026-11-07
+Antigravity CLI（agy）Linux x86_64 1.5.3 修正版
+更新日期：2026-11-09
 
 【怎么恢复】
 
@@ -14,7 +14,7 @@ python3 wechat/assets/340-A/x86-linux/restore-agy.py
 
 然后重启 agy，新建会话，让完整 AGENTS.md 重新加载。
 旧会话已经丢失的历史不会自动恢复。
-自动升级覆盖补丁后，再运行恢复脚本可恢复本目录归档的 1.5.2，
+自动升级覆盖补丁后，再运行恢复脚本可恢复本目录归档的 1.5.3，
 不是为未来新版本自动打补丁。
 
 【改了什么】
@@ -32,13 +32,13 @@ python3 wechat/assets/340-A/x86-linux/restore-agy.py
 
 Low、Medium、High 三档分别新开会话发送小请求，均正常回复 OK。
 每档 executor_metadata 与 gen_metadata 实际上限均为983040。
-user_rules 逐字包含本地 AGENTS.md 的119747字节全文，没有预算排除提示。
+user_rules 逐字包含本地 AGENTS.md 的121931字节全文，没有预算排除提示。
 完整记录见 verification.txt。未重跑超过256K的长会话压力测试。
 启动、补丁重复运行、归档解压与安装版逐字节一致、逆向补丁还原原版哈希均已检查。
 
 【文件】
 
-agy.gz                       修改版完整可执行文件，解压后244044176字节
+agy.gz                       修改版完整可执行文件，解压后246837648字节
 restore-agy.py               安装/恢复归档
 SHA256SUMS                   本目录文件校验清单
 agy-x86-patches.json         原版/修改版哈希、每处修改前后字节与偏移
@@ -53,18 +53,18 @@ verification.txt            三档真实请求的验证记录
 python3 verify-argon-x86.py <conversation_id> --agents /项目路径/AGENTS.md
 
 原版只备份在本机 ~/.local/share/agy-patches/，不放入仓库。
-原版 SHA256：da1751e7658469fa80bf36eda2c60ee61216d8e42b735a184382ba31d1f6b88e
-修改版 SHA256：940b56462ea0e46be7137b15480886f8144019be56cd81c4c9c0344301932094
+原版 SHA256：7ca212748ca0dfda718efbc39a776a104472e7e9344d4b6ea147c543684f96a3
+修改版 SHA256：f703d3cd15b308efa05d7df395ff6757ec23d7c0489c5ae2e25f50741452aebb
 
-【1.5.2 重新定位与维护】
+【1.5.3 重新定位与维护】
 未知哈希必须重新定位，不能沿用旧偏移或删除哈希检查。
-pclntab=0x16c9950，Go text=0x6b70080。getter确认planner+8、model+64、limit+12。
-最终出口0x82e8534改跳0x84c6580：本版RDX是外层配置，RAX是checkpoint，RSI作临时寄存器。
-匹配1417..1419时写1000000到12(%rax)，重放mov %rax,16(%rdx)与mov %rdx,%rax，返回0x82e853b。
-checkpointNeeded入口0x84c6560返回false,nil，后部函数体借作两段跳板。
-规则读取点：0x8524969、0x85258e5、0x852a9a5，24000改1MiB。
-预算读取现在是4字节指令，不能硬塞5字节立即数：0x852d96c的11字节指令组改跳0x84c65e0，
-保留mov %rax,%rcx，设置EBX和EAX各131072，返回0x852d977继续原调用。覆盖配置及默认两条路径。
+pclntab=0x1714500，Go text=0x6d15080。getter确认planner+8、model+64、limit+12。
+最终出口0x851fd54改跳0x8700600：本版RDX是外层配置，RAX是checkpoint，RSI作临时寄存器。
+匹配1417..1419时写1000000到12(%rax)，重放mov %rax,16(%rdx)与mov %rdx,%rax，返回0x851fd5b。
+checkpointNeeded入口0x87005e0返回false,nil，后部函数体借作两段跳板。
+规则读取点：0x875f809、0x8760785、0x8765845，24000改1MiB。
+预算读取现在是4字节指令，不能硬塞5字节立即数：0x876880c的11字节指令组改跳0x8700660，
+保留mov %rax,%rcx，设置EBX和EAX各131072，返回0x8768817继续原调用。覆盖配置及默认两条路径。
 源码argon-x86-trampoline.s含两段跳板，中间.org填充区同处于已短路函数体。
 原版Low小请求两处窗口仍为256000。修改后三档证据见verification.txt。
 原版只留本机备份；恢复修改后须重启。手动compact及本版超过256K长会话未测试。
