@@ -1,56 +1,56 @@
 {
   "low": {
-    "version": "1.5.2",
-    "conversation_id": "d6ee7c93-2782-48ed-b96c-7bda9ac70810",
+    "version": "1.5.3",
+    "conversation_id": "53801906-9c71-4c73-9eec-1c17922f82db",
     "actual_request_limit": 983040,
-    "agents_bytes": 115997,
+    "agents_bytes": 119747,
     "sections": [
       {
         "title": "user_rules",
-        "bytes": 116368,
+        "bytes": 120118,
         "contains_full_agents": true,
         "excluded": false
       }
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "11dae983c4bd20343d2a759027274188131db642bb24831daf13d2047f6ac306",
+    "sha256": "b88b0e2ad2231a6388a51b84596402b4526f91941c717b15d83e5b70808d28fe",
     "executor_checkpoint_limit": 983040
   },
   "medium": {
-    "version": "1.5.2",
-    "conversation_id": "35ec0fc5-673b-4103-8614-4aeb856b8208",
+    "version": "1.5.3",
+    "conversation_id": "6927f540-e92a-4cc5-be13-d65396fa8145",
     "actual_request_limit": 983040,
-    "agents_bytes": 115997,
+    "agents_bytes": 119747,
     "sections": [
       {
         "title": "user_rules",
-        "bytes": 116368,
+        "bytes": 120118,
         "contains_full_agents": true,
         "excluded": false
       }
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "11dae983c4bd20343d2a759027274188131db642bb24831daf13d2047f6ac306",
+    "sha256": "b88b0e2ad2231a6388a51b84596402b4526f91941c717b15d83e5b70808d28fe",
     "executor_checkpoint_limit": 983040
   },
   "high": {
-    "version": "1.5.2",
-    "conversation_id": "f1d1c5ef-0a49-49ea-96e6-9f87316aca94",
+    "version": "1.5.3",
+    "conversation_id": "ecb677b7-d6a0-41b9-9d1a-4b64e6cb6e31",
     "actual_request_limit": 983040,
-    "agents_bytes": 115997,
+    "agents_bytes": 119747,
     "sections": [
       {
         "title": "user_rules",
-        "bytes": 116368,
+        "bytes": 120118,
         "contains_full_agents": true,
         "excluded": false
       }
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "11dae983c4bd20343d2a759027274188131db642bb24831daf13d2047f6ac306",
+    "sha256": "b88b0e2ad2231a6388a51b84596402b4526f91941c717b15d83e5b70808d28fe",
     "executor_checkpoint_limit": 983040
   }
 }
