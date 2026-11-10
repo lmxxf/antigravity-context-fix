@@ -1,18 +1,18 @@
 {
-  "version": "1.5.3",
+  "version": "1.5.4",
   "baseline": {
     "response": {
-      "conversation_id": "c0e8aa69-83c7-4479-975d-0c38b2e7c44e",
+      "conversation_id": "27a326c8-b955-4778-a1da-fa411df15afa",
       "status": "SUCCESS",
       "response": "OK\n",
-      "duration_seconds": 5.707243861,
+      "duration_seconds": 7.841070286,
       "num_turns": 1,
       "usage": {
-        "input_tokens": 14374,
+        "input_tokens": 14367,
         "output_tokens": 7,
         "thinking_tokens": 2,
         "cache_read_tokens": 0,
-        "total_tokens": 14381
+        "total_tokens": 14374
       }
     },
     "actual_request_limit": 256000,
@@ -21,88 +21,22 @@
   "probes": {
     "low": {
       "response": {
-        "conversation_id": "5bce36f9-e4f0-47d7-ad33-75df4aa8a3a1",
+        "conversation_id": "f26162fd-bfb0-49c9-b45c-e2b5134c4cb3",
         "status": "SUCCESS",
         "response": "OK\n",
-        "duration_seconds": 7.774619397,
+        "duration_seconds": 10.682100548,
         "num_turns": 1,
         "usage": {
-          "input_tokens": 42409,
-          "output_tokens": 25,
-          "thinking_tokens": 20,
-          "cache_read_tokens": 0,
-          "total_tokens": 42434
-        }
-      },
-      "verification": {
-        "version": "1.5.3",
-        "conversation_id": "5bce36f9-e4f0-47d7-ad33-75df4aa8a3a1",
-        "actual_request_limit": 983040,
-        "agents_bytes": 121931,
-        "sections": [
-          {
-            "title": "user_rules",
-            "bytes": 122302,
-            "contains_full_agents": true,
-            "excluded": false
-          }
-        ],
-        "executor_limit": 983040,
-        "long_context_over_256k_tested": false,
-        "sha256": "f703d3cd15b308efa05d7df395ff6757ec23d7c0489c5ae2e25f50741452aebb"
-      }
-    },
-    "medium": {
-      "response": {
-        "conversation_id": "517a1746-b57e-4663-a12b-3e8f60a43e59",
-        "status": "SUCCESS",
-        "response": "OK\n",
-        "duration_seconds": 6.923126201,
-        "num_turns": 1,
-        "usage": {
-          "input_tokens": 42419,
-          "output_tokens": 7,
-          "thinking_tokens": 2,
-          "cache_read_tokens": 0,
-          "total_tokens": 42426
-        }
-      },
-      "verification": {
-        "version": "1.5.3",
-        "conversation_id": "517a1746-b57e-4663-a12b-3e8f60a43e59",
-        "actual_request_limit": 983040,
-        "agents_bytes": 121931,
-        "sections": [
-          {
-            "title": "user_rules",
-            "bytes": 122302,
-            "contains_full_agents": true,
-            "excluded": false
-          }
-        ],
-        "executor_limit": 983040,
-        "long_context_over_256k_tested": false,
-        "sha256": "f703d3cd15b308efa05d7df395ff6757ec23d7c0489c5ae2e25f50741452aebb"
-      }
-    },
-    "high": {
-      "response": {
-        "conversation_id": "e08e5114-8809-4920-8b91-cd5c729b1916",
-        "status": "SUCCESS",
-        "response": "OK\n",
-        "duration_seconds": 7.586585088,
-        "num_turns": 1,
-        "usage": {
-          "input_tokens": 42416,
-          "output_tokens": 7,
-          "thinking_tokens": 2,
+          "input_tokens": 42410,
+          "output_tokens": 13,
+          "thinking_tokens": 8,
           "cache_read_tokens": 0,
           "total_tokens": 42423
         }
       },
       "verification": {
-        "version": "1.5.3",
-        "conversation_id": "e08e5114-8809-4920-8b91-cd5c729b1916",
+        "version": "1.5.4",
+        "conversation_id": "f26162fd-bfb0-49c9-b45c-e2b5134c4cb3",
         "actual_request_limit": 983040,
         "agents_bytes": 121931,
         "sections": [
@@ -115,7 +49,73 @@
         ],
         "executor_limit": 983040,
         "long_context_over_256k_tested": false,
-        "sha256": "f703d3cd15b308efa05d7df395ff6757ec23d7c0489c5ae2e25f50741452aebb"
+        "sha256": "edc316b4e5f6d051550cbc98709e15e230cdc419b42860a9cf098be0259f0ddf"
+      }
+    },
+    "medium": {
+      "response": {
+        "conversation_id": "4b851d58-2a2c-4af9-8807-2050f9c4bdf2",
+        "status": "SUCCESS",
+        "response": "OK\n",
+        "duration_seconds": 7.542133988,
+        "num_turns": 1,
+        "usage": {
+          "input_tokens": 42413,
+          "output_tokens": 7,
+          "thinking_tokens": 2,
+          "cache_read_tokens": 0,
+          "total_tokens": 42420
+        }
+      },
+      "verification": {
+        "version": "1.5.4",
+        "conversation_id": "4b851d58-2a2c-4af9-8807-2050f9c4bdf2",
+        "actual_request_limit": 983040,
+        "agents_bytes": 121931,
+        "sections": [
+          {
+            "title": "user_rules",
+            "bytes": 122302,
+            "contains_full_agents": true,
+            "excluded": false
+          }
+        ],
+        "executor_limit": 983040,
+        "long_context_over_256k_tested": false,
+        "sha256": "edc316b4e5f6d051550cbc98709e15e230cdc419b42860a9cf098be0259f0ddf"
+      }
+    },
+    "high": {
+      "response": {
+        "conversation_id": "1e04c6c9-f682-41d1-b392-806fbc3b425d",
+        "status": "SUCCESS",
+        "response": "OK\n",
+        "duration_seconds": 14.464808001,
+        "num_turns": 1,
+        "usage": {
+          "input_tokens": 42415,
+          "output_tokens": 7,
+          "thinking_tokens": 2,
+          "cache_read_tokens": 0,
+          "total_tokens": 42422
+        }
+      },
+      "verification": {
+        "version": "1.5.4",
+        "conversation_id": "1e04c6c9-f682-41d1-b392-806fbc3b425d",
+        "actual_request_limit": 983040,
+        "agents_bytes": 121931,
+        "sections": [
+          {
+            "title": "user_rules",
+            "bytes": 122302,
+            "contains_full_agents": true,
+            "excluded": false
+          }
+        ],
+        "executor_limit": 983040,
+        "long_context_over_256k_tested": false,
+        "sha256": "edc316b4e5f6d051550cbc98709e15e230cdc419b42860a9cf098be0259f0ddf"
       }
     }
   },
@@ -123,8 +123,8 @@
     "archive_matches": true,
     "reverse_hash_matches": true,
     "cave_references": [
-      "0x851fd54",
-      "0x876880c"
+      "0x8569354",
+      "0x87b55cc"
     ]
   },
   "long_context_over_256k_tested": false
