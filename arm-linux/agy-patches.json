@@ -1,65 +1,65 @@
 {
-  "version": "1.5.4",
-  "original_sha256": "874d86300e64ff6f378abd55bcb45cbc1f8749fa422629c10ddecbac683b7b97",
-  "patched_sha256": "0668a30db97160265579c175141b9b28cb5555944255f974cc9862404836bb45",
-  "size": 236147064,
+  "version": "1.5.5",
+  "original_sha256": "ab4bbafaf0dc7763b78f0a5444f1ce86ae279cb0f0cb4c6beaef53e58d243cde",
+  "patched_sha256": "038ff082ec376e9d209a07c36a8ef77618bb9c462f681af27997e7509950ac17",
+  "size": 236540280,
   "patches": [
     {
-      "offset": 136641876,
+      "offset": 136300804,
       "before": "600800f9",
-      "after": "cb980614",
+      "after": "870d0914",
       "label": "Argon three-tier final merged config"
     },
     {
-      "offset": 138371168,
+      "offset": 138673920,
       "before": "900b40f9f10301d13f0210ebe91b0054",
       "after": "e0031faae1031faae2031faac0035fd6",
       "label": "checkpoint false,nil"
     },
     {
-      "offset": 138371200,
-      "before": "e3130ea9e10b0da9e06700f9813840f9e00305aa20003fd6c01900b4e27740f9422040f9010400d1e07b40f9",
-      "after": "640440f9040100b4844040b9842416519f0800718800005404488852e401a072040c00b9600800f92c67f917",
-      "label": "Argon High/Medium/Low 1417..1419 max_token_limit=1000000"
+      "offset": 138673952,
+      "before": "e3130ea9e10b0da9e06700f9813840f9e00305aa20003fd6c01900b4e27740f9422040f9010400d1e07b40f940003fd6a01500b4051040f9651500b4e04f00f9e00305aa",
+      "after": "640440f9c40100b4844040b9842416519f080071c90000549f28007180000054845000519f040071a8000054800000b404488852e401a072040c00b9600800f96af2f617",
+      "label": "Argon 1417..1419 and Carbon 1427,1437,1438 max_token_limit=1000000"
     },
     {
-      "offset": 138663724,
+      "offset": 138966476,
       "before": "02b88bd2",
       "after": "0202a0d2",
       "label": "file limit 1048576"
     },
     {
-      "offset": 138667040,
+      "offset": 138969792,
       "before": "02b88bd2",
       "after": "0202a0d2",
       "label": "file limit 1048576"
     },
     {
-      "offset": 138682308,
+      "offset": 138985060,
       "before": "02b88bd2",
       "after": "0202a0d2",
       "label": "file limit 1048576"
     },
     {
-      "offset": 138692324,
+      "offset": 138995076,
       "before": "e70080b9",
       "after": "4700a0d2",
       "label": "inline budget 131072"
     },
     {
-      "offset": 138692340,
+      "offset": 138995092,
       "before": "07c489d2",
       "after": "4700a0d2",
       "label": "inline budget 131072"
     },
     {
-      "offset": 138692420,
+      "offset": 138995172,
       "before": "c60080b9",
       "after": "4600a0d2",
       "label": "inline budget 131072"
     },
     {
-      "offset": 138692436,
+      "offset": 138995188,
       "before": "06c489d2",
       "after": "4600a0d2",
       "label": "inline budget 131072"
@@ -68,6 +68,9 @@
   "models": {
     "gemini-4-argon-high": 1417,
     "gemini-4-argon-medium": 1418,
-    "gemini-4-argon-low": 1419
+    "gemini-4-argon-low": 1419,
+    "gemini-4-carbon-high": 1427,
+    "gemini-4-carbon-medium": 1437,
+    "gemini-4-carbon-low": 1438
   }
 }
