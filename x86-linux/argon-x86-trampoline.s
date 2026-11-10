@@ -7,7 +7,13 @@ _start:
  mov 64(%rsi), %esi
  sub $1417, %esi
  cmp $2, %esi
+ jbe matched
+ cmp $10, %esi
+ je matched
+ sub $20, %esi
+ cmp $1, %esi
  ja done
+matched:
  test %rax, %rax
  jz done
  movl $1000000, 12(%rax)

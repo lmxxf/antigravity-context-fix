@@ -7,6 +7,13 @@ r=Path(__file__).resolve().parent;m=json.loads((r/'agy-x86-patches.json').read_t
 sha=lambda b:hashlib.sha256(b).hexdigest()
 b=t.read_bytes();h=sha(b)
 if h==m['patched_sha256']:print('Already patched:',h);raise SystemExit
+if h==m.get('previous_patch',{}).get('patched_sha256'):
+ original=bytearray(b)
+ for c in m['previous_patch']['changes']:
+  o=int(c['offset'],16);old=bytes.fromhex(c['before']);new=bytes.fromhex(c['after'])
+  assert original[o:o+len(new)]==new
+  original[o:o+len(new)]=old
+ b=bytes(original);h=sha(b)
 if h!=m['original_sha256']:raise SystemExit('Unknown binary: refusing to patch '+h)
 assert os.uname().machine=='x86_64'
 out=bytearray(b)
