@@ -1,65 +1,65 @@
 {
-  "version": "1.5.3",
-  "original_sha256": "bc4ddea9d28bec7e0b9887bee841500a267ac5762ee36f5cdd894c487bf2eb8e",
-  "patched_sha256": "b88b0e2ad2231a6388a51b84596402b4526f91941c717b15d83e5b70808d28fe",
-  "size": 235622776,
+  "version": "1.5.4",
+  "original_sha256": "874d86300e64ff6f378abd55bcb45cbc1f8749fa422629c10ddecbac683b7b97",
+  "patched_sha256": "0668a30db97160265579c175141b9b28cb5555944255f974cc9862404836bb45",
+  "size": 236147064,
   "patches": [
     {
-      "offset": 136344324,
+      "offset": 136641876,
       "before": "600800f9",
-      "after": "078f0614",
+      "after": "cb980614",
       "label": "Argon three-tier final merged config"
     },
     {
-      "offset": 138063616,
+      "offset": 138371168,
       "before": "900b40f9f10301d13f0210ebe91b0054",
       "after": "e0031faae1031faae2031faac0035fd6",
       "label": "checkpoint false,nil"
     },
     {
-      "offset": 138063648,
+      "offset": 138371200,
       "before": "e3130ea9e10b0da9e06700f9813840f9e00305aa20003fd6c01900b4e27740f9422040f9010400d1e07b40f9",
-      "after": "640440f9040100b4844040b9842416519f0800718800005404488852e401a072040c00b9600800f9f070f917",
+      "after": "640440f9040100b4844040b9842416519f0800718800005404488852e401a072040c00b9600800f92c67f917",
       "label": "Argon High/Medium/Low 1417..1419 max_token_limit=1000000"
     },
     {
-      "offset": 138355948,
+      "offset": 138663724,
       "before": "02b88bd2",
       "after": "0202a0d2",
       "label": "file limit 1048576"
     },
     {
-      "offset": 138359264,
+      "offset": 138667040,
       "before": "02b88bd2",
       "after": "0202a0d2",
       "label": "file limit 1048576"
     },
     {
-      "offset": 138374548,
+      "offset": 138682308,
       "before": "02b88bd2",
       "after": "0202a0d2",
       "label": "file limit 1048576"
     },
     {
-      "offset": 138382964,
+      "offset": 138692324,
       "before": "e70080b9",
       "after": "4700a0d2",
       "label": "inline budget 131072"
     },
     {
-      "offset": 138382980,
+      "offset": 138692340,
       "before": "07c489d2",
       "after": "4700a0d2",
       "label": "inline budget 131072"
     },
     {
-      "offset": 138383060,
+      "offset": 138692420,
       "before": "c60080b9",
       "after": "4600a0d2",
       "label": "inline budget 131072"
     },
     {
-      "offset": 138383076,
+      "offset": 138692436,
       "before": "06c489d2",
       "after": "4600a0d2",
       "label": "inline budget 131072"
