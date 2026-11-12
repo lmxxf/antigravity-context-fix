@@ -20,10 +20,10 @@ matched:
 done:
  mov %rax, 16(%rdx)
  mov %rdx, %rax
- jmp 0x8507b7b
+ jmp 0x868595b
 .org 0x60
 budget:
  mov %rax, %rcx
  mov $131072, %ebx
  mov $131072, %eax
- jmp 0x8803017
+ jmp 0x89ad5f7
