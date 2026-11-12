@@ -6,6 +6,35 @@
 
 我们查了本地 SQLite 会话数据库。真实请求的 `max_context_tokens` 写着 **256000**，而不是面板上的1M。这里发生的是发送前裁剪历史，并没有生成摘要；所以关闭自动总结解决不了问题。
 
+## 启动与自动压缩开关（x86_64）
+
+**当前归档默认开启自动压缩，直接运行 `agy` 即可，无需附加参数。**
+开关会保持到下次切换；若之前设为 `off`，再次启动仍为关闭状态。
+
+本机已安装快捷命令：
+
+| 操作 | 命令 |
+|---|---|
+| 查看当前状态 | `agy-auto-compact status` |
+| 开启自动压缩 | `agy-auto-compact on` |
+| 关闭自动压缩 | `agy-auto-compact off` |
+| 启动 | `agy` |
+
+**切换后必须退出并重新启动 agy，已运行的进程不会立即改变。** 夜间无人值守工作建议保持 `on`。
+开关不改变扩大的输入窗口：Argon 983040、Carbon 786432 tokens。
+自动压缩与自动升级是两个独立功能。
+
+换机器若没有快捷命令，可在 ai-theorys-study 仓库根目录运行：
+
+```bash
+python3 wechat/assets/340-A/x86-linux/auto-compact.py status
+python3 wechat/assets/340-A/x86-linux/auto-compact.py on
+python3 wechat/assets/340-A/x86-linux/auto-compact.py off
+```
+
+恢复归档会回到默认 `on`。脚本只接受匹配构建的完整哈希；升级后需要重新适配补丁。
+此开关仅适用于本目录的 x86_64 归档，不能套用于 ARM。
+
 ## 一键恢复（换机器也能用）
 
 先退出 agy，进入本目录，按机器架构执行（只需 Python 3 标准库）：

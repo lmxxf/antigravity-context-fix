@@ -1,5 +1,34 @@
 # Antigravity CLI Linux x86_64 1.5.7 修正版（2026-11-12）
 
+## 启动与自动压缩开关（x86_64）
+
+**当前归档默认开启自动压缩，直接运行 `agy` 即可，无需附加参数。**
+开关会保持到下次切换；若之前设为 `off`，再次启动仍为关闭状态。
+
+本机已安装快捷命令：
+
+| 操作 | 命令 |
+|---|---|
+| 查看当前状态 | `agy-auto-compact status` |
+| 开启自动压缩 | `agy-auto-compact on` |
+| 关闭自动压缩 | `agy-auto-compact off` |
+| 启动 | `agy` |
+
+**切换后必须退出并重新启动 agy，已运行的进程不会立即改变。** 夜间无人值守工作建议保持 `on`。
+开关不改变扩大的输入窗口：Argon 983040、Carbon 786432 tokens。
+自动压缩与自动升级是两个独立功能。
+
+换机器若没有快捷命令，可在 ai-theorys-study 仓库根目录运行：
+
+```bash
+python3 wechat/assets/340-A/x86-linux/auto-compact.py status
+python3 wechat/assets/340-A/x86-linux/auto-compact.py on
+python3 wechat/assets/340-A/x86-linux/auto-compact.py off
+```
+
+恢复归档会回到默认 `on`。脚本只接受匹配构建的完整哈希；升级后需要重新适配补丁。
+此开关仅适用于本目录的 x86_64 归档，不能套用于 ARM。
+
 ## 恢复
 
 ```bash
@@ -41,17 +70,7 @@ fix-argon-context-x86.py只接受本构建清单中的哈希；原版备份仅�
 修改版SHA256：3cac18bd597d4c6e75b27556ec4ec4cf285a2ca7d63884f7a68cbcf41acc6ddf
 解压大小：280564136字节。
 
-## 自动压缩开关（默认开启）
+## 自动压缩验证
 
-在仓库根目录运行，切换后重启 agy：
-
-```bash
-python3 wechat/assets/340-A/x86-linux/auto-compact.py status
-python3 wechat/assets/340-A/x86-linux/auto-compact.py off
-python3 wechat/assets/340-A/x86-linux/auto-compact.py on
-```
-
-开关按完整哈希核验本构建并原子替换，未知版本拒绝修改。归档恢复默认on。
-开启表示恢复原生自动checkpoint流程，不保证网络或摘要服务故障时仍能无人值守继续。窗口仍为Argon 983040、Carbon 786432。
-
-验证：独立测试副本临时将窗口降至60000，填充输入后出现CHECKPOINT DONE，随后继续回复OK；正式二进制窗口未降低。未进行完整786432/983040满窗压力测试。
+独立测试副本临时将窗口降至60000，填充输入后出现 `CHECKPOINT DONE`，随后继续回复 `OK`；正式二进制窗口未降低。未进行完整786432/983040满窗压力测试。
+开启表示恢复原生自动 checkpoint 流程，不保证网络或摘要服务故障时仍能继续工作。
