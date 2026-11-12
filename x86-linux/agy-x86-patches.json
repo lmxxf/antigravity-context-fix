@@ -2,7 +2,7 @@
   "version": "1.5.7",
   "architecture": "x86_64",
   "original_sha256": "5df525a2d6908989c57b897723caea66e00d7c4d2e24411f91ad306989574642",
-  "patched_sha256": "896769062a453f586d63469372581341be4c3f08b8bab9519a8d5c9d89cce55d",
+  "patched_sha256": "3cac18bd597d4c6e75b27556ec4ec4cf285a2ca7d63884f7a68cbcf41acc6ddf",
   "size": 280564136,
   "changes": [
     {
@@ -24,27 +24,21 @@
       "purpose": "file read cap 1MiB"
     },
     {
-      "offset": "0x8946260",
-      "before": "4c8d6424d04d3b",
-      "after": "31c031db31c9c3",
-      "purpose": "checkpoint returns false,nil"
-    },
-    {
-      "offset": "0x8946280",
-      "before": "00004c898424e00000004889b424d80000004889bc24d000000048898c24c800000048899c24c000000048898424b8000000488b4e704c89c0ffd10f1f4400004885c00f8466030000488b8c24d8000000488b4940488d58ff488b8424e0000000ffd14885c00f84ea020000488b50204885",
-      "after": "488b72084885f674278b764081ee8905000083fe02760d83fe0a740883ee1483fe01770c4885c07407c7400c40420f00488942104889d0e99ff6d3ff0000000000000000000000000000000000000000000000000000000000000000000000004889c1bb00000200b800000200e905730600",
-      "purpose": "config and budget trampolines"
+      "offset": "0xa8a4300",
+      "before": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "after": "488b72084885f674278b764081ee8905000083fe02760d83fe0a740883ee1483fe01770c4885c07407c7400c40420f00488942104889d0e91f16defd0000000000000000000000000000000000000000000000000000000000000000000000004889c1bb00000200b800000200e9859210fe",
+      "purpose": "config and budget trampolines in executable padding"
     },
     {
       "offset": "0x8685954",
       "before": "488942104889d0",
-      "after": "e927092c009090",
+      "after": "e9a7e921029090",
       "purpose": "final Argon and Carbon checkpoint config"
     },
     {
       "offset": "0x89ad5ec",
       "before": "8b5c24484889c18b44244c",
-      "after": "e9ef8cf9ff909090909090",
+      "after": "e96f6def01909090909090",
       "purpose": "rules budgets 131072"
     }
   ],
@@ -55,5 +49,59 @@
     "carbon-low": 1438,
     "carbon-medium": 1437,
     "carbon-high": 1427
+  },
+  "previous_patch": {
+    "patched_sha256": "896769062a453f586d63469372581341be4c3f08b8bab9519a8d5c9d89cce55d",
+    "changes": [
+      {
+        "offset": "0x89a4069",
+        "before": "b9c05d0000",
+        "after": "b900001000",
+        "purpose": "file read cap 1MiB"
+      },
+      {
+        "offset": "0x89a4fe5",
+        "before": "b9c05d0000",
+        "after": "b900001000",
+        "purpose": "file read cap 1MiB"
+      },
+      {
+        "offset": "0x89aa047",
+        "before": "b9c05d0000",
+        "after": "b900001000",
+        "purpose": "file read cap 1MiB"
+      },
+      {
+        "offset": "0x8946260",
+        "before": "4c8d6424d04d3b",
+        "after": "31c031db31c9c3",
+        "purpose": "checkpoint returns false,nil"
+      },
+      {
+        "offset": "0x8946280",
+        "before": "00004c898424e00000004889b424d80000004889bc24d000000048898c24c800000048899c24c000000048898424b8000000488b4e704c89c0ffd10f1f4400004885c00f8466030000488b8c24d8000000488b4940488d58ff488b8424e0000000ffd14885c00f84ea020000488b50204885",
+        "after": "488b72084885f674278b764081ee8905000083fe02760d83fe0a740883ee1483fe01770c4885c07407c7400c40420f00488942104889d0e99ff6d3ff0000000000000000000000000000000000000000000000000000000000000000000000004889c1bb00000200b800000200e905730600",
+        "purpose": "config and budget trampolines"
+      },
+      {
+        "offset": "0x8685954",
+        "before": "488942104889d0",
+        "after": "e927092c009090",
+        "purpose": "final Argon and Carbon checkpoint config"
+      },
+      {
+        "offset": "0x89ad5ec",
+        "before": "8b5c24484889c18b44244c",
+        "after": "e9ef8cf9ff909090909090",
+        "purpose": "rules budgets 131072"
+      }
+    ]
+  },
+  "auto_compact": {
+    "default": "on",
+    "offset": "0x8946260",
+    "on": "4c8d6424d04d3b",
+    "off": "31c031db31c9c3",
+    "off_sha256": "7d4bf439805444cb334c40ca7bca93e342f159c1b553a553cfa966cf50866151"
   }
 }
