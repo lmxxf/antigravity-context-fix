@@ -1,110 +1,110 @@
 {
   "argon-low": {
-    "version": "1.5.5",
-    "conversation_id": "10d72e3d-1314-4bbd-a8f1-69f688dd3005",
+    "version": "1.5.8",
+    "conversation_id": "1a3f2b67-e1cc-4e72-93be-2c7df4460261",
     "actual_request_limit": 983040,
-    "agents_bytes": 119747,
+    "agents_bytes": 123402,
     "sections": [
       {
         "title": "user_rules",
-        "bytes": 120118,
+        "bytes": 123773,
         "contains_full_agents": true,
         "excluded": false
       }
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "038ff082ec376e9d209a07c36a8ef77618bb9c462f681af27997e7509950ac17",
+    "sha256": "d4e9b4061547dabb23bedf4285f9f8498eccfc9c4b3963997a65df91c4769af9",
     "executor_checkpoint_limit": 983040
   },
   "argon-medium": {
-    "version": "1.5.5",
-    "conversation_id": "60cd7e59-a278-463d-a2b5-f53ac5d825d8",
+    "version": "1.5.8",
+    "conversation_id": "c7c401bb-bfc1-49ec-8404-2838c0c5b1a8",
     "actual_request_limit": 983040,
-    "agents_bytes": 119747,
+    "agents_bytes": 123402,
     "sections": [
       {
         "title": "user_rules",
-        "bytes": 120118,
+        "bytes": 123773,
         "contains_full_agents": true,
         "excluded": false
       }
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "038ff082ec376e9d209a07c36a8ef77618bb9c462f681af27997e7509950ac17",
+    "sha256": "d4e9b4061547dabb23bedf4285f9f8498eccfc9c4b3963997a65df91c4769af9",
     "executor_checkpoint_limit": 983040
   },
   "argon-high": {
-    "version": "1.5.5",
-    "conversation_id": "26bb9edc-1036-4c04-b653-8b27c22b1c78",
+    "version": "1.5.8",
+    "conversation_id": "5dfc82e9-68d6-4ac6-9872-99021de56e08",
     "actual_request_limit": 983040,
-    "agents_bytes": 119747,
+    "agents_bytes": 123402,
     "sections": [
       {
         "title": "user_rules",
-        "bytes": 120118,
+        "bytes": 123773,
         "contains_full_agents": true,
         "excluded": false
       }
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "038ff082ec376e9d209a07c36a8ef77618bb9c462f681af27997e7509950ac17",
+    "sha256": "d4e9b4061547dabb23bedf4285f9f8498eccfc9c4b3963997a65df91c4769af9",
     "executor_checkpoint_limit": 983040
   },
   "carbon-low": {
-    "version": "1.5.5",
-    "conversation_id": "d9cc27b1-474d-4fa6-9d46-7d944a227903",
+    "version": "1.5.8",
+    "conversation_id": "c4d63e8e-349d-40ae-bff7-8ede25ca27cf",
     "actual_request_limit": 786432,
-    "agents_bytes": 119747,
+    "agents_bytes": 123402,
     "sections": [
       {
         "title": "user_rules",
-        "bytes": 120118,
+        "bytes": 123773,
         "contains_full_agents": true,
         "excluded": false
       }
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "038ff082ec376e9d209a07c36a8ef77618bb9c462f681af27997e7509950ac17",
+    "sha256": "d4e9b4061547dabb23bedf4285f9f8498eccfc9c4b3963997a65df91c4769af9",
     "executor_checkpoint_limit": 786432
   },
   "carbon-medium": {
-    "version": "1.5.5",
-    "conversation_id": "53e2efda-9c5a-466c-a553-7ca394bfea2d",
+    "version": "1.5.8",
+    "conversation_id": "0fe6adf1-5915-4353-9998-89479f6480a3",
     "actual_request_limit": 786432,
-    "agents_bytes": 119747,
+    "agents_bytes": 123402,
     "sections": [
       {
         "title": "user_rules",
-        "bytes": 120118,
+        "bytes": 123773,
         "contains_full_agents": true,
         "excluded": false
       }
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "038ff082ec376e9d209a07c36a8ef77618bb9c462f681af27997e7509950ac17",
+    "sha256": "d4e9b4061547dabb23bedf4285f9f8498eccfc9c4b3963997a65df91c4769af9",
     "executor_checkpoint_limit": 786432
   },
   "carbon-high": {
-    "version": "1.5.5",
-    "conversation_id": "10b3b562-f934-449c-8c4c-e85349162709",
+    "version": "1.5.8",
+    "conversation_id": "96fb0383-69da-4b6a-8625-14575e9141a5",
     "actual_request_limit": 786432,
-    "agents_bytes": 119747,
+    "agents_bytes": 123402,
     "sections": [
       {
         "title": "user_rules",
-        "bytes": 120118,
+        "bytes": 123773,
         "contains_full_agents": true,
         "excluded": false
       }
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "038ff082ec376e9d209a07c36a8ef77618bb9c462f681af27997e7509950ac17",
+    "sha256": "d4e9b4061547dabb23bedf4285f9f8498eccfc9c4b3963997a65df91c4769af9",
     "executor_checkpoint_limit": 786432
   }
 }
