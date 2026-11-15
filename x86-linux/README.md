@@ -1,4 +1,4 @@
-# Antigravity CLI Linux x86_64 1.5.7 修正版（2026-11-12）
+# Antigravity CLI Linux x86_64 1.5.9 修正版（2026-11-15）
 
 ## 启动与自动压缩开关（x86_64）
 
@@ -48,7 +48,7 @@ python3 wechat/assets/340-A/x86-linux/restore-agy.py
 
 ## 验证
 
-六档均正常回复OK，两处元数据窗口一致，完整加载123138字节AGENTS.md。
+六档均正常回复OK，两处元数据窗口一致，完整加载123402字节AGENTS.md。
 原版Argon Low与Carbon Low两处窗口均为256000。未跑超过256K长会话压力测试。
 补丁重复运行、归档解压与安装版一致、逆向还原原版哈希、跳板直接引用检查通过。
 记录见 verification.txt；完整文件校验：在本目录运行 sha256sum -c SHA256SUMS。
@@ -58,17 +58,17 @@ Carbon须追加 --expected-limit 786432，默认983040用于Argon。
 ## 维护
 
 未知哈希必须重新定位，禁止复用旧偏移。
-pclntab=0x17652a0，Go text=0x6eef080。getter：planner+8、model+64、limit+12。
-配置出口0x8685954→0xa8a4300；RDX为外层配置，RAX为checkpoint，RSI临时寄存器。
-匹配六个模型编号后写12(%rax)，重放原指令，返回0x868595b。
-checkpointNeeded入口0x8946260及函数体已恢复原版；跳板迁至.text内0xa8a4300的INT3对齐填充区。
-文件读取点0x89a4069、0x89a4fe5、0x89aa047。
-预算11字节指令组0x89ad5ec→0xa8a4360，设置EBX/EAX各131072，返回0x89ad5f7。
+pclntab=0x178f930，Go text=0x6fed080。getter：planner+8、model+64、limit+12。
+配置出口0x879b654→0xaa4ca00；RDX为外层配置，RAX为checkpoint，RSI临时寄存器。
+匹配六个模型编号后写12(%rax)，重放原指令，返回0x879b65b。
+checkpointNeeded入口0x8a66460及函数体已恢复原版；跳板迁至.text内0xaa4ca00的INT3对齐填充区。
+文件读取点0x8acac09、0x8acbb85、0x8ad0b87。
+预算11字节指令组0x8ad412c→0xaa4ca60，设置EBX/EAX各131072，返回0x8ad4137。
 汇编见argon-x86-trampoline.s，机器码trampoline.bin，函数定位functions.json。
 fix-argon-context-x86.py只接受本构建清单中的哈希；原版备份仅存本机。
-原版SHA256：5df525a2d6908989c57b897723caea66e00d7c4d2e24411f91ad306989574642
-修改版SHA256：3cac18bd597d4c6e75b27556ec4ec4cf285a2ca7d63884f7a68cbcf41acc6ddf
-解压大小：280564136字节。
+原版SHA256：39816d49d5ab92229952987225c23ea3fed7580699dcb4a444e0388e0ac1ce43
+修改版SHA256：a6ed3c4a53b6e3f1fa0c26f3f3d606080c1ab994c6e8207bd2fe7636fda435a4
+解压大小：265700040字节。
 
 ## 自动压缩验证
 
