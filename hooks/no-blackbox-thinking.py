@@ -58,8 +58,7 @@ def context_note(payload):
                         continue
                     return (f'上下文提示：最近一次请求约 {used:,} / {limit:,} tokens'
                             f'（{used / 1000:.1f}K / {limit / 1000:.1f}K，'
-                            f'{used / limit:.1%}）。这是 agy 记录的输入长度估算，'
-                            '不含此后新增的消息和工具结果，不是本次请求的实时值。')
+                            f'{used / limit:.1%}）。')
                 except (ValueError, IndexError, StopIteration, TypeError):
                     continue
     except (KeyError, ValueError, TypeError, sqlite3.Error, OSError):
