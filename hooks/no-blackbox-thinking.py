@@ -6,7 +6,7 @@ import sqlite3
 import sys
 import uuid
 
-REMINDER = '也不用勉强非要在黑盒思维链里输出什么特定字符，反正就尽量少在黑盒思维链里面想就行了，别又整出来几k十几k的token😂'
+REMINDER = '黑盒思维链最好空着别写；实在没忍住顺手滑几个字也没事，别在里面整出几k十几k的token就行😂'
 
 
 def fields(data):
