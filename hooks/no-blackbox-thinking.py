@@ -56,14 +56,12 @@ def context_note(payload):
                     used, limit = get(window, 1, 0), get(window, 4, 0)
                     if not 0 <= used < 100_000_000 or not 0 < limit < 100_000_000:
                         continue
-                    return (f'上下文提示：最近一次请求约 {used:,} / {limit:,} tokens'
-                            f'（{used / 1000:.1f}K / {limit / 1000:.1f}K，'
-                            f'{used / limit:.1%}）。')
+                    return f'（{used / 1000:.1f}K / {limit / 1000:.1f}K，{used / limit:.1%}）'
                 except (ValueError, IndexError, StopIteration, TypeError):
                     continue
     except (KeyError, ValueError, TypeError, sqlite3.Error, OSError):
         pass
-    return '上下文提示：当前会话暂无可读取的请求长度记录。'
+    return ''
 
 
 def main():
@@ -73,7 +71,8 @@ def main():
             payload = {}
     except (ValueError, OSError):
         payload = {}
-    message = REMINDER + '\n' + context_note(payload)
+    note = context_note(payload)
+    message = f'{REMINDER} {note}' if note else REMINDER
     print(json.dumps({'injectSteps': [{'systemMessage': {'systemMessage': message}}]},
                      ensure_ascii=False))
 
