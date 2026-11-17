@@ -6,7 +6,7 @@ import sqlite3
 import sys
 import uuid
 
-REMINDER = '黑盒思维链最好空着别写；实在没忍住顺手滑几个字也没事，别在里面整出几k十几k的token就行😂'
+REMINDER = '黑盒思维链最好空着别写；实在没忍住顺手滑几个字也没事😏'
 
 
 def fields(data):
@@ -72,7 +72,7 @@ def main():
     except (ValueError, OSError):
         payload = {}
     note = context_note(payload)
-    message = f'{REMINDER} {note}' if note else REMINDER
+    message = f'{REMINDER}{note}' if note else REMINDER
     print(json.dumps({'injectSteps': [{'systemMessage': {'systemMessage': message}}]},
                      ensure_ascii=False))
 
