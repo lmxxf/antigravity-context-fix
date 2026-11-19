@@ -1,66 +1,62 @@
 {
-  "version": "1.5.9",
+  "version": "1.5.12",
   "baseline": {
-    "argon": {
-      "response": {
-        "conversation_id": "d4bfde53-0dfd-4945-802b-f02281de6e56",
-        "status": "SUCCESS",
-        "response": "OK\n",
-        "duration_seconds": 8.845388345,
-        "num_turns": 1,
-        "usage": {
-          "input_tokens": 16150,
-          "output_tokens": 7,
-          "thinking_tokens": 2,
-          "cache_read_tokens": 0,
-          "total_tokens": 16157
-        }
-      },
-      "limits": [
-        256000,
-        256000
-      ]
+    "before-carbon-low": {
+      "model": 1438,
+      "executor": 512000,
+      "limit": 512000,
+      "full": false
     },
-    "carbon": {
-      "response": {
-        "conversation_id": "81d7bc62-ccaa-49ff-bf0f-4b399852ef2e",
-        "status": "SUCCESS",
-        "response": "OK\n",
-        "duration_seconds": 9.156725821,
-        "num_turns": 1,
-        "usage": {
-          "input_tokens": 16149,
-          "output_tokens": 7,
-          "thinking_tokens": 2,
-          "cache_read_tokens": 0,
-          "total_tokens": 16156
-        }
-      },
-      "limits": [
-        256000,
-        256000
-      ]
+    "before-neon-xhigh": {
+      "model": 1535,
+      "executor": 512000,
+      "limit": 512000,
+      "full": false
+    },
+    "before-neon-medium": {
+      "model": 1533,
+      "executor": 512000,
+      "limit": 512000,
+      "full": false
+    },
+    "before-neon-high": {
+      "model": 1532,
+      "executor": 512000,
+      "limit": 512000,
+      "full": false
+    },
+    "before-argon-low": {
+      "model": 1419,
+      "executor": 512000,
+      "limit": 512000,
+      "full": false
+    },
+    "before-neon-low": {
+      "model": 1534,
+      "executor": 512000,
+      "limit": 512000,
+      "full": false
     }
   },
   "probes": {
     "argon-low": {
       "response": {
-        "conversation_id": "32990abc-75d4-4015-9ede-501ad7c72b23",
+        "conversation_id": "525dadb6-801d-47b0-9f14-bd1631ab2a61",
         "status": "SUCCESS",
         "response": "OK\n",
-        "duration_seconds": 12.168982494,
+        "duration_seconds": 11.572393489,
         "num_turns": 1,
         "usage": {
-          "input_tokens": 44616,
-          "output_tokens": 11,
-          "thinking_tokens": 6,
+          "input_tokens": 44657,
+          "output_tokens": 7,
+          "thinking_tokens": 2,
           "cache_read_tokens": 0,
-          "total_tokens": 44627
+          "total_tokens": 44664
         }
       },
       "verification": {
-        "version": "1.5.9",
-        "conversation_id": "32990abc-75d4-4015-9ede-501ad7c72b23",
+        "version": "1.5.12",
+        "conversation_id": "525dadb6-801d-47b0-9f14-bd1631ab2a61",
         "actual_request_limit": 983040,
         "agents_bytes": 123402,
         "sections": [
@@ -73,27 +69,33 @@
         ],
         "executor_limit": 983040,
         "long_context_over_256k_tested": false,
-        "sha256": "a6ed3c4a53b6e3f1fa0c26f3f3d606080c1ab994c6e8207bd2fe7636fda435a4"
+        "sha256": "bf69f773f7d4b20bd30b4adfbf78316d7b9106666209ff7ade11a8f836bd6c31"
+      },
+      "metadata": {
+        "model": 1419,
+        "executor": 983040,
+        "limit": 983040,
+        "full": true
       }
     },
     "argon-medium": {
       "response": {
-        "conversation_id": "e69c94b3-79ba-4972-a5c6-501e99923b87",
+        "conversation_id": "6eb62e43-7358-4b24-8cf5-c33006bb9941",
         "status": "SUCCESS",
         "response": "OK\n",
-        "duration_seconds": 10.300970585,
+        "duration_seconds": 6.571053587,
         "num_turns": 1,
         "usage": {
-          "input_tokens": 44623,
-          "output_tokens": 58,
-          "thinking_tokens": 53,
+          "input_tokens": 44659,
+          "output_tokens": 12,
+          "thinking_tokens": 7,
           "cache_read_tokens": 0,
-          "total_tokens": 44681
+          "total_tokens": 44671
         }
       },
       "verification": {
-        "version": "1.5.9",
-        "conversation_id": "e69c94b3-79ba-4972-a5c6-501e99923b87",
+        "version": "1.5.12",
+        "conversation_id": "6eb62e43-7358-4b24-8cf5-c33006bb9941",
         "actual_request_limit": 983040,
         "agents_bytes": 123402,
         "sections": [
@@ -106,27 +108,33 @@
         ],
         "executor_limit": 983040,
         "long_context_over_256k_tested": false,
-        "sha256": "a6ed3c4a53b6e3f1fa0c26f3f3d606080c1ab994c6e8207bd2fe7636fda435a4"
+        "sha256": "bf69f773f7d4b20bd30b4adfbf78316d7b9106666209ff7ade11a8f836bd6c31"
+      },
+      "metadata": {
+        "model": 1418,
+        "executor": 983040,
+        "limit": 983040,
+        "full": true
       }
     },
     "argon-high": {
       "response": {
-        "conversation_id": "ee9187c7-4941-49b0-9618-3e5f7e3c819a",
+        "conversation_id": "9ea2cf21-fc75-4d68-8a3c-68b864132a46",
         "status": "SUCCESS",
         "response": "OK\n",
-        "duration_seconds": 9.342960171,
+        "duration_seconds": 8.740802729,
         "num_turns": 1,
         "usage": {
-          "input_tokens": 44623,
+          "input_tokens": 44659,
           "output_tokens": 7,
           "thinking_tokens": 2,
           "cache_read_tokens": 0,
-          "total_tokens": 44630
+          "total_tokens": 44666
         }
       },
       "verification": {
-        "version": "1.5.9",
-        "conversation_id": "ee9187c7-4941-49b0-9618-3e5f7e3c819a",
+        "version": "1.5.12",
+        "conversation_id": "9ea2cf21-fc75-4d68-8a3c-68b864132a46",
         "actual_request_limit": 983040,
         "agents_bytes": 123402,
         "sections": [
@@ -139,27 +147,33 @@
         ],
         "executor_limit": 983040,
         "long_context_over_256k_tested": false,
-        "sha256": "a6ed3c4a53b6e3f1fa0c26f3f3d606080c1ab994c6e8207bd2fe7636fda435a4"
+        "sha256": "bf69f773f7d4b20bd30b4adfbf78316d7b9106666209ff7ade11a8f836bd6c31"
+      },
+      "metadata": {
+        "model": 1417,
+        "executor": 983040,
+        "limit": 983040,
+        "full": true
       }
     },
     "carbon-low": {
       "response": {
-        "conversation_id": "d9cd4e12-62a7-4c7a-a731-3687f629b4bb",
+        "conversation_id": "a0100551-a03f-479b-a3dd-fa394ab601ec",
         "status": "SUCCESS",
         "response": "OK\n",
-        "duration_seconds": 9.823496442,
+        "duration_seconds": 8.621893004,
         "num_turns": 1,
         "usage": {
-          "input_tokens": 44621,
+          "input_tokens": 44656,
           "output_tokens": 7,
           "thinking_tokens": 2,
           "cache_read_tokens": 0,
-          "total_tokens": 44628
+          "total_tokens": 44663
         }
       },
       "verification": {
-        "version": "1.5.9",
-        "conversation_id": "d9cd4e12-62a7-4c7a-a731-3687f629b4bb",
+        "version": "1.5.12",
+        "conversation_id": "a0100551-a03f-479b-a3dd-fa394ab601ec",
         "actual_request_limit": 786432,
         "agents_bytes": 123402,
         "sections": [
@@ -172,27 +186,33 @@
         ],
         "executor_limit": 786432,
         "long_context_over_256k_tested": false,
-        "sha256": "a6ed3c4a53b6e3f1fa0c26f3f3d606080c1ab994c6e8207bd2fe7636fda435a4"
+        "sha256": "bf69f773f7d4b20bd30b4adfbf78316d7b9106666209ff7ade11a8f836bd6c31"
+      },
+      "metadata": {
+        "model": 1438,
+        "executor": 786432,
+        "limit": 786432,
+        "full": true
       }
     },
     "carbon-medium": {
       "response": {
-        "conversation_id": "a7d4c418-5912-4a94-bbe0-01d0c56dc8e3",
+        "conversation_id": "bface0fa-a8de-4e30-ac07-936a387c6275",
         "status": "SUCCESS",
         "response": "OK\n",
-        "duration_seconds": 9.366736925,
+        "duration_seconds": 7.048786988,
         "num_turns": 1,
         "usage": {
-          "input_tokens": 44619,
+          "input_tokens": 44652,
           "output_tokens": 7,
           "thinking_tokens": 2,
           "cache_read_tokens": 0,
-          "total_tokens": 44626
+          "total_tokens": 44659
         }
       },
       "verification": {
-        "version": "1.5.9",
-        "conversation_id": "a7d4c418-5912-4a94-bbe0-01d0c56dc8e3",
+        "version": "1.5.12",
+        "conversation_id": "bface0fa-a8de-4e30-ac07-936a387c6275",
         "actual_request_limit": 786432,
         "agents_bytes": 123402,
         "sections": [
@@ -205,27 +225,33 @@
         ],
         "executor_limit": 786432,
         "long_context_over_256k_tested": false,
-        "sha256": "a6ed3c4a53b6e3f1fa0c26f3f3d606080c1ab994c6e8207bd2fe7636fda435a4"
+        "sha256": "bf69f773f7d4b20bd30b4adfbf78316d7b9106666209ff7ade11a8f836bd6c31"
+      },
+      "metadata": {
+        "model": 1437,
+        "executor": 786432,
+        "limit": 786432,
+        "full": true
       }
     },
     "carbon-high": {
       "response": {
-        "conversation_id": "d5016640-1f98-4dde-ae2e-bc914df88aa7",
+        "conversation_id": "2839024a-40d4-4c49-9d74-dcc0912659c3",
         "status": "SUCCESS",
         "response": "OK\n",
-        "duration_seconds": 9.216114969,
+        "duration_seconds": 10.852616439,
         "num_turns": 1,
         "usage": {
-          "input_tokens": 44613,
+          "input_tokens": 44661,
           "output_tokens": 7,
           "thinking_tokens": 2,
           "cache_read_tokens": 0,
-          "total_tokens": 44620
+          "total_tokens": 44668
         }
       },
       "verification": {
-        "version": "1.5.9",
-        "conversation_id": "d5016640-1f98-4dde-ae2e-bc914df88aa7",
+        "version": "1.5.12",
+        "conversation_id": "2839024a-40d4-4c49-9d74-dcc0912659c3",
         "actual_request_limit": 786432,
         "agents_bytes": 123402,
         "sections": [
@@ -238,7 +264,169 @@
         ],
         "executor_limit": 786432,
         "long_context_over_256k_tested": false,
-        "sha256": "a6ed3c4a53b6e3f1fa0c26f3f3d606080c1ab994c6e8207bd2fe7636fda435a4"
+        "sha256": "bf69f773f7d4b20bd30b4adfbf78316d7b9106666209ff7ade11a8f836bd6c31"
+      },
+      "metadata": {
+        "model": 1427,
+        "executor": 786432,
+        "limit": 786432,
+        "full": true
+      }
+    },
+    "neon-low": {
+      "response": {
+        "conversation_id": "c314ff72-08b7-4b1e-bb15-f12949018f89",
+        "status": "SUCCESS",
+        "response": "OK\n",
+        "duration_seconds": 7.454022696,
+        "num_turns": 1,
+        "usage": {
+          "input_tokens": 44826,
+          "output_tokens": 4,
+          "thinking_tokens": 2,
+          "cache_read_tokens": 0,
+          "total_tokens": 44830
+        }
+      },
+      "verification": {
+        "version": "1.5.12",
+        "conversation_id": "c314ff72-08b7-4b1e-bb15-f12949018f89",
+        "actual_request_limit": 786432,
+        "agents_bytes": 123402,
+        "sections": [
+          {
+            "title": "user_rules",
+            "bytes": 123773,
+            "contains_full_agents": true,
+            "excluded": false
+          }
+        ],
+        "executor_limit": 786432,
+        "long_context_over_256k_tested": false,
+        "sha256": "bf69f773f7d4b20bd30b4adfbf78316d7b9106666209ff7ade11a8f836bd6c31"
+      },
+      "metadata": {
+        "model": 1534,
+        "executor": 786432,
+        "limit": 786432,
+        "full": true
+      }
+    },
+    "neon-medium": {
+      "response": {
+        "conversation_id": "c91103ce-5ce4-4975-86b7-f39fadb8fec8",
+        "status": "SUCCESS",
+        "response": "OK\n",
+        "duration_seconds": 10.152488676,
+        "num_turns": 1,
+        "usage": {
+          "input_tokens": 44818,
+          "output_tokens": 4,
+          "thinking_tokens": 2,
+          "cache_read_tokens": 0,
+          "total_tokens": 44822
+        }
+      },
+      "verification": {
+        "version": "1.5.12",
+        "conversation_id": "c91103ce-5ce4-4975-86b7-f39fadb8fec8",
+        "actual_request_limit": 786432,
+        "agents_bytes": 123402,
+        "sections": [
+          {
+            "title": "user_rules",
+            "bytes": 123773,
+            "contains_full_agents": true,
+            "excluded": false
+          }
+        ],
+        "executor_limit": 786432,
+        "long_context_over_256k_tested": false,
+        "sha256": "bf69f773f7d4b20bd30b4adfbf78316d7b9106666209ff7ade11a8f836bd6c31"
+      },
+      "metadata": {
+        "model": 1533,
+        "executor": 786432,
+        "limit": 786432,
+        "full": true
+      }
+    },
+    "neon-high": {
+      "response": {
+        "conversation_id": "81c4f908-9f9f-4c03-86bd-95219adc3a28",
+        "status": "SUCCESS",
+        "response": "OK\n",
+        "duration_seconds": 8.117648404,
+        "num_turns": 1,
+        "usage": {
+          "input_tokens": 44825,
+          "output_tokens": 4,
+          "thinking_tokens": 2,
+          "cache_read_tokens": 0,
+          "total_tokens": 44829
+        }
+      },
+      "verification": {
+        "version": "1.5.12",
+        "conversation_id": "81c4f908-9f9f-4c03-86bd-95219adc3a28",
+        "actual_request_limit": 786432,
+        "agents_bytes": 123402,
+        "sections": [
+          {
+            "title": "user_rules",
+            "bytes": 123773,
+            "contains_full_agents": true,
+            "excluded": false
+          }
+        ],
+        "executor_limit": 786432,
+        "long_context_over_256k_tested": false,
+        "sha256": "bf69f773f7d4b20bd30b4adfbf78316d7b9106666209ff7ade11a8f836bd6c31"
+      },
+      "metadata": {
+        "model": 1532,
+        "executor": 786432,
+        "limit": 786432,
+        "full": true
+      }
+    },
+    "neon-xhigh": {
+      "response": {
+        "conversation_id": "744f4e19-c025-4476-91e9-8a60c90e903c",
+        "status": "SUCCESS",
+        "response": "OK\n",
+        "duration_seconds": 12.668405288,
+        "num_turns": 1,
+        "usage": {
+          "input_tokens": 44832,
+          "output_tokens": 4,
+          "thinking_tokens": 2,
+          "cache_read_tokens": 0,
+          "total_tokens": 44836
+        }
+      },
+      "verification": {
+        "version": "1.5.12",
+        "conversation_id": "744f4e19-c025-4476-91e9-8a60c90e903c",
+        "actual_request_limit": 786432,
+        "agents_bytes": 123402,
+        "sections": [
+          {
+            "title": "user_rules",
+            "bytes": 123773,
+            "contains_full_agents": true,
+            "excluded": false
+          }
+        ],
+        "executor_limit": 786432,
+        "long_context_over_256k_tested": false,
+        "sha256": "bf69f773f7d4b20bd30b4adfbf78316d7b9106666209ff7ade11a8f836bd6c31"
+      },
+      "metadata": {
+        "model": 1535,
+        "executor": 786432,
+        "limit": 786432,
+        "full": true
       }
     }
   },
@@ -247,32 +435,28 @@
     "checkpoint_body_original": true,
     "toggle_off_on_verified": true,
     "cave_references": [
-      "0x879b654",
-      "0x8ad412c"
-    ],
-    "archive_matches": true,
-    "restoration_verified": true
+      "0x88d8674",
+      "0x8c5b9cc"
+    ]
   },
   "auto_compact_default": "on",
   "long_context_over_256k_tested": false,
   "reduced_window_auto_compaction_test": {
     "window": 60000,
-    "isolated_binary": true,
     "response": {
-      "conversation_id": "76518df6-94ee-4c82-a57f-7b795b4697d1",
+      "conversation_id": "d28e4132-89af-4c67-8000-8cba379f0889",
       "status": "SUCCESS",
       "response": "OK\n",
-      "duration_seconds": 40.63696635,
+      "duration_seconds": 36.998930118,
       "num_turns": 2,
       "usage": {
-        "input_tokens": 117983,
-        "output_tokens": 572,
+        "input_tokens": 118209,
+        "output_tokens": 726,
         "thinking_tokens": 6,
-        "cache_read_tokens": 44631,
-        "total_tokens": 118555
+        "cache_read_tokens": 44667,
+        "total_tokens": 118935
       }
     },
-    "checkpoint_step": 4,
     "checkpoint_status": "DONE"
   }
 }

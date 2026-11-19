@@ -5,6 +5,12 @@ _start:
  test %rsi, %rsi
  jz done
  mov 64(%rsi), %esi
+ cmp $1532, %esi
+ jb argon_carbon
+ cmp $1535, %esi
+ jbe matched
+ jmp done
+argon_carbon:
  sub $1417, %esi
  cmp $2, %esi
  jbe matched
@@ -20,10 +26,10 @@ matched:
 done:
  mov %rax, 16(%rdx)
  mov %rdx, %rax
- jmp 0x879b65b
+ jmp 0x88d867b
 .org 0x60
 budget:
  mov %rax, %rcx
  mov $131072, %ebx
  mov $131072, %eax
- jmp 0x8ad4137
+ jmp 0x8c5b9d7

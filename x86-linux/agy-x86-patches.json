@@ -1,44 +1,44 @@
 {
-  "version": "1.5.9",
+  "version": "1.5.12",
   "architecture": "x86_64",
-  "original_sha256": "39816d49d5ab92229952987225c23ea3fed7580699dcb4a444e0388e0ac1ce43",
-  "patched_sha256": "a6ed3c4a53b6e3f1fa0c26f3f3d606080c1ab994c6e8207bd2fe7636fda435a4",
-  "size": 265700040,
+  "original_sha256": "94104f028e6962fa2f71d393a7ae27d835ceba1c4898422a103e22c6a5fd6828",
+  "patched_sha256": "bf69f773f7d4b20bd30b4adfbf78316d7b9106666209ff7ade11a8f836bd6c31",
+  "size": 269443784,
   "changes": [
     {
-      "offset": "0x8acac09",
+      "offset": "0x8c520c9",
       "before": "b9c05d0000",
       "after": "b900001000",
       "purpose": "file read cap 1MiB"
     },
     {
-      "offset": "0x8acbb85",
+      "offset": "0x8c53045",
       "before": "b9c05d0000",
       "after": "b900001000",
       "purpose": "file read cap 1MiB"
     },
     {
-      "offset": "0x8ad0b87",
+      "offset": "0x8c582c7",
       "before": "b9c05d0000",
       "after": "b900001000",
       "purpose": "file read cap 1MiB"
     },
     {
-      "offset": "0xaa4ca00",
+      "offset": "0xad6cb00",
       "before": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
-      "after": "488b72084885f674278b764081ee8905000083fe02760d83fe0a740883ee1483fe01770c4885c07407c7400c40420f00488942104889d0e91fecd4fd0000000000000000000000000000000000000000000000000000000000000000000000004889c1bb00000200b800000200e9c57608fe",
+      "after": "488b72084885f674398b764081fefc050000720a81feff050000761aeb2481ee8905000083fe02760d83fe0a740883ee1483fe01770c4885c07407c7400c40420f00488942104889d0e92dbbb6fd0000000000000000000000000000000000004889c1bb00000200b800000200e965eeeefd",
       "purpose": "config and budget trampolines in executable padding"
     },
     {
-      "offset": "0x879b654",
+      "offset": "0x88d8674",
       "before": "488942104889d0",
-      "after": "e9a7132b029090",
-      "purpose": "final Argon and Carbon checkpoint config"
+      "after": "e9874449029090",
+      "purpose": "final Argon, Carbon and Neon checkpoint config"
     },
     {
-      "offset": "0x8ad412c",
+      "offset": "0x8c5b9cc",
       "before": "8b5c24484889c18b44244c",
-      "after": "e92f89f701909090909090",
+      "after": "e98f111102909090909090",
       "purpose": "rules budgets 131072"
     }
   ],
@@ -48,13 +48,17 @@
     "argon-high": 1417,
     "carbon-low": 1438,
     "carbon-medium": 1437,
-    "carbon-high": 1427
+    "carbon-high": 1427,
+    "neon-low": 1534,
+    "neon-medium": 1533,
+    "neon-high": 1532,
+    "neon-xhigh": 1535
   },
   "auto_compact": {
     "default": "on",
-    "offset": "0x8a66460",
+    "offset": "0x8be9ca0",
     "on": "4c8d6424d04d3b",
     "off": "31c031db31c9c3",
-    "off_sha256": "c20a06fda1e2e8e1528e477fe14d21029077ce072f419f0e99ff8ad003abed3f"
+    "off_sha256": "6eda28154a7e9fc41080ed081912ed4e9a03d9691c205975734049e445db4100"
   }
 }
