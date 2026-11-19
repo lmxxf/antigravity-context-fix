@@ -1,6 +1,6 @@
 # agy ARM64 补丁维护操作说明
 
-更新：2026-11-18。此目录只保留当前修改版；用于 agy 自动升级后恢复长上下文、完整规则注入和关闭自动 checkpoint。按用户指定保留 `readme.md` 作为操作入口，供后续 agent/skill 读取，不自动安装到技能目录。
+更新：2026-11-19。此目录只保留当前修改版；用于 agy 自动升级后恢复长上下文、完整规则注入和关闭自动 checkpoint。按用户指定保留 `readme.md` 作为操作入口，供后续 agent/skill 读取，不自动安装到技能目录。
 
 ## 当前产物
 
@@ -15,7 +15,7 @@
 
 原版 SHA256：`ee97779667cd253ef897aa3168e08f961e37c96f354807a1654aa2057a525d7d`
 
-修改版 SHA256：`fa0ff127421917bcbe081a9a5888a901aeda0f7c8ff4402b5a585406458b0659`
+修改版 SHA256：`dbccd4f83cf89412dd24a6cb518b1cb97ff8c3e996ddcac36198f34c1c4a8b17`
 
 目录不存原版二进制。安装位置保留 `agy-1.5.11-original.bak`；补丁脚本创建备份且不会覆盖不同内容的备份。旧版 README、封面及归档已按要求移除，x86-linux 不在本次维护范围。
 
@@ -43,7 +43,7 @@ sha256sum -c agy.sha256
 
 ## 新版本：重新定位后再修改
 
-目标保持四项：Argon 与 Carbon 的 Low/Medium/High 六档最终窗口预算均为 1000000；规则/skill 单文件上限 1048576 字节；rules/customizations 总预算各 131072 tokens；自动 checkpoint 谓词返回 false,nil。其他模型窗口不扩改。先确认新版本是否仍有这些限制；已被上游修好的部分不重复补。
+目标保持四项：Argon、Carbon 各三档及 Neon 四档最终窗口预算均为 1000000；规则/skill 单文件上限 1048576 字节；rules/customizations 总预算各 131072 tokens；自动 checkpoint 谓词返回 false,nil。其他模型窗口不扩改。先确认新版本是否仍有这些限制；已被上游修好的部分不重复补。
 
 ### 1. 找函数，别沿用偏移
 
@@ -77,7 +77,7 @@ pcHeader 的 +8 是 nfunc；+24 是 textStart；+32 是 funcnameOffset；+64 是
 
 本构建：Argon High=1417、Medium=1418、Low=1419；Carbon High=1427、Medium=1437、Low=1438，planner 指针在 +8，plan_model 为32位字段 +64，max_token_limit 为32位字段 +12。出口 `0x866c6a4` 原指令为 `str x0,[x3,#16]`；x3 是外层配置，x0 是最终 checkpoint 配置，x4 可作临时寄存器。
 
-补丁跳到 `0x890ace0`：检查 planner 非空、模型编号为1417..1419、1427、1437..1438（Carbon编号不连续）；匹配时写1000000；随后无论匹配与否都补做原指令，跳回 `0x866c6a8`。精确机器码见 JSON，生成分支时校验4字节对齐和 ARM64 B 的范围。
+补丁跳到 `0x890ace0`：检查 planner 非空、模型编号为1417..1419、1427、1437..1438、1532..1535（Neon）；匹配时写1000000；随后无论匹配与否都补做原指令，跳回 `0x866c6a8`。精确机器码见 JSON，生成分支时校验4字节对齐和 ARM64 B 的范围。
 
 ### 3. 自动 checkpoint 与跳板空间
 
@@ -137,7 +137,7 @@ python3 verify-request.py <conversation_id> --agents /实际项目/AGENTS.md
 
 同时核对 executor_metadata 中运行配置的 checkpoint 上限。当前 schema：executor 根字段10→CascadeConfig 字段2→CheckpointConfig 字段5；gen 根字段1→chat 字段9→start 字段10→window 字段4。脚本当前检查后者，前者用字段解析核对。
 
-当前构建六档真实请求结果见 verification.json；必须同时检查 executor/gen 窗口和完整规则注入。未做超过256K的长会话压力测试；1.3.5 曾达到474.8K，不能当新版验收。需要完整长会话验收时交用户运行，再检查历史是否保留及是否裁剪。
+当前构建十档真实请求结果见 verification.json；必须同时检查 executor/gen 窗口和完整规则注入。未做超过256K的长会话压力测试；1.3.5 曾达到474.8K，不能当新版验收。需要完整长会话验收时交用户运行，再检查历史是否保留及是否裁剪。
 
 ## 每次更新本目录
 
@@ -216,3 +216,7 @@ export AGY_CLI_DISABLE_AUTO_UPDATE=true
 ### 11月18日：ARM64 1.5.11 六档补丁
 
 已重新定位并安装补丁。Argon 三档实际窗口为 983040，Carbon 三档为 786432。六档小请求均回复 OK，完整加载 123538 字节 AGENTS.md。归档比对、幂等及逆向还原原版哈希检查通过。未做超过 256K 的长会话压力测试。
+
+### 11月19日：ARM64 1.5.11 加入 Neon
+
+Neon High、Medium、Low、XHigh 分别对应 1532、1533、1534、1535。四档实际请求窗口均从 512000 提高至 786432。原六档补丁可直接运行新版 ARM 补丁脚本升级，重启 agy 后生效。
