@@ -1,7 +1,7 @@
 {
   "neon-low": {
-    "version": "1.5.11",
-    "conversation_id": "0ca3b515-f4ce-404f-8a39-a627cc57bcbf",
+    "version": "1.5.12",
+    "conversation_id": "3fc74c76-5149-4322-8e1c-d0857c7e1454",
     "actual_request_limit": 786432,
     "agents_bytes": 123538,
     "sections": [
@@ -14,13 +14,13 @@
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "dbccd4f83cf89412dd24a6cb518b1cb97ff8c3e996ddcac36198f34c1c4a8b17",
+    "sha256": "d2a78e479a0f3eb5384c7578cd79486ef41adb04c32cb1a273d01874c59288a8",
     "model_id": 1534,
     "executor_checkpoint_limit": 786432
   },
   "neon-medium": {
-    "version": "1.5.11",
-    "conversation_id": "b3cf15f0-2266-431e-92bf-a962e33af4b8",
+    "version": "1.5.12",
+    "conversation_id": "0997abc2-c130-4668-9837-cd9c1346d078",
     "actual_request_limit": 786432,
     "agents_bytes": 123538,
     "sections": [
@@ -33,13 +33,13 @@
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "dbccd4f83cf89412dd24a6cb518b1cb97ff8c3e996ddcac36198f34c1c4a8b17",
+    "sha256": "d2a78e479a0f3eb5384c7578cd79486ef41adb04c32cb1a273d01874c59288a8",
     "model_id": 1533,
     "executor_checkpoint_limit": 786432
   },
   "neon-high": {
-    "version": "1.5.11",
-    "conversation_id": "8759f751-60d3-4416-932b-5bc8d89ed7ba",
+    "version": "1.5.12",
+    "conversation_id": "c046bdd3-38f3-4928-8393-0d948c73b98e",
     "actual_request_limit": 786432,
     "agents_bytes": 123538,
     "sections": [
@@ -52,13 +52,13 @@
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "dbccd4f83cf89412dd24a6cb518b1cb97ff8c3e996ddcac36198f34c1c4a8b17",
+    "sha256": "d2a78e479a0f3eb5384c7578cd79486ef41adb04c32cb1a273d01874c59288a8",
     "model_id": 1532,
     "executor_checkpoint_limit": 786432
   },
   "neon-xhigh": {
-    "version": "1.5.11",
-    "conversation_id": "16667528-a786-4506-a4c4-9d2bb2dea94e",
+    "version": "1.5.12",
+    "conversation_id": "649efdea-ca94-4fe7-a6ee-9c3668cfb173",
     "actual_request_limit": 786432,
     "agents_bytes": 123538,
     "sections": [
@@ -71,13 +71,13 @@
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "dbccd4f83cf89412dd24a6cb518b1cb97ff8c3e996ddcac36198f34c1c4a8b17",
+    "sha256": "d2a78e479a0f3eb5384c7578cd79486ef41adb04c32cb1a273d01874c59288a8",
     "model_id": 1535,
     "executor_checkpoint_limit": 786432
   },
   "argon-low": {
-    "version": "1.5.11",
-    "conversation_id": "0e0a406d-7514-4bf4-bdb2-9745aaf7a400",
+    "version": "1.5.12",
+    "conversation_id": "5d6d3483-7bb5-4e53-bb56-acfd333caf07",
     "actual_request_limit": 983040,
     "agents_bytes": 123538,
     "sections": [
@@ -90,13 +90,13 @@
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "dbccd4f83cf89412dd24a6cb518b1cb97ff8c3e996ddcac36198f34c1c4a8b17",
+    "sha256": "d2a78e479a0f3eb5384c7578cd79486ef41adb04c32cb1a273d01874c59288a8",
     "model_id": 1419,
     "executor_checkpoint_limit": 983040
   },
   "argon-medium": {
-    "version": "1.5.11",
-    "conversation_id": "78d27e58-5eb1-4b4e-b7f3-6d10b2cdc356",
+    "version": "1.5.12",
+    "conversation_id": "604de382-710d-4d98-a0d0-6698be68d55e",
     "actual_request_limit": 983040,
     "agents_bytes": 123538,
     "sections": [
@@ -109,13 +109,13 @@
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "dbccd4f83cf89412dd24a6cb518b1cb97ff8c3e996ddcac36198f34c1c4a8b17",
+    "sha256": "d2a78e479a0f3eb5384c7578cd79486ef41adb04c32cb1a273d01874c59288a8",
     "model_id": 1418,
     "executor_checkpoint_limit": 983040
   },
   "argon-high": {
-    "version": "1.5.11",
-    "conversation_id": "49c99467-3a4b-42ab-ac05-22d28add3c30",
+    "version": "1.5.12",
+    "conversation_id": "e77692f0-57bd-495b-8106-595391b1a6a5",
     "actual_request_limit": 983040,
     "agents_bytes": 123538,
     "sections": [
@@ -128,13 +128,13 @@
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "dbccd4f83cf89412dd24a6cb518b1cb97ff8c3e996ddcac36198f34c1c4a8b17",
+    "sha256": "d2a78e479a0f3eb5384c7578cd79486ef41adb04c32cb1a273d01874c59288a8",
     "model_id": 1417,
     "executor_checkpoint_limit": 983040
   },
   "carbon-low": {
-    "version": "1.5.11",
-    "conversation_id": "55c55dc7-1f93-42af-aa5c-6edba1ad0b01",
+    "version": "1.5.12",
+    "conversation_id": "c8b39095-464e-4ec7-81d6-1d8f611ccbe5",
     "actual_request_limit": 786432,
     "agents_bytes": 123538,
     "sections": [
@@ -147,13 +147,13 @@
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "dbccd4f83cf89412dd24a6cb518b1cb97ff8c3e996ddcac36198f34c1c4a8b17",
+    "sha256": "d2a78e479a0f3eb5384c7578cd79486ef41adb04c32cb1a273d01874c59288a8",
     "model_id": 1438,
     "executor_checkpoint_limit": 786432
   },
   "carbon-medium": {
-    "version": "1.5.11",
-    "conversation_id": "9f2eeb56-9a5c-4ec6-82c3-178337a5d269",
+    "version": "1.5.12",
+    "conversation_id": "8618f395-08c8-439b-8a5c-5289537bd85e",
     "actual_request_limit": 786432,
     "agents_bytes": 123538,
     "sections": [
@@ -166,13 +166,13 @@
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "dbccd4f83cf89412dd24a6cb518b1cb97ff8c3e996ddcac36198f34c1c4a8b17",
+    "sha256": "d2a78e479a0f3eb5384c7578cd79486ef41adb04c32cb1a273d01874c59288a8",
     "model_id": 1437,
     "executor_checkpoint_limit": 786432
   },
   "carbon-high": {
-    "version": "1.5.11",
-    "conversation_id": "83f01d59-e4b1-45e5-9357-d75fbecf87cc",
+    "version": "1.5.12",
+    "conversation_id": "73ff1e8f-3b53-47b4-bdbc-4c40f15f0f37",
     "actual_request_limit": 786432,
     "agents_bytes": 123538,
     "sections": [
@@ -185,7 +185,7 @@
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "dbccd4f83cf89412dd24a6cb518b1cb97ff8c3e996ddcac36198f34c1c4a8b17",
+    "sha256": "d2a78e479a0f3eb5384c7578cd79486ef41adb04c32cb1a273d01874c59288a8",
     "model_id": 1427,
     "executor_checkpoint_limit": 786432
   }

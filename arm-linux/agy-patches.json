@@ -1,65 +1,65 @@
 {
-  "version": "1.5.11",
-  "original_sha256": "ee97779667cd253ef897aa3168e08f961e37c96f354807a1654aa2057a525d7d",
-  "patched_sha256": "dbccd4f83cf89412dd24a6cb518b1cb97ff8c3e996ddcac36198f34c1c4a8b17",
-  "size": 252531376,
+  "version": "1.5.12",
+  "original_sha256": "f8bb8d22dfb676ac0a69effe534283274f860095bfdca62a7caa69de459784ed",
+  "patched_sha256": "d2a78e479a0f3eb5384c7578cd79486ef41adb04c32cb1a273d01874c59288a8",
+  "size": 253055664,
   "patches": [
     {
-      "offset": 140953252,
+      "offset": 140261396,
       "before": "600800f9",
-      "after": "8f790a14",
+      "after": "9f940a14",
       "label": "Argon three-tier final merged config"
     },
     {
-      "offset": 143699136,
+      "offset": 143034992,
       "before": "900b40f9f10301d13f0210ebe91b0054",
       "after": "e0031faae1031faae2031faac0035fd6",
       "label": "checkpoint false,nil"
     },
     {
-      "offset": 143699168,
-      "before": "e3130ea9e10b0da9e06700f9813840f9e00305aa20003fd6c01900b4e27740f9422040f9010400d1e07b40f940003fd6a01500b4051040f9651500b4e04f00f9e00305aa1b23c297e34f40f9631040f9a30000b5e3031faae4031faae5031faa0a000014",
-      "after": "640440f9c40200b4844040b99ff81771e00100549ff41771a00100549ff01771600100549ffc177120010054842416519f080071c90000549f28007180000054845000519f040071a8000054800000b404488852e401a072040c00b9600800f95a86f517",
+      "offset": 143035024,
+      "before": "e3130ea9e10b0da9e06700f9813840f9e00305aa20003fd6c01900b4e27740f9422040f9010400d1e07b40f940003fd6a01500b4051040f9651500b4e04f00f9e00305aa9fe6c597e34f40f9631040f9a30000b5e3031faae4031faae5031faa0a000014",
+      "after": "640440f9c40200b4844040b99ff81771e00100549ff41771a00100549ff01771600100549ffc177120010054842416519f080071c90000549f28007180000054845000519f040071a8000054800000b404488852e401a072040c00b9600800f94a6bf517",
       "label": "Argon, Carbon and Neon model-specific context override"
     },
     {
-      "offset": 144018588,
+      "offset": 143356796,
       "before": "02b88bd2",
       "after": "0202a0d2",
       "label": "file limit 1048576"
     },
     {
-      "offset": 144021904,
+      "offset": 143360112,
       "before": "02b88bd2",
       "after": "0202a0d2",
       "label": "file limit 1048576"
     },
     {
-      "offset": 144037636,
+      "offset": 143375844,
       "before": "02b88bd2",
       "after": "0202a0d2",
       "label": "file limit 1048576"
     },
     {
-      "offset": 144047828,
+      "offset": 143386036,
       "before": "e70080b9",
       "after": "4700a0d2",
       "label": "inline budget 131072"
     },
     {
-      "offset": 144047844,
+      "offset": 143386052,
       "before": "07c489d2",
       "after": "4700a0d2",
       "label": "inline budget 131072"
     },
     {
-      "offset": 144047924,
+      "offset": 143386132,
       "before": "c60080b9",
       "after": "4600a0d2",
       "label": "inline budget 131072"
     },
     {
-      "offset": 144047940,
+      "offset": 143386148,
       "before": "06c489d2",
       "after": "4600a0d2",
       "label": "inline budget 131072"
@@ -76,70 +76,5 @@
     "gemini-4-neon-medium": 1533,
     "gemini-4-neon-high": 1532,
     "gemini-4-neon-xhigh": 1535
-  },
-  "upgrade_from": {
-    "sha256": "fa0ff127421917bcbe081a9a5888a901aeda0f7c8ff4402b5a585406458b0659",
-    "patches": [
-      {
-        "offset": 140953252,
-        "before": "600800f9",
-        "after": "8f790a14",
-        "label": "Argon three-tier final merged config"
-      },
-      {
-        "offset": 143699136,
-        "before": "900b40f9f10301d13f0210ebe91b0054",
-        "after": "e0031faae1031faae2031faac0035fd6",
-        "label": "checkpoint false,nil"
-      },
-      {
-        "offset": 143699168,
-        "before": "e3130ea9e10b0da9e06700f9813840f9e00305aa20003fd6c01900b4e27740f9422040f9010400d1e07b40f940003fd6a01500b4051040f9651500b4e04f00f9e00305aa",
-        "after": "640440f9c40100b4844040b9842416519f080071c90000549f28007180000054845000519f040071a8000054800000b404488852e401a072040c00b9600800f96286f517",
-        "label": "Argon 1417..1419 and Carbon 1427,1437,1438 max_token_limit=1000000"
-      },
-      {
-        "offset": 144018588,
-        "before": "02b88bd2",
-        "after": "0202a0d2",
-        "label": "file limit 1048576"
-      },
-      {
-        "offset": 144021904,
-        "before": "02b88bd2",
-        "after": "0202a0d2",
-        "label": "file limit 1048576"
-      },
-      {
-        "offset": 144037636,
-        "before": "02b88bd2",
-        "after": "0202a0d2",
-        "label": "file limit 1048576"
-      },
-      {
-        "offset": 144047828,
-        "before": "e70080b9",
-        "after": "4700a0d2",
-        "label": "inline budget 131072"
-      },
-      {
-        "offset": 144047844,
-        "before": "07c489d2",
-        "after": "4700a0d2",
-        "label": "inline budget 131072"
-      },
-      {
-        "offset": 144047924,
-        "before": "c60080b9",
-        "after": "4600a0d2",
-        "label": "inline budget 131072"
-      },
-      {
-        "offset": 144047940,
-        "before": "06c489d2",
-        "after": "4600a0d2",
-        "label": "inline budget 131072"
-      }
-    ]
   }
 }

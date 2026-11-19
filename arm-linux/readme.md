@@ -6,22 +6,22 @@
 
 | 文件 | 用途 |
 |---|---|
-| `agy.gz` | 已修改的 Linux ARM64 1.5.11 可执行文件，解压后 252531376 字节 |
+| `agy.gz` | 已修改的 Linux ARM64 1.5.12 可执行文件，解压后 253055664 字节 |
 | `agy.sha256` | 解压后的执行文件校验值 |
 | `agy-patches.json` | 原版/修改版 SHA256、每处文件偏移和修改前后完整字节 |
 | `fix-argon-context.py` | 此构建的完整幂等补丁；支持 `--target`，默认修改 `~/.local/bin/agy` |
 | `verify-request.py` | 只读检查指定会话数据库中的请求窗口、规则全文注入 |
 | `verification.json` | 当前版本已完成的小请求验证记录；不是新版本的验证证据 |
 
-原版 SHA256：`ee97779667cd253ef897aa3168e08f961e37c96f354807a1654aa2057a525d7d`
+原版 SHA256：`f8bb8d22dfb676ac0a69effe534283274f860095bfdca62a7caa69de459784ed`
 
-修改版 SHA256：`dbccd4f83cf89412dd24a6cb518b1cb97ff8c3e996ddcac36198f34c1c4a8b17`
+修改版 SHA256：`d2a78e479a0f3eb5384c7578cd79486ef41adb04c32cb1a273d01874c59288a8`
 
-目录不存原版二进制。安装位置保留 `agy-1.5.11-original.bak`；补丁脚本创建备份且不会覆盖不同内容的备份。旧版 README、封面及归档已按要求移除，x86-linux 不在本次维护范围。
+目录不存原版二进制。安装位置保留 `agy-1.5.12-original.bak`；补丁脚本创建备份且不会覆盖不同内容的备份。旧版 README、封面及归档已按要求移除，x86-linux 不在本次维护范围。
 
 ## 已知版本：恢复或重新打补丁
 
-先检查 `command -v agy`、`file`、`agy --version` 和 SHA256。同为 1.5.11 也可能重新构建，以哈希为准。
+先检查 `command -v agy`、`file`、`agy --version` 和 SHA256。同为 1.5.12 也可能重新构建，以哈希为准。
 
 对匹配原版哈希的文件执行：
 
@@ -53,7 +53,7 @@ Go stripped 二进制仍可从 pclntab 找函数：搜索 Go 1.20+ ARM64 头字�
 
 pcHeader 的 +8 是 nfunc；+24 是 textStart；+32 是 funcnameOffset；+64 是 pclnOffset。后两项相对表头。函数表每项是两枚 uint32：entryOff、funcOff；下一项 entryOff 给出结束位置。函数记录在 pclnOffset+funcOff，+4 的 int32 是名称偏移，指向 funcname 表。PIE 文件的 textStart 可能是零，要结合模块初始化/重定位和已知函数反汇编定位 Go text 起点，并用多个 getter 交叉核验。
 
-1.5.11 的表头在 `0x17cb450`，Go text 起点为 `0x70c30c0`，这些只是本次定位结果。
+1.5.12 的表头在 `0x17d91a8`，Go text 起点为 `0x710f0c0`，这些只是本次定位结果。
 
 找这些名称：
 
@@ -71,17 +71,17 @@ pcHeader 的 +8 是 nfunc；+24 是 textStart；+32 是 funcnameOffset；+64 是
 
 ### 2. 在最终配置合并出口设窗口
 
-仅修改早期 GetCheckpointConfig 常量、内嵌实验字符串或 UI contextWindow，可能再次被特征配置覆盖。1.5.11 只补最终合并出口即可，小请求已验证，无需复制 1.3.5 的早期试错改动。
+仅修改早期 GetCheckpointConfig 常量、内嵌实验字符串或 UI contextWindow，可能再次被特征配置覆盖。1.5.12 只补最终合并出口即可，小请求已验证，无需复制 1.3.5 的早期试错改动。
 
 逐项核实：模型名对应的枚举值；CascadeConfig 的 planner 指针偏移；planner 的 plan_model 偏移；CheckpointConfig 的 max_token_limit 字段宽度和偏移；出口现场寄存器与返回路径。
 
-本构建：Argon High=1417、Medium=1418、Low=1419；Carbon High=1427、Medium=1437、Low=1438，planner 指针在 +8，plan_model 为32位字段 +64，max_token_limit 为32位字段 +12。出口 `0x866c6a4` 原指令为 `str x0,[x3,#16]`；x3 是外层配置，x0 是最终 checkpoint 配置，x4 可作临时寄存器。
+本构建：Argon High=1417、Medium=1418、Low=1419；Carbon High=1427、Medium=1437、Low=1438，planner 指针在 +8，plan_model 为32位字段 +64，max_token_limit 为32位字段 +12。出口 `0x85c3814` 原指令为 `str x0,[x3,#16]`；x3 是外层配置，x0 是最终 checkpoint 配置，x4 可作临时寄存器。
 
-补丁跳到 `0x890ace0`：检查 planner 非空、模型编号为1417..1419、1427、1437..1438、1532..1535（Neon）；匹配时写1000000；随后无论匹配与否都补做原指令，跳回 `0x866c6a8`。精确机器码见 JSON，生成分支时校验4字节对齐和 ARM64 B 的范围。
+补丁跳到 `0x8868a90`：检查 planner 非空、模型编号为1417..1419、1427、1437..1438、1532..1535（Neon）；匹配时写1000000；随后无论匹配与否都补做原指令，跳回 `0x85c3818`。精确机器码见 JSON，生成分支时校验4字节对齐和 ARM64 B 的范围。
 
 ### 3. 自动 checkpoint 与跳板空间
 
-本构建 `checkpointNeeded` 入口 `0x890acc0`，返回签名 `(bool,error)`。入口写：
+本构建 `checkpointNeeded` 入口 `0x8868a70`，返回签名 `(bool,error)`。入口写：
 
 ```text
 mov x0,xzr
@@ -102,18 +102,18 @@ ret
 
 | 文件偏移 | 函数 |
 |---|---|
-| `0x8958c9c` | readGlobalRules |
-| `0x8959990` | parseRuleFile |
-| `0x895d704` | convertSkillPath |
+| `0x88b737c` | readGlobalRules |
+| `0x88b8070` | parseRuleFile |
+| `0x88bbde4` | convertSkillPath |
 
 总预算要修改实际消费的配置读取路径和默认路径，两项共四处：
 
 | 偏移 | 原指令 | 新指令 |
 |---|---|---|
-| `0x895fed4` | `0xb98000e7` | `0xd2a00047` |
-| `0x895fee4` | `0xd289c407` | `0xd2a00047` |
-| `0x895ff34` | `0xb98000c6` | `0xd2a00046` |
-| `0x895ff44` | `0xd289c406` | `0xd2a00046` |
+| `0x88be5b4` | `0xb98000e7` | `0xd2a00047` |
+| `0x88be5c4` | `0xd289c407` | `0xd2a00047` |
+| `0x88be614` | `0xb98000c6` | `0xd2a00046` |
+| `0x88be624` | `0xd289c406` | `0xd2a00046` |
 
 即 x7/x6 都设131072。函数前部还存在用于判断是否配置预算的读取，不要误认成最终消费点；沿控制流追到汇合及预算参数传递处。
 
@@ -220,3 +220,7 @@ export AGY_CLI_DISABLE_AUTO_UPDATE=true
 ### 11月19日：ARM64 1.5.11 加入 Neon
 
 Neon High、Medium、Low、XHigh 分别对应 1532、1533、1534、1535。四档实际请求窗口均从 512000 提高至 786432。原六档补丁可直接运行新版 ARM 补丁脚本升级，重启 agy 后生效。
+
+### 11月19日：ARM64 1.5.12
+
+已核对十档真实小请求。Neon 四档和 Carbon 三档均为 786432，Argon 三档均为 983040。executor 与 gen 记录一致，十档均完整加载项目规则。归档与安装版逐字节一致，逆向还原原版哈希通过。未跑超过 256K 的长会话测试。
