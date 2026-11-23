@@ -265,3 +265,15 @@ Neon High、Medium、Low、XHigh 分别对应 1532、1533、1534、1535。四档
 ### 11月19日：ARM64 1.5.12
 
 已核对十档真实小请求。Neon 四档和 Carbon 三档均为 786432，Argon 三档均为 983040。executor 与 gen 记录一致，十档均完整加载项目规则。归档与安装版逐字节一致，逆向还原原版哈希通过。未跑超过 256K 的长会话测试。
+
+### 11月23日：本机 x86_64 1.5.15 使用原生压缩阈值，补齐规则读取
+
+1.5.15 已支持通过环境变量设置自动压缩阈值。本机在 `~/.bashrc` 中加入以下设置，新开 Bash 后直接启动 `agy` 即可。沿用当前终端时，先退出 agy，执行 `source ~/.bashrc`，再启动。可用 `/context` 查看生效的阈值。[官方 1.5.15 更新日志](https://github.com/google-antigravity/antigravity-cli/blob/main/CHANGELOG.md#1515)
+
+```bash
+export AGY_CLI_AUTO_COMPACT_OVERRIDE=100%
+```
+
+原版即使调高压缩阈值，读取项目 `AGENTS.md` 时仍受 24,000 字节单文件上限约束，请求中出现了 `<truncated 100178 bytes>`。本机把三个文件读取点提高到 1 MiB；仅改读取上限时，规则仍未完整进入请求。随后把两项规则预算各提高到 131,072 tokens，Argon Low 的真实请求才在 `user_rules` 中逐字包含完整的 124,091 字节文件。该请求的 executor 和 gen 元数据均记录输入窗口为 983,040 tokens。
+
+本条记录的是本机安装版。仓库内可用恢复脚本安装的 x86_64 二进制归档版本为 **1.5.12**。
