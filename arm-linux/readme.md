@@ -1,27 +1,27 @@
 # agy ARM64 补丁维护操作说明
 
-更新：2026-11-19。此目录只保留当前修改版；用于 agy 自动升级后恢复长上下文、完整规则注入和关闭自动 checkpoint。按用户指定保留 `readme.md` 作为操作入口，供后续 agent/skill 读取，不自动安装到技能目录。
+更新：2026-11-23。此目录只保留当前修改版；用于 agy 自动升级后恢复长上下文、完整规则注入和使用原生自动压缩。按用户指定保留 `readme.md` 作为操作入口，供后续 agent/skill 读取，不自动安装到技能目录。
 
 ## 当前产物
 
 | 文件 | 用途 |
 |---|---|
-| `agy.gz` | 已修改的 Linux ARM64 1.5.12 可执行文件，解压后 253055664 字节 |
+| `agy.gz` | 已修改的 Linux ARM64 1.5.15 可执行文件，解压后 256660144 字节 |
 | `agy.sha256` | 解压后的执行文件校验值 |
 | `agy-patches.json` | 原版/修改版 SHA256、每处文件偏移和修改前后完整字节 |
 | `fix-argon-context.py` | 此构建的完整幂等补丁；支持 `--target`，默认修改 `~/.local/bin/agy` |
 | `verify-request.py` | 只读检查指定会话数据库中的请求窗口、规则全文注入 |
 | `verification.json` | 当前版本已完成的小请求验证记录；不是新版本的验证证据 |
 
-原版 SHA256：`f8bb8d22dfb676ac0a69effe534283274f860095bfdca62a7caa69de459784ed`
+原版 SHA256：`497580a779b155268c4aa8f491b75e3b0034d4d0ba05c762582e7d97222396b0`
 
-修改版 SHA256：`d2a78e479a0f3eb5384c7578cd79486ef41adb04c32cb1a273d01874c59288a8`
+修改版 SHA256：`7fa262c5951450ce9db21a6fd22427aa36a622e67fa5c8098f3355fe280858be`
 
-目录不存原版二进制。安装位置保留 `agy-1.5.12-original.bak`；补丁脚本创建备份且不会覆盖不同内容的备份。旧版 README、封面及归档已按要求移除，x86-linux 不在本次维护范围。
+目录不存原版二进制。安装位置保留 `agy-1.5.15-original.bak`；补丁脚本创建备份且不会覆盖不同内容的备份。旧版 README、封面及归档已按要求移除，x86-linux 不在本次维护范围。
 
 ## 已知版本：恢复或重新打补丁
 
-先检查 `command -v agy`、`file`、`agy --version` 和 SHA256。同为 1.5.12 也可能重新构建，以哈希为准。
+先检查 `command -v agy`、`file`、`agy --version` 和 SHA256。同为 1.5.15 也可能重新构建，以哈希为准。
 
 对匹配原版哈希的文件执行：
 
@@ -41,60 +41,11 @@ sha256sum -c agy.sha256
 
 需要覆盖安装时，先备份当前安装版，再把校验通过的解包文件通过临时文件原子替换到安装路径。恢复归档会回到本目录的版本；用户要求适配新版本时，走下一节，不用旧归档冒充升级适配。
 
-## 新版本：重新定位后再修改
+## 窗口与压缩阈值
 
-目标保持四项：Argon、Carbon 各三档及 Neon 四档最终窗口预算均为 1000000；规则/skill 单文件上限 1048576 字节；rules/customizations 总预算各 131072 tokens；自动 checkpoint 谓词返回 false,nil。其他模型窗口不扩改。先确认新版本是否仍有这些限制；已被上游修好的部分不重复补。
+启动前设置 `export AGY_CLI_AUTO_COMPACT_OVERRIDE=100%`，可写入 `~/.bashrc`。恢复归档到其他机器后也要设置。1.5.15 使用原生窗口与 checkpoint 逻辑，二进制补丁仅涉及下述七处规则读取指令。
 
-### 1. 找函数，别沿用偏移
-
-读取 ELF 程序头/节头，建立虚拟地址→文件偏移映射。此次代码范围两者相等，数据段并非如此，不能推广到整文件或下一版。
-
-Go stripped 二进制仍可从 pclntab 找函数：搜索 Go 1.20+ ARM64 头字节 `f1 ff ff ff 00 00 04 08`，验证计数、边界、名称及函数代码。文件里可能存在嵌套二进制/第二套表，不要只靠 magic 命中就采用。
-
-pcHeader 的 +8 是 nfunc；+24 是 textStart；+32 是 funcnameOffset；+64 是 pclnOffset。后两项相对表头。函数表每项是两枚 uint32：entryOff、funcOff；下一项 entryOff 给出结束位置。函数记录在 pclnOffset+funcOff，+4 的 int32 是名称偏移，指向 funcname 表。PIE 文件的 textStart 可能是零，要结合模块初始化/重定位和已知函数反汇编定位 Go text 起点，并用多个 getter 交叉核验。
-
-1.5.12 的表头在 `0x17d91a8`，Go text 起点为 `0x710f0c0`，这些只是本次定位结果。
-
-找这些名称：
-
-- `config.applyFeatureProviderCheckpointOverrideConfig`
-- `hooks.checkpointNeeded`
-- `customizations.(*Manager).readGlobalRules`
-- `customizations.(*Manager).parseRuleFile`
-- `customizations.convertSkillPath`
-- `customizations.(*Manager).computeTruncatedCustomizations`
-- `(*CascadeConfig).GetPlannerConfig`
-- `(*CascadePlannerConfig).GetPlanModel`
-- `(*CheckpointConfig).GetMaxTokenLimit`
-
-用 `aarch64-linux-gnu-objdump` 或 `llvm-objdump` 查看各函数有限范围；不要把整份约 200MB 二进制的反汇编灌进上下文。
-
-### 2. 在最终配置合并出口设窗口
-
-仅修改早期 GetCheckpointConfig 常量、内嵌实验字符串或 UI contextWindow，可能再次被特征配置覆盖。1.5.12 只补最终合并出口即可，小请求已验证，无需复制 1.3.5 的早期试错改动。
-
-逐项核实：模型名对应的枚举值；CascadeConfig 的 planner 指针偏移；planner 的 plan_model 偏移；CheckpointConfig 的 max_token_limit 字段宽度和偏移；出口现场寄存器与返回路径。
-
-本构建：Argon High=1417、Medium=1418、Low=1419；Carbon High=1427、Medium=1437、Low=1438，planner 指针在 +8，plan_model 为32位字段 +64，max_token_limit 为32位字段 +12。出口 `0x85c3814` 原指令为 `str x0,[x3,#16]`；x3 是外层配置，x0 是最终 checkpoint 配置，x4 可作临时寄存器。
-
-补丁跳到 `0x8868a90`：检查 planner 非空、模型编号为1417..1419、1427、1437..1438、1532..1535（Neon）；匹配时写1000000；随后无论匹配与否都补做原指令，跳回 `0x85c3818`。精确机器码见 JSON，生成分支时校验4字节对齐和 ARM64 B 的范围。
-
-### 3. 自动 checkpoint 与跳板空间
-
-本构建 `checkpointNeeded` 入口 `0x8868a70`，返回签名 `(bool,error)`。入口写：
-
-```text
-mov x0,xzr
-mov x1,xzr
-mov x2,xzr
-ret
-```
-
-只清 x0 会把残留 x1/x2 当作非空 error 接口，之前真实崩溃过。新版本须从调用方重新确认返回约定。
-
-入口短路后，后方函数体才可作为不可达跳板空间；检查不存在其他入口指向被占用区域。跳板不调用函数、不改栈、不改变文件大小，回到原执行点。不要把“关闭自动 checkpoint”写成“所有裁剪都关闭”；手动 compact 需另测才可宣称可用。
-
-### 4. 两层规则限制一起处理
+### 两层规则限制一起处理
 
 单文件24000字节截断与总预算20000 tokens是两件事。只放开字节数会让整份文件超过总预算，最后完全不注入。
 
@@ -102,24 +53,24 @@ ret
 
 | 文件偏移 | 函数 |
 |---|---|
-| `0x88b737c` | readGlobalRules |
-| `0x88b8070` | parseRuleFile |
-| `0x88bbde4` | convertSkillPath |
+| `0x89dede4` | readGlobalRules |
+| `0x89dfae4` | parseRuleFile |
+| `0x89e3f74` | convertSkillPath |
 
 总预算要修改实际消费的配置读取路径和默认路径，两项共四处：
 
 | 偏移 | 原指令 | 新指令 |
 |---|---|---|
-| `0x88be5b4` | `0xb98000e7` | `0xd2a00047` |
-| `0x88be5c4` | `0xd289c407` | `0xd2a00047` |
-| `0x88be614` | `0xb98000c6` | `0xd2a00046` |
-| `0x88be624` | `0xd289c406` | `0xd2a00046` |
+| `0x89e6714` | `0xb98000e7` | `0xd2a00047` |
+| `0x89e6724` | `0xd289c407` | `0xd2a00047` |
+| `0x89e6774` | `0xb98000c6` | `0xd2a00046` |
+| `0x89e6784` | `0xd289c406` | `0xd2a00046` |
 
 即 x7/x6 都设131072。函数前部还存在用于判断是否配置预算的读取，不要误认成最终消费点；沿控制流追到汇合及预算参数传递处。
 
-### 5. 制作补丁与验证
+### 制作补丁与验证
 
-先保存原版哈希和独立备份，再生成每处原字节/新字节清单。写入前校验整个构建哈希及每处原指令，修改后校验文件长度、指令和预期哈希。未知版本、结构不符或找不到安全跳板时停止写入，继续定位；不得靠试偏移覆盖可执行文件。
+先保存原版哈希和独立备份，再生成每处原字节/新字节清单。写入前校验整个构建哈希及每处原指令，修改后校验文件长度、指令和预期哈希。未知版本或结构不符时停止写入，继续定位；不得靠试偏移覆盖可执行文件。
 
 先检查 `--version` 能启动和重复运行脚本幂等，再发一条不调用工具的小请求；启动成功不代表补丁生效。在包含实际 AGENTS.md 的项目根目录开新会话：
 
@@ -224,3 +175,7 @@ Neon High、Medium、Low、XHigh 分别对应 1532、1533、1534、1535。四档
 ### 11月19日：ARM64 1.5.12
 
 已核对十档真实小请求。Neon 四档和 Carbon 三档均为 786432，Argon 三档均为 983040。executor 与 gen 记录一致，十档均完整加载项目规则。归档与安装版逐字节一致，逆向还原原版哈希通过。未跑超过 256K 的长会话测试。
+
+### 11月23日：ARM64 1.5.15
+
+设置原生 100% 压缩阈值，三个规则读取点提高到 1 MiB，两项规则预算各为 131072 tokens。十档小请求均完整加载项目规则，Argon 三档窗口为 983040，Carbon 三档和 Neon 四档为 786432。未做超过 256K 的长会话测试。
