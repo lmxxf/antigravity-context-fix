@@ -1,7 +1,7 @@
 {
   "argon-low": {
     "version": "1.5.15",
-    "conversation_id": "54f96469-dcb7-44c7-860e-094391dfa75b",
+    "conversation_id": "cd2cf58e-8c93-407a-ad6f-f0af428cb328",
     "actual_request_limit": 983040,
     "agents_bytes": 124091,
     "sections": [
@@ -14,51 +14,13 @@
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "7fa262c5951450ce9db21a6fd22427aa36a622e67fa5c8098f3355fe280858be",
+    "sha256": "8f8c9920a698931801686b3dc27a03669cd9d725a55491db52791f8570339fba",
     "model_id": 1419,
-    "executor_checkpoint_limit": 983040
-  },
-  "argon-medium": {
-    "version": "1.5.15",
-    "conversation_id": "f4826f74-0ecd-4010-b503-50605b23bf2d",
-    "actual_request_limit": 983040,
-    "agents_bytes": 124091,
-    "sections": [
-      {
-        "title": "user_rules",
-        "bytes": 124462,
-        "contains_full_agents": true,
-        "excluded": false
-      }
-    ],
-    "response": "OK",
-    "long_context_over_256k_tested": false,
-    "sha256": "7fa262c5951450ce9db21a6fd22427aa36a622e67fa5c8098f3355fe280858be",
-    "model_id": 1418,
-    "executor_checkpoint_limit": 983040
-  },
-  "argon-high": {
-    "version": "1.5.15",
-    "conversation_id": "5a223370-0486-4a7a-8402-6dd80c006c4c",
-    "actual_request_limit": 983040,
-    "agents_bytes": 124091,
-    "sections": [
-      {
-        "title": "user_rules",
-        "bytes": 124462,
-        "contains_full_agents": true,
-        "excluded": false
-      }
-    ],
-    "response": "OK",
-    "long_context_over_256k_tested": false,
-    "sha256": "7fa262c5951450ce9db21a6fd22427aa36a622e67fa5c8098f3355fe280858be",
-    "model_id": 1417,
     "executor_checkpoint_limit": 983040
   },
   "carbon-low": {
     "version": "1.5.15",
-    "conversation_id": "ee8fdd3a-43d7-46b0-9aa1-8f3c60506311",
+    "conversation_id": "01ae9bc4-058f-4835-9dd7-123151185d46",
     "actual_request_limit": 786432,
     "agents_bytes": 124091,
     "sections": [
@@ -71,13 +33,13 @@
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "7fa262c5951450ce9db21a6fd22427aa36a622e67fa5c8098f3355fe280858be",
+    "sha256": "8f8c9920a698931801686b3dc27a03669cd9d725a55491db52791f8570339fba",
     "model_id": 1438,
     "executor_checkpoint_limit": 786432
   },
   "carbon-medium": {
     "version": "1.5.15",
-    "conversation_id": "22206ef9-aef2-4a7d-949a-6552bc112d15",
+    "conversation_id": "c20e576b-9554-4c5e-b49b-ee4137227fe6",
     "actual_request_limit": 786432,
     "agents_bytes": 124091,
     "sections": [
@@ -90,13 +52,13 @@
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "7fa262c5951450ce9db21a6fd22427aa36a622e67fa5c8098f3355fe280858be",
+    "sha256": "8f8c9920a698931801686b3dc27a03669cd9d725a55491db52791f8570339fba",
     "model_id": 1437,
     "executor_checkpoint_limit": 786432
   },
   "carbon-high": {
     "version": "1.5.15",
-    "conversation_id": "2c473f1d-94c0-468f-a1e3-1e4018751a2e",
+    "conversation_id": "d948f8fb-cd58-4b18-bc1e-32d3eff37a30",
     "actual_request_limit": 786432,
     "agents_bytes": 124091,
     "sections": [
@@ -109,13 +71,13 @@
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "7fa262c5951450ce9db21a6fd22427aa36a622e67fa5c8098f3355fe280858be",
+    "sha256": "8f8c9920a698931801686b3dc27a03669cd9d725a55491db52791f8570339fba",
     "model_id": 1427,
     "executor_checkpoint_limit": 786432
   },
   "neon-low": {
     "version": "1.5.15",
-    "conversation_id": "31e7f4b9-9d5f-457f-83e8-467fa145fc8d",
+    "conversation_id": "d308bbff-d0d3-4850-9afa-d3813aeaa597",
     "actual_request_limit": 786432,
     "agents_bytes": 124091,
     "sections": [
@@ -128,13 +90,51 @@
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "7fa262c5951450ce9db21a6fd22427aa36a622e67fa5c8098f3355fe280858be",
+    "sha256": "8f8c9920a698931801686b3dc27a03669cd9d725a55491db52791f8570339fba",
     "model_id": 1534,
     "executor_checkpoint_limit": 786432
   },
+  "argon-high": {
+    "version": "1.5.15",
+    "conversation_id": "4aa5ede8-1140-4ce6-9111-cd1141a47466",
+    "actual_request_limit": 983040,
+    "agents_bytes": 124091,
+    "sections": [
+      {
+        "title": "user_rules",
+        "bytes": 124462,
+        "contains_full_agents": true,
+        "excluded": false
+      }
+    ],
+    "response": "OK",
+    "long_context_over_256k_tested": false,
+    "sha256": "8f8c9920a698931801686b3dc27a03669cd9d725a55491db52791f8570339fba",
+    "model_id": 1417,
+    "executor_checkpoint_limit": 983040
+  },
+  "argon-medium": {
+    "version": "1.5.15",
+    "conversation_id": "5fc5d86e-8a15-4969-805f-76b0522b6167",
+    "actual_request_limit": 983040,
+    "agents_bytes": 124091,
+    "sections": [
+      {
+        "title": "user_rules",
+        "bytes": 124462,
+        "contains_full_agents": true,
+        "excluded": false
+      }
+    ],
+    "response": "OK",
+    "long_context_over_256k_tested": false,
+    "sha256": "8f8c9920a698931801686b3dc27a03669cd9d725a55491db52791f8570339fba",
+    "model_id": 1418,
+    "executor_checkpoint_limit": 983040
+  },
   "neon-medium": {
     "version": "1.5.15",
-    "conversation_id": "75c4b1a9-c5ac-423b-9ec0-8de49545fba8",
+    "conversation_id": "1c41a381-b8d8-4831-810b-c60cbbc23607",
     "actual_request_limit": 786432,
     "agents_bytes": 124091,
     "sections": [
@@ -147,13 +147,13 @@
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "7fa262c5951450ce9db21a6fd22427aa36a622e67fa5c8098f3355fe280858be",
+    "sha256": "8f8c9920a698931801686b3dc27a03669cd9d725a55491db52791f8570339fba",
     "model_id": 1533,
     "executor_checkpoint_limit": 786432
   },
   "neon-high": {
     "version": "1.5.15",
-    "conversation_id": "a6e1aae4-1199-436d-bd53-940af791e25c",
+    "conversation_id": "75d27e53-54e0-4875-8aac-1f6b650da2da",
     "actual_request_limit": 786432,
     "agents_bytes": 124091,
     "sections": [
@@ -166,13 +166,13 @@
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "7fa262c5951450ce9db21a6fd22427aa36a622e67fa5c8098f3355fe280858be",
+    "sha256": "8f8c9920a698931801686b3dc27a03669cd9d725a55491db52791f8570339fba",
     "model_id": 1532,
     "executor_checkpoint_limit": 786432
   },
   "neon-xhigh": {
     "version": "1.5.15",
-    "conversation_id": "f233c478-f6ff-4c3a-bad6-17c52ecf5758",
+    "conversation_id": "afdfe676-527c-4fa5-a110-0423a35f2d27",
     "actual_request_limit": 786432,
     "agents_bytes": 124091,
     "sections": [
@@ -185,7 +185,7 @@
     ],
     "response": "OK",
     "long_context_over_256k_tested": false,
-    "sha256": "7fa262c5951450ce9db21a6fd22427aa36a622e67fa5c8098f3355fe280858be",
+    "sha256": "8f8c9920a698931801686b3dc27a03669cd9d725a55491db52791f8570339fba",
     "model_id": 1535,
     "executor_checkpoint_limit": 786432
   }
