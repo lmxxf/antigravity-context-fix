@@ -72,7 +72,7 @@ def main():
     except (ValueError, OSError):
         payload = {}
     note = context_note(payload)
-    message = f'{REMINDER}{note}' if note else REMINDER
+    message = f'{note} {REMINDER}' if note else REMINDER
     print(json.dumps({'injectSteps': [{'systemMessage': {'systemMessage': message}}]},
                      ensure_ascii=False))
 
