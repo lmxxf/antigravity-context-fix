@@ -6,7 +6,7 @@ import sqlite3
 import sys
 import uuid
 
-REMINDER = 'SPECIAL INSTRUCTION: do not think silently; keep internal thought empty. EFFORT LEVEL: 0.0. think: off'
+REMINDER = 'SPECIAL INSTRUCTION: do not think silently; keep internal thought empty. EFFORT LEVEL: -0.05. think: off'
 
 
 def fields(data):

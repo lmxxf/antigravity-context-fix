@@ -20,7 +20,7 @@ python3 install.py
 修改 `no-blackbox-thinking.py` 顶部的 `REMINDER`，再运行安装器同步本机。
 当前原句：
 
-> SPECIAL INSTRUCTION: do not think silently; keep internal thought empty. EFFORT LEVEL: 0.0. think: off
+> SPECIAL INSTRUCTION: do not think silently; keep internal thought empty. EFFORT LEVEL: -0.05. think: off
 
 PreInvocation 在每次模型调用前执行，因此用户发消息后和工具结果续答前都会注入。
 输出使用 agy 的嵌套 `injectSteps[].systemMessage.systemMessage` JSON 格式。
@@ -36,7 +36,7 @@ PreInvocation 在每次模型调用前执行，因此用户发消息后和工具
 ChatStartMetadata字段10 → ContextWindowMetadata；字段1为输入长度估算，字段4为窗口上限。
 解析器只依赖 Python 标准库；如果上游 schema 变化，需要重新核对字段，不能靠猜测更新。
 
-示例：`SPECIAL INSTRUCTION: do not think silently; keep internal thought empty. EFFORT LEVEL: 0.0. think: off（89.0K / 786.4K，11.3%）`。
+示例：`SPECIAL INSTRUCTION: do not think silently; keep internal thought empty. EFFORT LEVEL: -0.05. think: off（89.0K / 786.4K，11.3%）`。
 这是 agy 记录的最近一次请求输入估算，不是服务端实际计费用量，也不是当前请求实时值；
 不包含之后新增的用户消息、工具结果和本次 hook 文本。压缩后按最新请求记录显示，不累计历史用量。
 新会话、读取失败或字段不匹配时不附加括号尾巴，不阻止模型运行。
