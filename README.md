@@ -285,3 +285,16 @@ export AGY_CLI_AUTO_COMPACT_OVERRIDE=100%
 ### 11月24日：ARM64 1.5.15 切模型窗口修复
 
 ARM64 1.5.15 在最终配置出口覆写 Argon、Carbon、Neon 十档窗口预算为 1000000，并关闭自动 checkpoint。移除测试进程的 AGY_CLI_AUTO_COMPACT_OVERRIDE 后，十档请求窗口与规则全文均验证通过。另在独立会话 54f96469-dcb7-44c7-860e-094391dfa75b 从 Argon Low（983040）续聊切到 Carbon Low（786432）。未跑长会话压力测试。
+
+### 11月26日：WSL x86_64 1.5.18
+
+本机继续通过 `~/.bashrc` 导出 `AGY_CLI_AUTO_COMPACT_OVERRIDE=100%`。从已加载该变量的 Bash 直接运行 `agy`。原版 Carbon Low 的请求窗口已达 786,432 tokens，项目规则仍被截断。本次只修改本机二进制的规则处理：将三处 24,000 字节读取上限提高到 1 MiB，将两项规则预算各设为 131,072 tokens。
+
+四个 Low 档均用新会话发出请求并收到回复。逐个核对 SQLite 中的 executor 与实际请求，两处窗口值一致，且每个请求的 `user_rules` 都逐字包含项目 `AGENTS.md` 的全部 124,311 字节。
+
+| Low 档模型 | 输入窗口（tokens） | 预留输出（tokens） |
+|---|---:|---:|
+| Argon | 983,040 | 65,536 |
+| Carbon、Neon、Hydrogen | 786,432 | 262,144 |
+
+另在同一会话从 Argon Low 切到 Carbon Low，第二轮窗口切到 786,432，规则仍完整。此次验证覆盖短请求和切换，未压测超过 256K 的输入或实际触发满窗压缩。仓库仅记录本机修改，x86 二进制归档仍为 1.5.12。
