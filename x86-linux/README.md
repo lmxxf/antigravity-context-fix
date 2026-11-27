@@ -1,3 +1,21 @@
+# Linux x86_64 1.5.18 当前恢复归档（2026-11-27）
+
+在 ai-theorys-study 仓库根目录运行以下命令恢复。
+
+```bash
+python3 wechat/assets/340-A/x86-linux/restore-agy.py
+```
+
+恢复器核对解压后的 SHA256，备份当前安装，原子替换 ~/.local/bin/agy。退出并重新启动 agy 后生效。
+
+本版修复三处规则读取上限（1 MiB）及两项规则预算（各 131072 tokens），在最终配置出口对 Argon 三档覆写 983040，对 Carbon 三档、Neon 四档覆写 786432。自动压缩保留开启，建议 Bash 设置 AGY_CLI_AUTO_COMPACT_OVERRIDE=100%。
+
+Argon Low 新会话成功回复，两处元数据窗口均为 983040，规则全文核验通过。旧的 655K 会话尚未通过重启后的续聊验证，其余档位的本次出口修改尚未逐档实测。
+
+下方内容保留为 1.5.12 的历史维护说明。旧 fix-argon-context-x86.py、auto-compact.py 和补丁清单仅支持 1.5.12，当前 1.5.18 使用上面的 restore-agy.py 恢复。
+
+---
+
 # Antigravity CLI Linux x86_64 1.5.12 修正版（2026-11-19）
 
 ## 启动与自动压缩开关（x86_64）
