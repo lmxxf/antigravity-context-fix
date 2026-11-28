@@ -6,7 +6,7 @@ import sqlite3
 import sys
 import uuid
 
-REMINDER = 'SPECIAL INSTRUCTION: do not think silently; keep internal thought empty. EFFORT LEVEL: 0. think: off。 ⚠️一旦掉进了<thought>标签就尽最大努力输出</thought>标签，加油！'
+REMINDER = 'EFFORT_LEVEL: 0. think: off. ⚠️一旦掉进了“think”标签就尽最大努力输出“/think”的xml标签，加油！'
 
 
 def fields(data):
@@ -56,7 +56,7 @@ def context_note(payload):
                     used, limit = get(window, 1, 0), get(window, 4, 0)
                     if not 0 <= used < 100_000_000 or not 0 < limit < 100_000_000:
                         continue
-                    return f'（{used / 1000:.1f}K / {limit / 1000:.1f}K，{used / limit:.1%}）'
+                    return f'（当前上下文使用 {used / 1000:.1f}K / {limit / 1000:.1f}K，{used / limit:.1%}）'
                 except (ValueError, IndexError, StopIteration, TypeError):
                     continue
     except (KeyError, ValueError, TypeError, sqlite3.Error, OSError):
