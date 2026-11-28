@@ -178,5 +178,25 @@
     "response": "OK",
     "long_context_over_256k_tested": false,
     "sha256": "11b8075620441f578e27dba02cb3a2f4779d6c2d7556b995a0708ae5931df337"
+  },
+  "hook-prefix-carbon-low": {
+    "executor_checkpoint_limit": 786432,
+    "version": "1.5.18",
+    "conversation_id": "78fc6de3-3071-478b-9d9c-ccdb0e1eda28",
+    "actual_request_limit": 786432,
+    "agents_bytes": 124311,
+    "sections": [
+      {
+        "title": "user_rules",
+        "bytes": 124682,
+        "contains_full_agents": true,
+        "excluded": false
+      }
+    ],
+    "response": "OK",
+    "long_context_over_256k_tested": false,
+    "sha256": "c6559a9ceddf413f4af43adc462dd100b538cc4a7c5df05005c5c881eff9bc3a",
+    "hook_prefix_absent_in_steps_and_request": true,
+    "hook_reminder_preserved": true
   }
 }

@@ -15,7 +15,7 @@
 
 原版 SHA256：`a0d0c7e6ee545e0d8ef0e3490de4626e2e86e169de1a5a5133b232b771345a67`
 
-修改版 SHA256：`11b8075620441f578e27dba02cb3a2f4779d6c2d7556b995a0708ae5931df337`
+修改版 SHA256：`c6559a9ceddf413f4af43adc462dd100b538cc4a7c5df05005c5c881eff9bc3a`
 
 目录不存原版二进制。安装位置保留 `agy-1.5.18-original.bak`；补丁脚本创建备份且不会覆盖不同内容的备份。旧版 README、封面及归档已按要求移除，x86-linux 不在本次维护范围。
 
@@ -189,3 +189,9 @@ ARM64 1.5.15 在最终配置出口覆写 Argon、Carbon、Neon 十档窗口预�
 重新定位最终配置出口、checkpoint 函数及两层规则限制。Argon 三档、Carbon 三档和 Neon 四档共十档真实短请求均回复 OK；executor/gen 窗口一致，Argon 为 983040，Carbon/Neon 为 786432。每档 user_rules 均逐字包含项目 AGENTS.md 全部 124311 字节。验证进程移除了 AGY_CLI_AUTO_COMPACT_OVERRIDE，沿用 ARM 关闭自动 checkpoint 的行为。
 
 启动、幂等、跳板无函数外直接分支引用、归档逐字节比对及逆向还原原版哈希通过。原版备份在 ~/.local/bin/agy-1.5.18-original.bak。未做超过 256K 长会话压力测试；重启 agy 后生效。
+
+### 11月28日：去除 hook 英文前缀
+
+buildSystemMessageStep 在 0x8ce11dc 跳过英文包装分支，直接使用 hook 正文；不改 hook 脚本、消息类型或后续消息拼接。PreInvocation 等 hook 不再附加 `The following system message was injected by a … hook:`。旧 1.5.18 窗口补丁版可直接运行补丁脚本升级。
+
+Carbon Low 新会话 78fc6de3-3071-478b-9d9c-ccdb0e1eda28 回复 OK，steps 与实际请求均无英文前缀且保留提醒；窗口 786432、完整 124311 字节规则注入通过。此前十档验证保留各自原构建哈希；前缀修改后仅回归 Carbon Low。归档、幂等与逆向还原检查通过。重启 agy 后对后续注入生效，历史消息中的前缀不会被回写删除。

@@ -52,3 +52,7 @@ printf '{}' | python3 ~/.gemini/config/hooks/no-blackbox-thinking.py
 
 停用：在全局 hooks.json 中给 `no-blackbox-thinking` 加 `"enabled": false`，然后重启 agy。
 修改时保留其他命名 hook。
+
+## ARM64 1.5.18 去除程序附加的英文前缀
+
+英文 `The following system message was injected by a … hook:` 由 agy 的 `buildSystemMessageStep` 添加，不在本脚本输出中。当前 ARM 补丁已跳过该包装分支，保留 systemMessage 正文；安装新版 arm-linux 归档或运行其补丁脚本后重启 agy。此修改也作用于其他 hook 的同类消息，不修改历史会话里已经存下的前缀。

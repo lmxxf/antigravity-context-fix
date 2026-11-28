@@ -1,7 +1,7 @@
 {
   "version": "1.5.18",
   "original_sha256": "a0d0c7e6ee545e0d8ef0e3490de4626e2e86e169de1a5a5133b232b771345a67",
-  "patched_sha256": "11b8075620441f578e27dba02cb3a2f4779d6c2d7556b995a0708ae5931df337",
+  "patched_sha256": "c6559a9ceddf413f4af43adc462dd100b538cc4a7c5df05005c5c881eff9bc3a",
   "size": 262689456,
   "patches": [
     {
@@ -63,6 +63,12 @@
       "before": "06c489d2",
       "after": "4600a0d2",
       "label": "inline budget 131072"
+    },
+    {
+      "offset": 147722716,
+      "before": "22040036",
+      "after": "21000014",
+      "label": "skip hook system-message English prefix wrapper"
     }
   ],
   "models": {
@@ -76,5 +82,70 @@
     "gemini-4-neon-medium": 1533,
     "gemini-4-neon-high": 1532,
     "gemini-4-neon-xhigh": 1535
+  },
+  "upgrade_from": {
+    "sha256": "11b8075620441f578e27dba02cb3a2f4779d6c2d7556b995a0708ae5931df337",
+    "patches": [
+      {
+        "offset": 144902148,
+        "before": "600800f9",
+        "after": "77af0a14",
+        "label": "final merged checkpoint config"
+      },
+      {
+        "offset": 147703232,
+        "before": "900b40f9f10301d13f0210ebe91b0054",
+        "after": "e0031faae1031faae2031faac0035fd6",
+        "label": "checkpoint false,nil"
+      },
+      {
+        "offset": 147703264,
+        "before": "e3130ea9e10b0da9e06700f9813840f9e00305aa20003fd6c01900b4e27740f9422040f9010400d1e07b40f940003fd6a01500b4051040f9651500b4e04f00f9e00305aa1b82c497e34f40f9631040f9a30000b5e3031faae4031faae5031faa0a000014",
+        "after": "640440f9c40200b4844040b99ff81771e00100549ff41771a00100549ff01771600100549ffc177120010054842416519f080071c90000549f28007180000054845000519f040071a8000054800000b404488852e401a072040c00b9600800f97250f517",
+        "label": "Argon Carbon Neon window override"
+      },
+      {
+        "offset": 148096728,
+        "before": "02b88bd2",
+        "after": "0202a0d2",
+        "label": "file limit 1048576"
+      },
+      {
+        "offset": 148100052,
+        "before": "02b88bd2",
+        "after": "0202a0d2",
+        "label": "file limit 1048576"
+      },
+      {
+        "offset": 148117924,
+        "before": "02b88bd2",
+        "after": "0202a0d2",
+        "label": "file limit 1048576"
+      },
+      {
+        "offset": 148128452,
+        "before": "e70080b9",
+        "after": "4700a0d2",
+        "label": "inline budget 131072"
+      },
+      {
+        "offset": 148128468,
+        "before": "07c489d2",
+        "after": "4700a0d2",
+        "label": "inline budget 131072"
+      },
+      {
+        "offset": 148128548,
+        "before": "c60080b9",
+        "after": "4600a0d2",
+        "label": "inline budget 131072"
+      },
+      {
+        "offset": 148128564,
+        "before": "06c489d2",
+        "after": "4600a0d2",
+        "label": "inline budget 131072"
+      }
+    ]
   }
 }
