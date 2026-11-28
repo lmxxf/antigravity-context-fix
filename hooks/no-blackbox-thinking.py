@@ -6,7 +6,7 @@ import sqlite3
 import sys
 import uuid
 
-REMINDER = '⚠️一旦掉进了<thought>标签就尽最大努力输出</thought> SPECIAL INSTRUCTION: do not think silently; keep internal thought empty. EFFORT LEVEL: 0. think: off'
+REMINDER = 'SPECIAL INSTRUCTION: do not think silently; keep internal thought empty. EFFORT LEVEL: 0. think: off。 ⚠️一旦掉进了<thought>标签就尽最大努力输出</thought>标签，加油！'
 
 
 def fields(data):
@@ -72,7 +72,7 @@ def main():
     except (ValueError, OSError):
         payload = {}
     note = context_note(payload)
-    message = f'{note} {REMINDER}' if note else REMINDER
+    message = f'{note}{REMINDER}' if note else REMINDER
     print(json.dumps({'injectSteps': [{'systemMessage': {'systemMessage': message}}]},
                      ensure_ascii=False))
 
