@@ -1,65 +1,65 @@
 {
-  "version": "1.5.15",
-  "original_sha256": "497580a779b155268c4aa8f491b75e3b0034d4d0ba05c762582e7d97222396b0",
-  "patched_sha256": "8f8c9920a698931801686b3dc27a03669cd9d725a55491db52791f8570339fba",
-  "size": 256660144,
+  "version": "1.5.18",
+  "original_sha256": "a0d0c7e6ee545e0d8ef0e3490de4626e2e86e169de1a5a5133b232b771345a67",
+  "patched_sha256": "11b8075620441f578e27dba02cb3a2f4779d6c2d7556b995a0708ae5931df337",
+  "size": 262689456,
   "patches": [
     {
-      "offset": 141375028,
+      "offset": 144902148,
       "before": "600800f9",
-      "after": "abdc0a14",
+      "after": "77af0a14",
       "label": "final merged checkpoint config"
     },
     {
-      "offset": 144222400,
+      "offset": 147703232,
       "before": "900b40f9f10301d13f0210ebe91b0054",
       "after": "e0031faae1031faae2031faac0035fd6",
       "label": "checkpoint false,nil"
     },
     {
-      "offset": 144222432,
-      "before": "e3130ea9e10b0da9e06700f9813840f9e00305aa20003fd6c01900b4e27740f9422040f9010400d1e07b40f940003fd6a01500b4051040f9651500b4e04f00f9e00305aad393c597e34f40f9631040f9a30000b5e3031faae4031faae5031faa0a000014",
-      "after": "640440f9c40200b4844040b99ff81771e00100549ff41771a00100549ff01771600100549ffc177120010054842416519f080071c90000549f28007180000054845000519f040071a8000054800000b404488852e401a072040c00b9600800f93e23f517",
+      "offset": 147703264,
+      "before": "e3130ea9e10b0da9e06700f9813840f9e00305aa20003fd6c01900b4e27740f9422040f9010400d1e07b40f940003fd6a01500b4051040f9651500b4e04f00f9e00305aa1b82c497e34f40f9631040f9a30000b5e3031faae4031faae5031faa0a000014",
+      "after": "640440f9c40200b4844040b99ff81771e00100549ff41771a00100549ff01771600100549ffc177120010054842416519f080071c90000549f28007180000054845000519f040071a8000054800000b404488852e401a072040c00b9600800f97250f517",
       "label": "Argon Carbon Neon window override"
     },
     {
-      "offset": 144567780,
+      "offset": 148096728,
       "before": "02b88bd2",
       "after": "0202a0d2",
       "label": "file limit 1048576"
     },
     {
-      "offset": 144571108,
+      "offset": 148100052,
       "before": "02b88bd2",
       "after": "0202a0d2",
       "label": "file limit 1048576"
     },
     {
-      "offset": 144588660,
+      "offset": 148117924,
       "before": "02b88bd2",
       "after": "0202a0d2",
       "label": "file limit 1048576"
     },
     {
-      "offset": 144598804,
+      "offset": 148128452,
       "before": "e70080b9",
       "after": "4700a0d2",
       "label": "inline budget 131072"
     },
     {
-      "offset": 144598820,
+      "offset": 148128468,
       "before": "07c489d2",
       "after": "4700a0d2",
       "label": "inline budget 131072"
     },
     {
-      "offset": 144598900,
+      "offset": 148128548,
       "before": "c60080b9",
       "after": "4600a0d2",
       "label": "inline budget 131072"
     },
     {
-      "offset": 144598916,
+      "offset": 148128564,
       "before": "06c489d2",
       "after": "4600a0d2",
       "label": "inline budget 131072"
@@ -76,52 +76,5 @@
     "gemini-4-neon-medium": 1533,
     "gemini-4-neon-high": 1532,
     "gemini-4-neon-xhigh": 1535
-  },
-  "upgrade_from": {
-    "sha256": "7fa262c5951450ce9db21a6fd22427aa36a622e67fa5c8098f3355fe280858be",
-    "patches": [
-      {
-        "offset": 144567780,
-        "before": "02b88bd2",
-        "after": "0202a0d2",
-        "label": "file limit 1048576"
-      },
-      {
-        "offset": 144571108,
-        "before": "02b88bd2",
-        "after": "0202a0d2",
-        "label": "file limit 1048576"
-      },
-      {
-        "offset": 144588660,
-        "before": "02b88bd2",
-        "after": "0202a0d2",
-        "label": "file limit 1048576"
-      },
-      {
-        "offset": 144598804,
-        "before": "e70080b9",
-        "after": "4700a0d2",
-        "label": "inline budget 131072"
-      },
-      {
-        "offset": 144598820,
-        "before": "07c489d2",
-        "after": "4700a0d2",
-        "label": "inline budget 131072"
-      },
-      {
-        "offset": 144598900,
-        "before": "c60080b9",
-        "after": "4600a0d2",
-        "label": "inline budget 131072"
-      },
-      {
-        "offset": 144598916,
-        "before": "06c489d2",
-        "after": "4600a0d2",
-        "label": "inline budget 131072"
-      }
-    ]
   }
 }

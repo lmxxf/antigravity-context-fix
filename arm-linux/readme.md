@@ -1,27 +1,27 @@
 # agy ARM64 补丁维护操作说明
 
-更新：2026-11-24。此目录只保留当前修改版；用于 agy 自动升级后恢复长上下文、完整规则注入和关闭自动压缩。按用户指定保留 `readme.md` 作为操作入口，供后续 agent/skill 读取，不自动安装到技能目录。
+更新：2026-11-28。此目录只保留当前修改版；用于 agy 自动升级后恢复长上下文、完整规则注入和关闭自动压缩。按用户指定保留 `readme.md` 作为操作入口，供后续 agent/skill 读取，不自动安装到技能目录。
 
 ## 当前产物
 
 | 文件 | 用途 |
 |---|---|
-| `agy.gz` | 已修改的 Linux ARM64 1.5.15 可执行文件，解压后 256660144 字节 |
+| `agy.gz` | 已修改的 Linux ARM64 1.5.18 可执行文件，解压后 262689456 字节 |
 | `agy.sha256` | 解压后的执行文件校验值 |
 | `agy-patches.json` | 原版/修改版 SHA256、每处文件偏移和修改前后完整字节 |
 | `fix-argon-context.py` | 此构建的完整幂等补丁；支持 `--target`，默认修改 `~/.local/bin/agy` |
 | `verify-request.py` | 只读检查指定会话数据库中的请求窗口、规则全文注入 |
 | `verification.json` | 当前版本已完成的小请求验证记录；不是新版本的验证证据 |
 
-原版 SHA256：`497580a779b155268c4aa8f491b75e3b0034d4d0ba05c762582e7d97222396b0`
+原版 SHA256：`a0d0c7e6ee545e0d8ef0e3490de4626e2e86e169de1a5a5133b232b771345a67`
 
-修改版 SHA256：`8f8c9920a698931801686b3dc27a03669cd9d725a55491db52791f8570339fba`
+修改版 SHA256：`11b8075620441f578e27dba02cb3a2f4779d6c2d7556b995a0708ae5931df337`
 
-目录不存原版二进制。安装位置保留 `agy-1.5.15-original.bak`；补丁脚本创建备份且不会覆盖不同内容的备份。旧版 README、封面及归档已按要求移除，x86-linux 不在本次维护范围。
+目录不存原版二进制。安装位置保留 `agy-1.5.18-original.bak`；补丁脚本创建备份且不会覆盖不同内容的备份。旧版 README、封面及归档已按要求移除，x86-linux 不在本次维护范围。
 
 ## 已知版本：恢复或重新打补丁
 
-先检查 `command -v agy`、`file`、`agy --version` 和 SHA256。同为 1.5.15 也可能重新构建，以哈希为准。
+先检查 `command -v agy`、`file`、`agy --version` 和 SHA256。同为 1.5.18 也可能重新构建，以哈希为准。
 
 对匹配原版哈希的文件执行：
 
@@ -43,7 +43,7 @@ sha256sum -c agy.sha256
 
 ## 窗口与压缩阈值
 
-ARM64 1.5.15 在最终配置出口覆写 Argon、Carbon、Neon 十档窗口预算为 1000000，并关闭自动 checkpoint。配置出口 0x86d3634，checkpointNeeded 入口 0x898a8c0，跳板 0x898a8e0。原七处规则补丁版本可直接运行 fix-argon-context.py 升级。
+ARM64 1.5.18 在最终配置出口覆写 Argon、Carbon、Neon 十档窗口预算为 1000000，并关闭自动 checkpoint。配置出口 0x8a30804，checkpointNeeded 入口 0x8cdc5c0，跳板 0x8cdc5e0。补丁仅接受本构建原版或修改版哈希。
 
 ### 两层规则限制一起处理
 
@@ -53,18 +53,18 @@ ARM64 1.5.15 在最终配置出口覆写 Argon、Carbon、Neon 十档窗口预�
 
 | 文件偏移 | 函数 |
 |---|---|
-| `0x89dede4` | readGlobalRules |
-| `0x89dfae4` | parseRuleFile |
-| `0x89e3f74` | convertSkillPath |
+| `0x8d3c6d8` | readGlobalRules |
+| `0x8d3d3d4` | parseRuleFile |
+| `0x8d419a4` | convertSkillPath |
 
 总预算要修改实际消费的配置读取路径和默认路径，两项共四处：
 
 | 偏移 | 原指令 | 新指令 |
 |---|---|---|
-| `0x89e6714` | `0xb98000e7` | `0xd2a00047` |
-| `0x89e6724` | `0xd289c407` | `0xd2a00047` |
-| `0x89e6774` | `0xb98000c6` | `0xd2a00046` |
-| `0x89e6784` | `0xd289c406` | `0xd2a00046` |
+| `0x8d442c4` | `0xb98000e7` | `0xd2a00047` |
+| `0x8d442d4` | `0xd289c407` | `0xd2a00047` |
+| `0x8d44324` | `0xb98000c6` | `0xd2a00046` |
+| `0x8d44334` | `0xd289c406` | `0xd2a00046` |
 
 即 x7/x6 都设131072。函数前部还存在用于判断是否配置预算的读取，不要误认成最终消费点；沿控制流追到汇合及预算参数传递处。
 
@@ -183,3 +183,9 @@ Neon High、Medium、Low、XHigh 分别对应 1532、1533、1534、1535。四档
 ### 11月24日：ARM64 1.5.15 切模型窗口修复
 
 ARM64 1.5.15 在最终配置出口覆写 Argon、Carbon、Neon 十档窗口预算为 1000000，并关闭自动 checkpoint。移除测试进程的 AGY_CLI_AUTO_COMPACT_OVERRIDE 后，十档请求窗口与规则全文均验证通过。另在独立会话 54f96469-dcb7-44c7-860e-094391dfa75b 从 Argon Low（983040）续聊切到 Carbon Low（786432）。未跑长会话压力测试。
+
+### 11月28日：ARM64 1.5.18
+
+重新定位最终配置出口、checkpoint 函数及两层规则限制。Argon 三档、Carbon 三档和 Neon 四档共十档真实短请求均回复 OK；executor/gen 窗口一致，Argon 为 983040，Carbon/Neon 为 786432。每档 user_rules 均逐字包含项目 AGENTS.md 全部 124311 字节。验证进程移除了 AGY_CLI_AUTO_COMPACT_OVERRIDE，沿用 ARM 关闭自动 checkpoint 的行为。
+
+启动、幂等、跳板无函数外直接分支引用、归档逐字节比对及逆向还原原版哈希通过。原版备份在 ~/.local/bin/agy-1.5.18-original.bak。未做超过 256K 长会话压力测试；重启 agy 后生效。

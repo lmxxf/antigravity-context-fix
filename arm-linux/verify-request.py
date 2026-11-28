@@ -36,8 +36,10 @@ for f,w,v in fields(chat):
  if f==16:
   title=get(v,1).decode();content=get(v,2)
   if b'AGENTS.md' in content:sections.append(dict(title=title,bytes=len(content),contains_full_agents=original in content,excluded=b'exceeded the rules token budget' in content))
-assert limit==args.expected_limit
+executor=c.execute('select data from executor_metadata where idx=0').fetchone()[0]
+executor_limit=get(get(get(executor,10),2),5)
+assert executor_limit==limit==args.expected_limit
 assert any(v['contains_full_agents'] and not v['excluded'] for v in sections)
-r=dict(version='1.5.15',conversation_id=cid,actual_request_limit=limit,agents_bytes=len(original),sections=sections,response='OK',long_context_over_256k_tested=False,sha256=hashlib.sha256(args.binary.read_bytes()).hexdigest())
+r=dict(executor_checkpoint_limit=executor_limit,version='1.5.18',conversation_id=cid,actual_request_limit=limit,agents_bytes=len(original),sections=sections,response='OK',long_context_over_256k_tested=False,sha256=hashlib.sha256(args.binary.read_bytes()).hexdigest())
 if args.output:args.output.write_text(json.dumps(r,indent=2)+'\n')
 print(json.dumps(r,indent=2))
